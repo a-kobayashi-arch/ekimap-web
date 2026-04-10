@@ -39,11 +39,28 @@ export default function StampsPage() {
     0
   );
 
+  function handleReset() {
+    if (!confirm("チェックインをすべてリセットしますか？\nこの操作は元に戻せません。")) return;
+    for (const station of stations) {
+      localStorage.removeItem(`checkins-${station.id}`);
+    }
+    const empty: Record<string, Set<string>> = {};
+    for (const station of stations) empty[station.id] = new Set();
+    setCheckedMap(empty);
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-800">スタンプ帳</h1>
-        <span className="text-3xl">🎫</span>
+        {checkedAll > 0 && (
+          <button
+            onClick={handleReset}
+            className="text-sm text-red-400 hover:text-red-600 hover:bg-red-50 px-3 py-1.5 rounded-lg transition-colors"
+          >
+            全リセット
+          </button>
+        )}
       </div>
 
       {/* Overall progress */}
