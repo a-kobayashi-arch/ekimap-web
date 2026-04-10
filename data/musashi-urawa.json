@@ -3,7 +3,7 @@
   "slug": "musashi-urawa",
   "name": "武蔵浦和駅",
   "nameEn": "Musashi-Urawa",
-  "building": "Emio武蔵浦和",
+  "building": "Beans武蔵浦和",
   "lines": [
     { "name": "埼京線", "color": "#009944" },
     { "name": "武蔵野線", "color": "#f68b1e" }
@@ -11,99 +11,99 @@
   "facilities": [
     {
       "id": "mu-001",
-      "name": "ベッカーズ",
-      "category": "飲食",
-      "floor": "1F",
-      "hours": "7:00〜22:00",
-      "description": "JR東日本グループのバーガーショップ"
-    },
-    {
-      "id": "mu-002",
-      "name": "日高屋",
-      "category": "飲食",
-      "floor": "1F",
-      "hours": "11:00〜23:00",
-      "description": "中華料理・ラーメン"
-    },
-    {
-      "id": "mu-003",
       "name": "スターバックス コーヒー",
       "category": "飲食",
-      "floor": "2F",
-      "hours": "7:00〜21:00",
+      "floor": "1F",
+      "hours": "平日 7:00〜22:00／土日祝 7:00〜22:30",
       "description": "カフェ"
     },
     {
-      "id": "mu-004",
-      "name": "サンマルクカフェ",
+      "id": "mu-002",
+      "name": "イタリアンダイニング ドナ",
+      "category": "飲食",
+      "floor": "1F",
+      "hours": "11:00〜23:00（LO 22:00）",
+      "description": "イタリアン・パスタ・ピザ"
+    },
+    {
+      "id": "mu-003",
+      "name": "ベックスコーヒーショップ",
       "category": "飲食",
       "floor": "2F",
-      "hours": "7:30〜21:00",
-      "description": "カフェ・軽食"
+      "hours": "6:45〜23:00",
+      "description": "JR東日本グループのカフェ"
+    },
+    {
+      "id": "mu-004",
+      "name": "生そば 彩武蔵",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "6:45〜23:30",
+      "description": "立ちそば・うどん"
     },
     {
       "id": "mu-005",
-      "name": "NewDays",
-      "category": "コンビニ",
-      "floor": "1F",
-      "hours": "6:00〜23:00",
-      "description": "JR東日本グループのコンビニ"
+      "name": "回転すし 海さき",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "10:00〜23:00",
+      "description": "回転寿司"
     },
     {
       "id": "mu-006",
-      "name": "NewDays MINI",
-      "category": "コンビニ",
+      "name": "丸亀製麺",
+      "category": "飲食",
       "floor": "2F",
-      "hours": "6:30〜22:30",
-      "description": "改札内コンビニ"
+      "hours": "7:30〜23:00",
+      "description": "セルフうどん"
     },
     {
       "id": "mu-007",
-      "name": "VIEW ALTTE（ATM）",
-      "category": "ATM",
-      "floor": "1F",
-      "hours": "8:00〜21:00（土日8:00〜20:00）",
-      "description": "JRビューカード対応ATM"
+      "name": "クリスピー・クリーム・ドーナツ",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "9:00〜22:00",
+      "description": "ドーナツ・コーヒー"
     },
     {
       "id": "mu-008",
-      "name": "ゆうちょ銀行ATM",
-      "category": "ATM",
-      "floor": "1F",
-      "hours": "8:00〜21:00",
-      "description": "ゆうちょ銀行・コンビニATM"
+      "name": "成城石井",
+      "category": "コンビニ",
+      "floor": "2F",
+      "hours": "7:30〜23:00",
+      "description": "こだわり食材・総菜・ワイン"
     },
     {
       "id": "mu-009",
-      "name": "多目的トイレ（改札外）",
-      "category": "トイレ",
+      "name": "マルエツ",
+      "category": "コンビニ",
       "floor": "1F",
-      "hours": "終日",
-      "description": "バリアフリー対応・おむつ交換台あり"
+      "hours": "9:00〜翌1:00",
+      "description": "スーパーマーケット"
     },
     {
       "id": "mu-010",
-      "name": "トイレ（改札内）",
-      "category": "トイレ",
-      "floor": "2F",
-      "hours": "終日",
-      "description": "男女トイレ・多目的トイレ完備"
+      "name": "JINS",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "description": "メガネ・サングラス"
     },
     {
       "id": "mu-011",
-      "name": "エキュート武蔵浦和 お土産コーナー",
+      "name": "ブックス須原屋",
       "category": "その他",
       "floor": "2F",
-      "hours": "9:00〜21:00",
-      "description": "埼玉のお土産・スイーツ販売"
+      "hours": "平日 8:00〜22:00／土日祝 10:00〜20:30",
+      "description": "書籍・雑誌・文具"
     },
     {
       "id": "mu-012",
-      "name": "コインロッカー",
+      "name": "駅レスク",
       "category": "その他",
-      "floor": "1F",
-      "hours": "終日（ICカード対応）",
-      "description": "大中小サイズあり・交通系ICカード対応"
+      "floor": "2F",
+      "hours": "7:30〜22:00",
+      "description": "ドラッグストア・日用品"
     }
   ]
 }
