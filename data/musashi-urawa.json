@@ -12,7 +12,7 @@
     {
       "id": "mu-001",
       "name": "スターバックスコーヒー",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "1F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜22:30",
       "gateArea": "改札外",
@@ -21,7 +21,7 @@
     {
       "id": "mu-002",
       "name": "イタリアンダイニングドナ",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "1F",
       "hours": "11:00〜23:00（LO 22:00）",
       "gateArea": "改札外",
@@ -30,7 +30,7 @@
     {
       "id": "mu-003",
       "name": "ベックスコーヒーショップ",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "2F",
       "hours": "6:45〜23:00",
       "gateArea": "改札内",
@@ -39,7 +39,7 @@
     {
       "id": "mu-004",
       "name": "生そば彩むさし",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "2F",
       "hours": "6:45〜23:30",
       "gateArea": "改札内",
@@ -48,7 +48,7 @@
     {
       "id": "mu-005",
       "name": "回転寿司みさき",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "2F",
       "hours": "10:00〜23:00",
       "gateArea": "改札内",
@@ -57,7 +57,7 @@
     {
       "id": "mu-006",
       "name": "丸亀製麺",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "2F",
       "hours": "7:30〜23:00",
       "gateArea": "改札内",
@@ -66,7 +66,7 @@
     {
       "id": "mu-007",
       "name": "クリスピー・クリーム・ドーナツ",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "2F",
       "hours": "9:00〜22:00",
       "gateArea": "改札内",
@@ -75,7 +75,7 @@
     {
       "id": "mu-008",
       "name": "スーパーマーケット成城石井",
-      "category": "コンビニ",
+      "category": "ショップ",
       "floor": "2F",
       "hours": "7:30〜23:00",
       "gateArea": "改札内",
@@ -84,7 +84,7 @@
     {
       "id": "mu-009",
       "name": "マルエツ",
-      "category": "コンビニ",
+      "category": "ショップ",
       "floor": "1F",
       "hours": "9:00〜翌1:00",
       "gateArea": "改札外",
@@ -93,7 +93,7 @@
     {
       "id": "mu-010",
       "name": "ジンズ",
-      "category": "その他",
+      "category": "ショップ",
       "floor": "1F",
       "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
       "gateArea": "改札外",
@@ -102,7 +102,7 @@
     {
       "id": "mu-011",
       "name": "ブックススハラヤ",
-      "category": "その他",
+      "category": "ショップ",
       "floor": "2F",
       "hours": "平日 8:00〜22:00／土日祝 10:00〜20:30",
       "gateArea": "改札内",
@@ -111,7 +111,7 @@
     {
       "id": "mu-012",
       "name": "エキ レスク",
-      "category": "その他",
+      "category": "ショップ",
       "floor": "2F",
       "hours": "7:30〜22:00",
       "gateArea": "改札内",

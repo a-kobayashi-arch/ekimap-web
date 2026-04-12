@@ -3,10 +3,10 @@
 import type { Facility, GateArea } from "@/types";
 
 const categoryEmoji: Record<string, string> = {
-  飲食: "🍴",
-  コンビニ: "🏪",
-  ATM: "🏧",
-  トイレ: "🚻",
+  飲食店: "🍽️",
+  ショップ: "🛍️",
+  サービス: "💆",
+  設備: "🔧",
   その他: "📦",
 };
 

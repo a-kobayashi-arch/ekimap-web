@@ -11,7 +11,7 @@
     {
       "id": "td-001",
       "name": "エピシェール",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "1F",
       "hours": "平日・土 7:00〜21:00／日祝 7:00〜20:00",
       "gateArea": "改札外",
@@ -20,7 +20,7 @@
     {
       "id": "td-002",
       "name": "味噌ラーメン専門店 日月堂",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "1F",
       "hours": "11:00〜23:00",
       "gateArea": "改札外",
@@ -29,7 +29,7 @@
     {
       "id": "td-003",
       "name": "ニューデイズ",
-      "category": "コンビニ",
+      "category": "ショップ",
       "floor": "1F",
       "hours": "平日 6:30〜23:00／土日祝 6:30〜22:00",
       "gateArea": "改札外",
@@ -38,7 +38,7 @@
     {
       "id": "td-004",
       "name": "Olympic",
-      "category": "コンビニ",
+      "category": "ショップ",
       "floor": "1F",
       "hours": "10:00〜翌0:45",
       "gateArea": "改札外",
@@ -47,7 +47,7 @@
     {
       "id": "td-005",
       "name": "ポニークリーニング",
-      "category": "その他",
+      "category": "サービス",
       "floor": "1F",
       "hours": "平日 10:00〜20:00／土日祝 9:00〜20:00",
       "gateArea": "改札外",
@@ -56,7 +56,7 @@
     {
       "id": "td-006",
       "name": "VIEW ALTTE（ATM）",
-      "category": "ATM",
+      "category": "設備",
       "floor": "1F",
       "hours": "8:00〜21:00（土日 8:00〜20:00）",
       "gateArea": "改札外",
@@ -65,7 +65,7 @@
     {
       "id": "td-007",
       "name": "トイレ",
-      "category": "トイレ",
+      "category": "設備",
       "floor": "1F",
       "hours": "終日",
       "gateArea": "調査中",

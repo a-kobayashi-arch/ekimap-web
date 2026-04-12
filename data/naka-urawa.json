@@ -11,7 +11,7 @@
     {
       "id": "nu-001",
       "name": "VIEW ALTTE（ATM）",
-      "category": "ATM",
+      "category": "設備",
       "floor": "1F",
       "hours": "8:00〜21:00（土日 8:00〜20:00）",
       "gateArea": "改札外",
@@ -20,7 +20,7 @@
     {
       "id": "nu-002",
       "name": "トイレ",
-      "category": "トイレ",
+      "category": "設備",
       "floor": "1F",
       "hours": "終日",
       "gateArea": "改札外",
@@ -29,7 +29,7 @@
     {
       "id": "nu-003",
       "name": "コインロッカー",
-      "category": "その他",
+      "category": "設備",
       "floor": "1F",
       "hours": "終日",
       "gateArea": "改札外",

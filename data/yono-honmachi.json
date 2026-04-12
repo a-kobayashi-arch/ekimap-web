@@ -11,7 +11,7 @@
     {
       "id": "yh-001",
       "name": "たいらや",
-      "category": "コンビニ",
+      "category": "ショップ",
       "floor": "1F",
       "hours": "9:00〜24:00",
       "gateArea": "改札外",
@@ -20,7 +20,7 @@
     {
       "id": "yh-002",
       "name": "ヴィ・ド・フランス カフェ",
-      "category": "飲食",
+      "category": "飲食店",
       "floor": "1F",
       "hours": "平日 7:00〜21:00／土日祝 8:00〜21:00",
       "gateArea": "改札外",
@@ -29,7 +29,7 @@
     {
       "id": "yh-003",
       "name": "薬マツモトキヨシ",
-      "category": "その他",
+      "category": "ショップ",
       "floor": "1F",
       "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
       "gateArea": "改札外",
@@ -38,7 +38,7 @@
     {
       "id": "yh-004",
       "name": "ダイソー",
-      "category": "その他",
+      "category": "ショップ",
       "floor": "1F",
       "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
       "gateArea": "改札外",
@@ -47,7 +47,7 @@
     {
       "id": "yh-005",
       "name": "チョキペタ",
-      "category": "その他",
+      "category": "サービス",
       "floor": "1F",
       "hours": "10:00〜18:00（カラーは〜17:00）",
       "gateArea": "改札外",
@@ -56,7 +56,7 @@
     {
       "id": "yh-006",
       "name": "VIEW ALTTE（ATM）",
-      "category": "ATM",
+      "category": "設備",
       "floor": "1F",
       "hours": "8:00〜21:00（土日 8:00〜20:00）",
       "gateArea": "改札外",
@@ -65,7 +65,7 @@
     {
       "id": "yh-007",
       "name": "トイレ",
-      "category": "トイレ",
+      "category": "設備",
       "floor": "1F",
       "hours": "終日",
       "gateArea": "調査中",

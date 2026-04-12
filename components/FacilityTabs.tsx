@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import type { Category, Facility } from "@/types";
 import FacilityCard from "./FacilityCard";
 
-const CATEGORIES: Category[] = ["飲食", "コンビニ", "ATM", "トイレ", "その他"];
+const CATEGORIES: Category[] = ["飲食店", "ショップ", "サービス", "設備", "その他"];
 const ALL_TAB = "すべて";
 
 interface FacilityTabsProps {
