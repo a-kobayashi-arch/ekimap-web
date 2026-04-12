@@ -14,24 +14,31 @@ interface FacilityTabsProps {
 
 export default function FacilityTabs({ facilities, stationId }: FacilityTabsProps) {
   const [activeTab, setActiveTab] = useState<string>(ALL_TAB);
-  const [checkedIds, setCheckedIds] = useState<Set<string>>(new Set());
+  const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
+  const [interestedIds, setInterestedIds] = useState<Set<string>>(new Set());
 
-  const storageKey = `checkins-${stationId}`;
+  const visitedKey    = `visited-${stationId}`;
+  const interestedKey = `interested-${stationId}`;
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(storageKey);
-      if (stored) setCheckedIds(new Set(JSON.parse(stored)));
+      const v = localStorage.getItem(visitedKey);
+      const i = localStorage.getItem(interestedKey);
+      if (v) setVisitedIds(new Set(JSON.parse(v)));
+      if (i) setInterestedIds(new Set(JSON.parse(i)));
     } catch {}
-  }, [storageKey]);
+  }, [visitedKey, interestedKey]);
 
-  function handleCheckIn(facilityId: string) {
-    setCheckedIds((prev) => {
-      const next = new Set(prev);
-      next.add(facilityId);
-      try {
-        localStorage.setItem(storageKey, JSON.stringify([...next]));
-      } catch {}
+  function toggle(
+    id: string,
+    current: Set<string>,
+    setter: React.Dispatch<React.SetStateAction<Set<string>>>,
+    key: string
+  ) {
+    setter(() => {
+      const next = new Set(current);
+      next.has(id) ? next.delete(id) : next.add(id);
+      try { localStorage.setItem(key, JSON.stringify([...next])); } catch {}
       return next;
     });
   }
@@ -78,9 +85,10 @@ export default function FacilityTabs({ facilities, stationId }: FacilityTabsProp
           <FacilityCard
             key={facility.id}
             facility={facility}
-            stationId={stationId}
-            checkedIn={checkedIds.has(facility.id)}
-            onCheckIn={handleCheckIn}
+            visited={visitedIds.has(facility.id)}
+            interested={interestedIds.has(facility.id)}
+            onToggleVisited={() => toggle(facility.id, visitedIds, setVisitedIds, visitedKey)}
+            onToggleInterested={() => toggle(facility.id, interestedIds, setInterestedIds, interestedKey)}
           />
         ))}
         {displayed.length === 0 && (

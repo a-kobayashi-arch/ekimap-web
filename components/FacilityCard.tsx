@@ -27,16 +27,25 @@ const gateAreaStyle: Record<GateArea, { label: string; className: string }> = {
 
 interface FacilityCardProps {
   facility: Facility;
-  stationId: string;
-  checkedIn: boolean;
-  onCheckIn: (facilityId: string) => void;
+  visited: boolean;
+  interested: boolean;
+  onToggleVisited: () => void;
+  onToggleInterested: () => void;
 }
 
-export default function FacilityCard({ facility, checkedIn, onCheckIn }: FacilityCardProps) {
+export default function FacilityCard({
+  facility,
+  visited,
+  interested,
+  onToggleVisited,
+  onToggleInterested,
+}: FacilityCardProps) {
   const gate = gateAreaStyle[facility.gateArea];
 
   return (
-    <div className={`bg-white rounded-xl border p-4 transition-all ${checkedIn ? "border-green-300 bg-green-50" : "border-gray-100"}`}>
+    <div className={`bg-white rounded-xl border p-4 transition-all ${
+      visited ? "border-green-300 bg-green-50" : interested ? "border-yellow-300 bg-yellow-50" : "border-gray-100"
+    }`}>
       <div className="flex items-start gap-3">
         <span className="text-2xl shrink-0">{categoryEmoji[facility.category] ?? "📍"}</span>
         <div className="flex-1 min-w-0">
@@ -45,11 +54,6 @@ export default function FacilityCard({ facility, checkedIn, onCheckIn }: Facilit
             <span className={`text-xs px-2 py-0.5 rounded-full font-medium shrink-0 ${gate.className}`}>
               {gate.label}
             </span>
-            {checkedIn && (
-              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium shrink-0">
-                ✓ チェックイン済み
-              </span>
-            )}
           </div>
           {facility.description && (
             <p className="text-sm text-gray-500 mt-0.5">{facility.description}</p>
@@ -60,17 +64,28 @@ export default function FacilityCard({ facility, checkedIn, onCheckIn }: Facilit
           </div>
         </div>
       </div>
-      <div className="mt-3 flex justify-end">
+
+      {/* Action buttons */}
+      <div className="mt-3 flex gap-2 justify-end">
         <button
-          onClick={() => onCheckIn(facility.id)}
-          disabled={checkedIn}
-          className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-            checkedIn
-              ? "bg-green-100 text-green-600 cursor-default"
-              : "bg-blue-500 hover:bg-blue-600 text-white active:scale-95"
+          onClick={onToggleInterested}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all active:scale-95 ${
+            interested
+              ? "bg-yellow-400 text-white"
+              : "bg-gray-100 text-gray-500 hover:bg-yellow-100 hover:text-yellow-600"
           }`}
         >
-          {checkedIn ? "チェックイン済み" : "チェックイン"}
+          {interested ? "★ 気になる" : "☆ 気になる"}
+        </button>
+        <button
+          onClick={onToggleVisited}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all active:scale-95 ${
+            visited
+              ? "bg-green-500 text-white"
+              : "bg-gray-100 text-gray-500 hover:bg-green-100 hover:text-green-600"
+          }`}
+        >
+          {visited ? "✓ 行った" : "行った"}
         </button>
       </div>
     </div>

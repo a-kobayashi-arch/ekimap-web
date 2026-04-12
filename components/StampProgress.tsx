@@ -8,19 +8,23 @@ interface StampProgressProps {
 }
 
 export default function StampProgress({ station }: StampProgressProps) {
-  const [checkedIds, setCheckedIds] = useState<Set<string>>(new Set());
+  const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
+  const [interestedIds, setInterestedIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(`checkins-${station.id}`);
-      if (stored) setCheckedIds(new Set(JSON.parse(stored)));
+      const v = localStorage.getItem(`visited-${station.id}`);
+      const i = localStorage.getItem(`interested-${station.id}`);
+      if (v) setVisitedIds(new Set(JSON.parse(v)));
+      if (i) setInterestedIds(new Set(JSON.parse(i)));
     } catch {}
   }, [station.id]);
 
   const total = station.facilities.length;
-  const count = station.facilities.filter((f) => checkedIds.has(f.id)).length;
-  const percent = total > 0 ? Math.round((count / total) * 100) : 0;
-  const isComplete = count === total;
+  const visitedCount    = station.facilities.filter((f) => visitedIds.has(f.id)).length;
+  const interestedCount = station.facilities.filter((f) => interestedIds.has(f.id)).length;
+  const percent = total > 0 ? Math.round((visitedCount / total) * 100) : 0;
+  const isComplete = visitedCount === total;
 
   return (
     <div className={`rounded-2xl p-5 ${isComplete ? "bg-yellow-50 border border-yellow-200" : "bg-white border border-gray-100"} shadow-sm`}>
@@ -29,21 +33,25 @@ export default function StampProgress({ station }: StampProgressProps) {
           <h3 className="font-bold text-gray-800">{station.name}</h3>
           {station.building && <p className="text-sm text-gray-400">{station.building}</p>}
         </div>
-        {isComplete ? (
-          <span className="text-3xl">🏆</span>
-        ) : (
-          <span className="text-3xl">🎫</span>
-        )}
+        {isComplete ? <span className="text-3xl">🏆</span> : <span className="text-3xl">🎫</span>}
       </div>
 
-      <div className="flex items-baseline gap-1 mb-2">
-        <span className="text-3xl font-bold text-blue-600">{count}</span>
-        <span className="text-gray-500">/ {total} 施設 制覇！</span>
+      <div className="flex items-baseline gap-3 mb-2">
+        <div className="flex items-baseline gap-1">
+          <span className="text-3xl font-bold text-green-600">{visitedCount}</span>
+          <span className="text-gray-500">/ {total} 行った</span>
+        </div>
+        {interestedCount > 0 && (
+          <div className="flex items-baseline gap-1 text-sm">
+            <span className="font-bold text-yellow-500">{interestedCount}</span>
+            <span className="text-gray-400">気になる</span>
+          </div>
+        )}
       </div>
 
       <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
         <div
-          className={`h-3 rounded-full transition-all duration-500 ${isComplete ? "bg-yellow-400" : "bg-blue-500"}`}
+          className={`h-3 rounded-full transition-all duration-500 ${isComplete ? "bg-yellow-400" : "bg-green-500"}`}
           style={{ width: `${percent}%` }}
         />
       </div>
@@ -51,7 +59,7 @@ export default function StampProgress({ station }: StampProgressProps) {
 
       {isComplete && (
         <p className="text-center text-yellow-700 font-semibold mt-2 text-sm">
-          全施設制覇おめでとうございます！🎉
+          全施設訪問おめでとうございます！🎉
         </p>
       )}
     </div>

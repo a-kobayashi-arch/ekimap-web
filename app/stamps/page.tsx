@@ -8,52 +8,68 @@ import type { Facility } from "@/types";
 
 export default function StampsPage() {
   const stations = getAllStations();
-  const [checkedMap, setCheckedMap] = useState<Record<string, Set<string>>>({});
+  const [visitedMap,    setVisitedMap]    = useState<Record<string, Set<string>>>({});
+  const [interestedMap, setInterestedMap] = useState<Record<string, Set<string>>>({});
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const map: Record<string, Set<string>> = {};
+    const vm: Record<string, Set<string>> = {};
+    const im: Record<string, Set<string>> = {};
     for (const station of stations) {
       try {
-        const stored = localStorage.getItem(`checkins-${station.id}`);
-        map[station.id] = stored ? new Set(JSON.parse(stored)) : new Set();
+        const v = localStorage.getItem(`visited-${station.id}`);
+        const i = localStorage.getItem(`interested-${station.id}`);
+        vm[station.id] = v ? new Set(JSON.parse(v)) : new Set();
+        im[station.id] = i ? new Set(JSON.parse(i)) : new Set();
       } catch {
-        map[station.id] = new Set();
+        vm[station.id] = new Set();
+        im[station.id] = new Set();
       }
     }
-    setCheckedMap(map);
+    setVisitedMap(vm);
+    setInterestedMap(im);
     setMounted(true);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!mounted) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" />
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-500" />
       </div>
     );
   }
 
-  const totalAll = stations.reduce((sum, s) => sum + s.facilities.length, 0);
-  const checkedAll = stations.reduce(
-    (sum, s) => sum + (s.facilities.filter((f: Facility) => checkedMap[s.id]?.has(f.id)).length),
-    0
+  const totalAll   = stations.reduce((sum, s) => sum + s.facilities.length, 0);
+  const visitedAll = stations.reduce(
+    (sum, s) => sum + s.facilities.filter((f: Facility) => visitedMap[s.id]?.has(f.id)).length, 0
+  );
+  const interestedAll = stations.reduce(
+    (sum, s) => sum + s.facilities.filter((f: Facility) => interestedMap[s.id]?.has(f.id)).length, 0
   );
 
   function handleReset() {
-    if (!confirm("チェックインをすべてリセットしますか？\nこの操作は元に戻せません。")) return;
+    if (!confirm("「行った」「気になる」の記録をすべてリセットしますか？\nこの操作は元に戻せません。")) return;
     for (const station of stations) {
-      localStorage.removeItem(`checkins-${station.id}`);
+      localStorage.removeItem(`visited-${station.id}`);
+      localStorage.removeItem(`interested-${station.id}`);
     }
-    const empty: Record<string, Set<string>> = {};
-    for (const station of stations) empty[station.id] = new Set();
-    setCheckedMap(empty);
+    const emptyV: Record<string, Set<string>> = {};
+    const emptyI: Record<string, Set<string>> = {};
+    for (const station of stations) {
+      emptyV[station.id] = new Set();
+      emptyI[station.id] = new Set();
+    }
+    setVisitedMap(emptyV);
+    setInterestedMap(emptyI);
   }
+
+  const hasAny = visitedAll > 0 || interestedAll > 0;
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-800">スタンプ帳</h1>
-        {checkedAll > 0 && (
+        {hasAny && (
           <button
             onClick={handleReset}
             className="text-sm text-red-400 hover:text-red-600 hover:bg-red-50 px-3 py-1.5 rounded-lg transition-colors"
@@ -63,12 +79,21 @@ export default function StampsPage() {
         )}
       </div>
 
-      {/* Overall progress */}
-      <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100">
-        <p className="text-sm text-blue-600 font-medium mb-1">総合チェックイン数</p>
-        <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold text-blue-700">{checkedAll}</span>
-          <span className="text-blue-500">/ {totalAll} 施設</span>
+      {/* Overall stats */}
+      <div className="grid grid-cols-2 gap-3">
+        <div className="bg-green-50 rounded-2xl p-4 border border-green-100">
+          <p className="text-sm text-green-600 font-medium mb-1">✓ 行った</p>
+          <div className="flex items-baseline gap-1">
+            <span className="text-4xl font-bold text-green-700">{visitedAll}</span>
+            <span className="text-green-500 text-sm">/ {totalAll}</span>
+          </div>
+        </div>
+        <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-100">
+          <p className="text-sm text-yellow-600 font-medium mb-1">★ 気になる</p>
+          <div className="flex items-baseline gap-1">
+            <span className="text-4xl font-bold text-yellow-600">{interestedAll}</span>
+            <span className="text-yellow-400 text-sm">件</span>
+          </div>
         </div>
       </div>
 
@@ -78,14 +103,28 @@ export default function StampsPage() {
         {stations.map((station) => (
           <div key={station.id}>
             <StampProgress station={station} />
-            {/* Checked-in facilities for this station */}
-            {(checkedMap[station.id]?.size ?? 0) > 0 && (
+            {/* Visited facilities */}
+            {(visitedMap[station.id]?.size ?? 0) > 0 && (
               <div className="mt-2 ml-2 space-y-1">
                 {station.facilities
-                  .filter((f: Facility) => checkedMap[station.id]?.has(f.id))
+                  .filter((f: Facility) => visitedMap[station.id]?.has(f.id))
                   .map((f: Facility) => (
                     <div key={f.id} className="flex items-center gap-2 text-sm text-gray-600">
                       <span className="text-green-500">✓</span>
+                      <span>{f.name}</span>
+                      <span className="text-gray-400 text-xs">{f.floor}</span>
+                    </div>
+                  ))}
+              </div>
+            )}
+            {/* Interested facilities */}
+            {(interestedMap[station.id]?.size ?? 0) > 0 && (
+              <div className="mt-1 ml-2 space-y-1">
+                {station.facilities
+                  .filter((f: Facility) => interestedMap[station.id]?.has(f.id))
+                  .map((f: Facility) => (
+                    <div key={f.id} className="flex items-center gap-2 text-sm text-gray-500">
+                      <span className="text-yellow-400">★</span>
                       <span>{f.name}</span>
                       <span className="text-gray-400 text-xs">{f.floor}</span>
                     </div>
@@ -96,11 +135,11 @@ export default function StampsPage() {
         ))}
       </section>
 
-      {checkedAll === 0 && (
+      {!hasAny && (
         <div className="text-center py-10 text-gray-400">
           <div className="text-5xl mb-3">🎫</div>
-          <p className="font-medium">まだチェックインがありません</p>
-          <p className="text-sm mt-1">駅に行って施設をチェックインしよう！</p>
+          <p className="font-medium">まだ記録がありません</p>
+          <p className="text-sm mt-1">訪れた施設に「行った」を、気になる施設に「気になる」を押してみよう！</p>
           <Link
             href="/"
             className="inline-block mt-4 px-5 py-2 bg-blue-500 text-white rounded-full text-sm font-medium hover:bg-blue-600 transition-colors"
