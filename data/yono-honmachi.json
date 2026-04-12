@@ -14,6 +14,7 @@
       "category": "コンビニ",
       "floor": "1F",
       "hours": "9:00〜24:00",
+      "gateArea": "改札外",
       "description": "スーパーマーケット"
     },
     {
@@ -22,6 +23,7 @@
       "category": "飲食",
       "floor": "1F",
       "hours": "平日 7:00〜21:00／土日祝 8:00〜21:00",
+      "gateArea": "改札外",
       "description": "ベーカリーカフェ・パン・軽食"
     },
     {
@@ -30,6 +32,7 @@
       "category": "その他",
       "floor": "1F",
       "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "gateArea": "改札外",
       "description": "ドラッグストア・医薬品・化粧品"
     },
     {
@@ -38,6 +41,7 @@
       "category": "その他",
       "floor": "1F",
       "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "gateArea": "改札外",
       "description": "100円ショップ"
     },
     {
@@ -46,6 +50,7 @@
       "category": "その他",
       "floor": "1F",
       "hours": "10:00〜18:00（カラーは〜17:00）",
+      "gateArea": "改札外",
       "description": "ヘアサロン"
     },
     {
@@ -54,6 +59,7 @@
       "category": "ATM",
       "floor": "1F",
       "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "gateArea": "改札外",
       "description": "JRビューカード対応ATM"
     },
     {
@@ -62,6 +68,7 @@
       "category": "トイレ",
       "floor": "1F",
       "hours": "終日",
+      "gateArea": "調査中",
       "description": "男女・多目的トイレ"
     }
   ]

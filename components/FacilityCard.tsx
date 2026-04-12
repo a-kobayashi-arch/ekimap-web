@@ -1,6 +1,6 @@
 "use client";
 
-import type { Facility } from "@/types";
+import type { Facility, GateArea } from "@/types";
 
 const categoryEmoji: Record<string, string> = {
   飲食: "🍴",
@@ -8,6 +8,21 @@ const categoryEmoji: Record<string, string> = {
   ATM: "🏧",
   トイレ: "🚻",
   その他: "📦",
+};
+
+const gateAreaStyle: Record<GateArea, { label: string; className: string }> = {
+  改札内: {
+    label: "改札内",
+    className: "bg-orange-100 text-orange-700 border border-orange-200",
+  },
+  改札外: {
+    label: "改札外",
+    className: "bg-sky-100 text-sky-700 border border-sky-200",
+  },
+  調査中: {
+    label: "調査中",
+    className: "bg-gray-100 text-gray-400 border border-gray-200",
+  },
 };
 
 interface FacilityCardProps {
@@ -18,6 +33,8 @@ interface FacilityCardProps {
 }
 
 export default function FacilityCard({ facility, checkedIn, onCheckIn }: FacilityCardProps) {
+  const gate = gateAreaStyle[facility.gateArea];
+
   return (
     <div className={`bg-white rounded-xl border p-4 transition-all ${checkedIn ? "border-green-300 bg-green-50" : "border-gray-100"}`}>
       <div className="flex items-start gap-3">
@@ -25,6 +42,9 @@ export default function FacilityCard({ facility, checkedIn, onCheckIn }: Facilit
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className="font-semibold text-gray-800 truncate">{facility.name}</h3>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-medium shrink-0 ${gate.className}`}>
+              {gate.label}
+            </span>
             {checkedIn && (
               <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium shrink-0">
                 ✓ チェックイン済み

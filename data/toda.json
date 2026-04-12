@@ -14,6 +14,7 @@
       "category": "飲食",
       "floor": "1F",
       "hours": "平日・土 7:00〜21:00／日祝 7:00〜20:00",
+      "gateArea": "改札外",
       "description": "ベーカリーカフェ・パン・軽食"
     },
     {
@@ -22,6 +23,7 @@
       "category": "飲食",
       "floor": "1F",
       "hours": "11:00〜23:00",
+      "gateArea": "改札外",
       "description": "味噌ラーメン専門店"
     },
     {
@@ -30,6 +32,7 @@
       "category": "コンビニ",
       "floor": "1F",
       "hours": "平日 6:30〜23:00／土日祝 6:30〜22:00",
+      "gateArea": "改札外",
       "description": "JR東日本グループのコンビニ"
     },
     {
@@ -38,6 +41,7 @@
       "category": "コンビニ",
       "floor": "1F",
       "hours": "10:00〜翌0:45",
+      "gateArea": "改札外",
       "description": "総合スーパー"
     },
     {
@@ -46,6 +50,7 @@
       "category": "その他",
       "floor": "1F",
       "hours": "平日 10:00〜20:00／土日祝 9:00〜20:00",
+      "gateArea": "改札外",
       "description": "クリーニング"
     },
     {
@@ -54,6 +59,7 @@
       "category": "ATM",
       "floor": "1F",
       "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "gateArea": "改札外",
       "description": "JRビューカード対応ATM"
     },
     {
@@ -62,6 +68,7 @@
       "category": "トイレ",
       "floor": "1F",
       "hours": "終日",
+      "gateArea": "調査中",
       "description": "男女・多目的トイレ"
     }
   ]

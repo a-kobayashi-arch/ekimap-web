@@ -15,6 +15,7 @@
       "category": "飲食",
       "floor": "1F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜22:30",
+      "gateArea": "改札外",
       "description": "カフェ"
     },
     {
@@ -23,6 +24,7 @@
       "category": "飲食",
       "floor": "1F",
       "hours": "11:00〜23:00（LO 22:00）",
+      "gateArea": "改札外",
       "description": "イタリアン・パスタ・ピザ"
     },
     {
@@ -31,6 +33,7 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "6:45〜23:00",
+      "gateArea": "改札外",
       "description": "JR東日本グループのカフェ"
     },
     {
@@ -39,6 +42,7 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "6:45〜23:30",
+      "gateArea": "改札外",
       "description": "立ちそば・うどん"
     },
     {
@@ -47,6 +51,7 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "10:00〜23:00",
+      "gateArea": "改札外",
       "description": "回転寿司"
     },
     {
@@ -55,6 +60,7 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "7:30〜23:00",
+      "gateArea": "改札外",
       "description": "セルフうどん"
     },
     {
@@ -63,6 +69,7 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "9:00〜22:00",
+      "gateArea": "改札外",
       "description": "ドーナツ・コーヒー"
     },
     {
@@ -71,6 +78,7 @@
       "category": "コンビニ",
       "floor": "2F",
       "hours": "7:30〜23:00",
+      "gateArea": "改札外",
       "description": "こだわり食材・総菜・ワイン"
     },
     {
@@ -79,6 +87,7 @@
       "category": "コンビニ",
       "floor": "1F",
       "hours": "9:00〜翌1:00",
+      "gateArea": "改札外",
       "description": "スーパーマーケット"
     },
     {
@@ -87,6 +96,7 @@
       "category": "その他",
       "floor": "1F",
       "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "gateArea": "改札外",
       "description": "メガネ・サングラス"
     },
     {
@@ -95,6 +105,7 @@
       "category": "その他",
       "floor": "2F",
       "hours": "平日 8:00〜22:00／土日祝 10:00〜20:30",
+      "gateArea": "改札外",
       "description": "書籍・雑誌・文具"
     },
     {
@@ -103,6 +114,7 @@
       "category": "その他",
       "floor": "2F",
       "hours": "7:30〜22:00",
+      "gateArea": "改札外",
       "description": "ドラッグストア・日用品"
     }
   ]

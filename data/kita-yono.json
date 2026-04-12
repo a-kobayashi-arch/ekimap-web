@@ -14,6 +14,7 @@
       "category": "コンビニ",
       "floor": "1F",
       "hours": "6:00〜23:00",
+      "gateArea": "改札外",
       "description": "改札外・JR東日本グループのコンビニ"
     },
     {
@@ -22,6 +23,7 @@
       "category": "ATM",
       "floor": "1F",
       "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "gateArea": "調査中",
       "description": "JRビューカード対応ATM"
     },
     {
@@ -30,6 +32,7 @@
       "category": "トイレ",
       "floor": "1F",
       "hours": "終日",
+      "gateArea": "調査中",
       "description": "男女・多目的トイレ"
     },
     {
@@ -38,6 +41,7 @@
       "category": "その他",
       "floor": "1F",
       "hours": "終日",
+      "gateArea": "調査中",
       "description": "交通系ICカード対応"
     }
   ]
