@@ -31,69 +31,186 @@
     },
     {
       "id": "om-003",
-      "name": "ビッグオーブン",
-      "category": "飲食",
-      "floor": "2F",
-      "hours": "平日・土 8:30〜22:00／日祝 8:30〜20:30",
-      "gateArea": "改札内",
-      "description": "ロティサリーチキン・サンドイッチ"
-    },
-    {
-      "id": "om-004",
-      "name": "トップス",
-      "category": "飲食",
-      "floor": "2F",
-      "hours": "平日・土 8:00〜22:00／日祝 8:00〜20:30",
-      "gateArea": "改札内",
-      "description": "洋菓子・チョコレートケーキ"
-    },
-    {
-      "id": "om-005",
-      "name": "PRESS BUTTER SAND",
-      "category": "飲食",
-      "floor": "2F",
-      "hours": "平日・土 8:00〜22:00／日祝 8:00〜20:30",
-      "gateArea": "改札内",
-      "description": "バターサンド専門店"
-    },
-    {
-      "id": "om-006",
       "name": "ゐざさ茶屋",
       "category": "飲食",
       "floor": "2F",
-      "hours": "平日・土 8:30〜22:00／日祝 8:30〜20:30",
+      "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
       "gateArea": "改札内",
       "description": "柿の葉すし・奈良の和食"
     },
     {
+      "id": "om-004",
+      "name": "築地 すし兆",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "毎日 7:00〜22:00（モーニング 7:00〜11:00）",
+      "gateArea": "改札内",
+      "description": "寿司"
+    },
+    {
+      "id": "om-005",
+      "name": "玄米食堂 あえん",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
+      "gateArea": "改札内",
+      "description": "和食・玄米・野菜料理"
+    },
+    {
+      "id": "om-006",
+      "name": "ゴディバカフェ 大宮",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日・土 7:00〜22:00／日祝 7:00〜21:00",
+      "gateArea": "改札内",
+      "description": "チョコレートカフェ・イートイン"
+    },
+    {
       "id": "om-007",
+      "name": "サザコーヒー",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 7:00〜22:00／日祝 7:00〜21:00",
+      "gateArea": "改札内",
+      "description": "スペシャルティコーヒー"
+    },
+    {
+      "id": "om-008",
+      "name": "ほんのり屋",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "毎日 7:00〜22:30",
+      "gateArea": "改札内",
+      "description": "おむすび・和食"
+    },
+    {
+      "id": "om-009",
+      "name": "ブーランジェリー ブルディガラ",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日・土 7:00〜22:00／日祝 7:00〜21:00",
+      "gateArea": "改札内",
+      "description": "高級ベーカリー"
+    },
+    {
+      "id": "om-010",
+      "name": "日本橋 天丼 天むす 金子半之助",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 7:00〜22:00／日祝 7:00〜21:00",
+      "gateArea": "改札内",
+      "description": "天丼・天むす弁当"
+    },
+    {
+      "id": "om-011",
+      "name": "ビッグオーブン",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 8:30〜22:00／日祝 8:30〜20:30",
+      "gateArea": "改札内",
+      "description": "ロティサリーチキン・サンドイッチ"
+    },
+    {
+      "id": "om-012",
+      "name": "ハンビジェ デリ",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 8:30〜22:00／日祝 8:30〜20:30",
+      "gateArea": "改札内",
+      "description": "韓国料理・惣菜"
+    },
+    {
+      "id": "om-013",
+      "name": "平田牧場",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 8:30〜22:00／日祝 8:30〜20:30",
+      "gateArea": "改札内",
+      "description": "弁当・惣菜・豚肉専門"
+    },
+    {
+      "id": "om-014",
+      "name": "アール・エフ・ワン",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
+      "gateArea": "改札内",
+      "description": "洋惣菜・サラダ"
+    },
+    {
+      "id": "om-015",
+      "name": "トップス",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 8:00〜22:00／日祝 8:00〜20:30",
+      "gateArea": "改札内",
+      "description": "洋菓子・チョコレートケーキ"
+    },
+    {
+      "id": "om-016",
+      "name": "PRESS BUTTER SAND",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 8:00〜22:00／日祝 8:00〜20:30",
+      "gateArea": "改札内",
+      "description": "バターサンド専門店"
+    },
+    {
+      "id": "om-017",
+      "name": "資生堂パーラー",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "月〜土 8:00〜22:00／日祝 8:00〜20:30",
+      "gateArea": "改札内",
+      "description": "洋菓子・焼菓子"
+    },
+    {
+      "id": "om-018",
       "name": "茅乃舎",
       "category": "飲食",
       "floor": "2F",
-      "hours": "平日・土 8:30〜22:00／日祝 8:30〜20:30",
+      "hours": "月〜土 10:00〜21:00／日祝 10:00〜20:30",
       "gateArea": "改札内",
       "description": "だし・惣菜・調味料"
     },
     {
-      "id": "om-008",
-      "name": "AP by American Pharmacy",
-      "category": "その他",
+      "id": "om-019",
+      "name": "駅弁屋 祭 セレクト エキュート大宮",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "毎日 6:00〜22:00",
+      "gateArea": "改札内",
+      "description": "駅弁・全国の名物弁当"
+    },
+    {
+      "id": "om-020",
+      "name": "フーズステージ キタノ フォア",
+      "category": "コンビニ",
       "floor": "2F",
       "hours": "平日・土 7:00〜22:00／日祝 7:00〜21:30",
       "gateArea": "改札内",
-      "description": "ドラッグストア・コスメ・雑貨"
+      "description": "グルメスーパー・食品"
     },
     {
-      "id": "om-009",
-      "name": "NewDays",
+      "id": "om-021",
+      "name": "NewDays エキュート大宮1",
       "category": "コンビニ",
       "floor": "1F",
-      "hours": "5:30〜23:30",
+      "hours": "毎日 6:30〜23:00",
       "gateArea": "改札外",
       "description": "JR東日本グループのコンビニ"
     },
     {
-      "id": "om-010",
+      "id": "om-022",
+      "name": "エーピー バイ アメリカンファーマシー",
+      "category": "その他",
+      "floor": "2F",
+      "hours": "月〜土 7:00〜22:00／日祝 7:00〜21:30",
+      "gateArea": "改札内",
+      "description": "ドラッグストア・コスメ・雑貨"
+    },
+    {
+      "id": "om-023",
       "name": "VIEW ALTTE（ATM）",
       "category": "ATM",
       "floor": "1F",
@@ -102,7 +219,7 @@
       "description": "JRビューカード対応ATM"
     },
     {
-      "id": "om-011",
+      "id": "om-024",
       "name": "トイレ（中央改札内）",
       "category": "トイレ",
       "floor": "1F",
@@ -111,7 +228,7 @@
       "description": "男女・多目的トイレ・オストメイト対応"
     },
     {
-      "id": "om-012",
+      "id": "om-025",
       "name": "コインロッカー",
       "category": "その他",
       "floor": "1F",
