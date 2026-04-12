@@ -33,8 +33,8 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "6:45〜23:00",
-      "gateArea": "改札外",
-      "description": "JR東日本グループのカフェ"
+      "gateArea": "改札内",
+      "description": "JR東日本グループのカフェ（ビーンズキッチン）"
     },
     {
       "id": "mu-004",
@@ -42,8 +42,8 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "6:45〜23:30",
-      "gateArea": "改札外",
-      "description": "立ちそば・うどん"
+      "gateArea": "改札内",
+      "description": "立ちそば・うどん（ビーンズキッチン）"
     },
     {
       "id": "mu-005",
@@ -51,8 +51,8 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "10:00〜23:00",
-      "gateArea": "改札外",
-      "description": "回転寿司"
+      "gateArea": "改札内",
+      "description": "回転寿司（ビーンズキッチン）"
     },
     {
       "id": "mu-006",
@@ -60,8 +60,8 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "7:30〜23:00",
-      "gateArea": "改札外",
-      "description": "セルフうどん"
+      "gateArea": "改札内",
+      "description": "セルフうどん（ビーンズキッチン）"
     },
     {
       "id": "mu-007",
@@ -69,8 +69,8 @@
       "category": "飲食",
       "floor": "2F",
       "hours": "9:00〜22:00",
-      "gateArea": "改札外",
-      "description": "ドーナツ・コーヒー"
+      "gateArea": "改札内",
+      "description": "ドーナツ・コーヒー（ビーンズキッチン）"
     },
     {
       "id": "mu-008",
@@ -78,8 +78,8 @@
       "category": "コンビニ",
       "floor": "2F",
       "hours": "7:30〜23:00",
-      "gateArea": "改札外",
-      "description": "こだわり食材・総菜・ワイン"
+      "gateArea": "改札内",
+      "description": "こだわり食材・総菜・ワイン（ビーンズキッチン）"
     },
     {
       "id": "mu-009",
@@ -105,8 +105,8 @@
       "category": "その他",
       "floor": "2F",
       "hours": "平日 8:00〜22:00／土日祝 10:00〜20:30",
-      "gateArea": "改札外",
-      "description": "書籍・雑誌・文具"
+      "gateArea": "改札内",
+      "description": "書籍・雑誌・文具（ビーンズキッチン）"
     },
     {
       "id": "mu-012",
@@ -114,8 +114,8 @@
       "category": "その他",
       "floor": "2F",
       "hours": "7:30〜22:00",
-      "gateArea": "改札外",
-      "description": "ドラッグストア・日用品"
+      "gateArea": "改札内",
+      "description": "ドラッグストア・日用品（ビーンズキッチン）"
     }
   ]
 }
