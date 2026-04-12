@@ -1,0 +1,68 @@
+{
+  "id": "yono-honmachi",
+  "slug": "yono-honmachi",
+  "name": "与野本町駅",
+  "nameEn": "Yono-Honmachi",
+  "building": "Beans与野本町",
+  "lines": [
+    { "name": "埼京線", "color": "#009944" }
+  ],
+  "facilities": [
+    {
+      "id": "yh-001",
+      "name": "タイラヤ",
+      "category": "コンビニ",
+      "floor": "1F",
+      "hours": "9:00〜24:00",
+      "description": "スーパーマーケット"
+    },
+    {
+      "id": "yh-002",
+      "name": "ヴィ・ド・フランス カフェ",
+      "category": "飲食",
+      "floor": "1F",
+      "hours": "平日 7:00〜21:00／土日祝 8:00〜21:00",
+      "description": "ベーカリーカフェ・パン・軽食"
+    },
+    {
+      "id": "yh-003",
+      "name": "マツモトキヨシ",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "description": "ドラッグストア・医薬品・化粧品"
+    },
+    {
+      "id": "yh-004",
+      "name": "DAISO",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "description": "100円ショップ"
+    },
+    {
+      "id": "yh-005",
+      "name": "チョキペタ",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "10:00〜18:00（カラーは〜17:00）",
+      "description": "ヘアサロン"
+    },
+    {
+      "id": "yh-006",
+      "name": "VIEW ALTTE（ATM）",
+      "category": "ATM",
+      "floor": "1F",
+      "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "description": "JRビューカード対応ATM"
+    },
+    {
+      "id": "yh-007",
+      "name": "トイレ",
+      "category": "トイレ",
+      "floor": "1F",
+      "hours": "終日",
+      "description": "男女・多目的トイレ"
+    }
+  ]
+}

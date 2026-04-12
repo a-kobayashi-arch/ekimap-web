@@ -1,0 +1,111 @@
+{
+  "id": "omiya",
+  "slug": "omiya",
+  "name": "大宮駅",
+  "nameEn": "Omiya",
+  "building": "エキュート大宮",
+  "lines": [
+    { "name": "埼京線", "color": "#009944" },
+    { "name": "京浜東北線", "color": "#e60012" },
+    { "name": "高崎線", "color": "#f68b1e" },
+    { "name": "東北新幹線", "color": "#009944" }
+  ],
+  "facilities": [
+    {
+      "id": "om-001",
+      "name": "カオマンガイ キッチン",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
+      "description": "タイ料理・ガパオ・カオマンガイ"
+    },
+    {
+      "id": "om-002",
+      "name": "利久 ボウルズ",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
+      "description": "牛タン丼・和定食"
+    },
+    {
+      "id": "om-003",
+      "name": "ビッグオーブン",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日・土 8:30〜22:00／日祝 8:30〜20:30",
+      "description": "ロティサリーチキン・サンドイッチ"
+    },
+    {
+      "id": "om-004",
+      "name": "トップス",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日・土 8:00〜22:00／日祝 8:00〜20:30",
+      "description": "洋菓子・チョコレートケーキ"
+    },
+    {
+      "id": "om-005",
+      "name": "PRESS BUTTER SAND",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日・土 8:00〜22:00／日祝 8:00〜20:30",
+      "description": "バターサンド専門店"
+    },
+    {
+      "id": "om-006",
+      "name": "ゐざさ茶屋",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日・土 8:30〜22:00／日祝 8:30〜20:30",
+      "description": "柿の葉すし・奈良の和食"
+    },
+    {
+      "id": "om-007",
+      "name": "茅乃舎",
+      "category": "飲食",
+      "floor": "2F",
+      "hours": "平日・土 8:30〜22:00／日祝 8:30〜20:30",
+      "description": "だし・惣菜・調味料"
+    },
+    {
+      "id": "om-008",
+      "name": "AP by American Pharmacy",
+      "category": "その他",
+      "floor": "2F",
+      "hours": "平日・土 7:00〜22:00／日祝 7:00〜21:30",
+      "description": "ドラッグストア・コスメ・雑貨"
+    },
+    {
+      "id": "om-009",
+      "name": "NewDays",
+      "category": "コンビニ",
+      "floor": "1F",
+      "hours": "5:30〜23:30",
+      "description": "JR東日本グループのコンビニ"
+    },
+    {
+      "id": "om-010",
+      "name": "VIEW ALTTE（ATM）",
+      "category": "ATM",
+      "floor": "1F",
+      "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "description": "JRビューカード対応ATM"
+    },
+    {
+      "id": "om-011",
+      "name": "トイレ（中央改札内）",
+      "category": "トイレ",
+      "floor": "1F",
+      "hours": "終日",
+      "description": "男女・多目的トイレ・オストメイト対応"
+    },
+    {
+      "id": "om-012",
+      "name": "コインロッカー",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "終日（ICカード対応）",
+      "description": "大中小サイズあり・交通系ICカード対応"
+    }
+  ]
+}

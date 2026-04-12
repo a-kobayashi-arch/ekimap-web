@@ -1,0 +1,92 @@
+{
+  "id": "toda-koen",
+  "slug": "toda-koen",
+  "name": "戸田公園駅",
+  "nameEn": "Toda-Koen",
+  "building": "Beans戸田公園",
+  "lines": [
+    { "name": "埼京線", "color": "#009944" }
+  ],
+  "facilities": [
+    {
+      "id": "tk-001",
+      "name": "スターバックス コーヒー",
+      "category": "飲食",
+      "floor": "1F",
+      "hours": "7:00〜22:00",
+      "description": "カフェ"
+    },
+    {
+      "id": "tk-002",
+      "name": "サイゼリヤ",
+      "category": "飲食",
+      "floor": "1F",
+      "hours": "10:00〜22:00",
+      "description": "イタリアンファミレス"
+    },
+    {
+      "id": "tk-003",
+      "name": "サミット",
+      "category": "コンビニ",
+      "floor": "1F",
+      "hours": "9:00〜翌0:30",
+      "description": "スーパーマーケット"
+    },
+    {
+      "id": "tk-004",
+      "name": "無印良品",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "description": "衣料・生活雑貨・食品"
+    },
+    {
+      "id": "tk-005",
+      "name": "OWNDAYS",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "description": "メガネ・サングラス"
+    },
+    {
+      "id": "tk-006",
+      "name": "ラフィネ",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00（最終受付 20:30）／日祝 10:00〜20:30",
+      "description": "リラクゼーション・マッサージ"
+    },
+    {
+      "id": "tk-007",
+      "name": "ブーケ！ブーケ",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "description": "フラワーショップ"
+    },
+    {
+      "id": "tk-008",
+      "name": "ポニークリーニング",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
+      "description": "クリーニング"
+    },
+    {
+      "id": "tk-009",
+      "name": "VIEW ALTTE（ATM）",
+      "category": "ATM",
+      "floor": "1F",
+      "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "description": "JRビューカード対応ATM"
+    },
+    {
+      "id": "tk-010",
+      "name": "トイレ",
+      "category": "トイレ",
+      "floor": "1F",
+      "hours": "終日",
+      "description": "男女・多目的トイレ"
+    }
+  ]
+}

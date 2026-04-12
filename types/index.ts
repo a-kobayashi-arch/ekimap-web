@@ -19,7 +19,7 @@ export interface Station {
   slug: string;
   name: string;
   nameEn: string;
-  building?: string;
+  building?: string | null;
   lines: StationLine[];
   facilities: Facility[];
 }

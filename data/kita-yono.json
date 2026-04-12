@@ -1,0 +1,44 @@
+{
+  "id": "kita-yono",
+  "slug": "kita-yono",
+  "name": "北与野駅",
+  "nameEn": "Kita-Yono",
+  "building": null,
+  "lines": [
+    { "name": "埼京線", "color": "#009944" }
+  ],
+  "facilities": [
+    {
+      "id": "ky-001",
+      "name": "NewDays 北与野",
+      "category": "コンビニ",
+      "floor": "1F",
+      "hours": "6:00〜23:00",
+      "description": "改札外・JR東日本グループのコンビニ"
+    },
+    {
+      "id": "ky-002",
+      "name": "VIEW ALTTE（ATM）",
+      "category": "ATM",
+      "floor": "1F",
+      "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "description": "JRビューカード対応ATM"
+    },
+    {
+      "id": "ky-003",
+      "name": "トイレ",
+      "category": "トイレ",
+      "floor": "1F",
+      "hours": "終日",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "ky-004",
+      "name": "コインロッカー",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "終日",
+      "description": "交通系ICカード対応"
+    }
+  ]
+}
