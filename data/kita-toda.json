@@ -1,0 +1,36 @@
+{
+  "id": "kita-toda",
+  "slug": "kita-toda",
+  "name": "北戸田駅",
+  "nameEn": "Kita-Toda",
+  "building": null,
+  "lines": [
+    { "name": "埼京線", "color": "#009944" }
+  ],
+  "facilities": [
+    {
+      "id": "kt-001",
+      "name": "VIEW ALTTE（ATM）",
+      "category": "ATM",
+      "floor": "1F",
+      "hours": "8:00〜21:00（土日 8:00〜20:00）",
+      "description": "JRビューカード対応ATM"
+    },
+    {
+      "id": "kt-002",
+      "name": "トイレ",
+      "category": "トイレ",
+      "floor": "1F",
+      "hours": "終日",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "kt-003",
+      "name": "コインロッカー",
+      "category": "その他",
+      "floor": "1F",
+      "hours": "終日",
+      "description": "交通系ICカード対応"
+    }
+  ]
+}

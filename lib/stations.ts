@@ -6,6 +6,8 @@ import minamiYono from "@/data/minami-yono.json";
 import nakaUrawa from "@/data/naka-urawa.json";
 import musashiUrawa from "@/data/musashi-urawa.json";
 import todaKoen from "@/data/toda-koen.json";
+import toda from "@/data/toda.json";
+import kitaToda from "@/data/kita-toda.json";
 
 // 埼京線 大宮→戸田公園（埼玉県内・南行き順）
 const stations: Station[] = [
@@ -16,6 +18,8 @@ const stations: Station[] = [
   nakaUrawa,
   musashiUrawa,
   todaKoen,
+  toda,
+  kitaToda,
 ] as Station[];
 
 export function getAllStations(): Station[] {
