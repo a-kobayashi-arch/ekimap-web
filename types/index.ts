@@ -2,6 +2,10 @@ export type Category = "飲食店" | "ショップ" | "サービス" | "設備" 
 
 export type GateArea = "改札内" | "改札外" | "調査中";
 
+export type OutletStatus = "available" | "unknown";
+export type SeatingStatus = "yes" | "no" | "unknown";
+export type CrowdedStatus = "empty" | "normal" | "crowded" | "unknown";
+
 export interface Facility {
   id: string;
   name: string;
@@ -10,6 +14,10 @@ export interface Facility {
   hours: string;
   gateArea: GateArea;
   description?: string;
+  outlet?: OutletStatus;
+  seating?: SeatingStatus;
+  crowded?: CrowdedStatus;
+  lastUpdated?: string;
 }
 
 export interface StationLine {

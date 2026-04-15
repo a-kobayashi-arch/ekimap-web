@@ -16,7 +16,11 @@
       "floor": "1F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜22:30",
       "gateArea": "改札外",
-      "description": "カフェ"
+      "description": "カフェ",
+      "outlet": "available",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-002",
@@ -25,7 +29,11 @@
       "floor": "1F",
       "hours": "11:00〜23:00（LO 22:00）",
       "gateArea": "改札外",
-      "description": "イタリアン・パスタ・ピザ"
+      "description": "イタリアン・パスタ・ピザ",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-003",
@@ -34,7 +42,11 @@
       "floor": "2F",
       "hours": "6:45〜23:00",
       "gateArea": "改札内",
-      "description": "JR東日本グループのカフェ（ビーンズキッチン）"
+      "description": "JR東日本グループのカフェ（ビーンズキッチン）",
+      "outlet": "available",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-004",
@@ -43,7 +55,11 @@
       "floor": "2F",
       "hours": "6:45〜23:30",
       "gateArea": "改札内",
-      "description": "立ちそば・うどん（ビーンズキッチン）"
+      "description": "立ちそば・うどん（ビーンズキッチン）",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-005",
@@ -52,7 +68,11 @@
       "floor": "2F",
       "hours": "10:00〜23:00",
       "gateArea": "改札内",
-      "description": "回転寿司（ビーンズキッチン）"
+      "description": "回転寿司（ビーンズキッチン）",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-006",
@@ -61,7 +81,11 @@
       "floor": "2F",
       "hours": "7:30〜23:00",
       "gateArea": "改札内",
-      "description": "セルフうどん（ビーンズキッチン）"
+      "description": "セルフうどん（ビーンズキッチン）",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-007",
@@ -70,7 +94,11 @@
       "floor": "2F",
       "hours": "9:00〜22:00",
       "gateArea": "改札内",
-      "description": "ドーナツ・コーヒー（ビーンズキッチン）"
+      "description": "ドーナツ・コーヒー（ビーンズキッチン）",
+      "outlet": "available",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-008",
@@ -79,7 +107,11 @@
       "floor": "2F",
       "hours": "7:30〜23:00",
       "gateArea": "改札内",
-      "description": "こだわり食材・総菜・ワイン（ビーンズキッチン）"
+      "description": "こだわり食材・総菜・ワイン（ビーンズキッチン）",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-009",
@@ -88,7 +120,11 @@
       "floor": "1F",
       "hours": "9:00〜翌1:00",
       "gateArea": "改札外",
-      "description": "スーパーマーケット"
+      "description": "スーパーマーケット",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-010",
@@ -97,7 +133,11 @@
       "floor": "1F",
       "hours": "平日・土 10:00〜21:00／日祝 10:00〜20:30",
       "gateArea": "改札外",
-      "description": "メガネ・サングラス"
+      "description": "メガネ・サングラス",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-011",
@@ -106,7 +146,11 @@
       "floor": "2F",
       "hours": "平日 8:00〜22:00／土日祝 10:00〜20:30",
       "gateArea": "改札内",
-      "description": "書籍・雑誌・文具（ビーンズキッチン）"
+      "description": "書籍・雑誌・文具（ビーンズキッチン）",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "mu-012",
@@ -115,7 +159,11 @@
       "floor": "2F",
       "hours": "7:30〜22:00",
       "gateArea": "改札内",
-      "description": "ドラッグストア・日用品（ビーンズキッチン）"
+      "description": "ドラッグストア・日用品（ビーンズキッチン）",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     }
   ]
 }

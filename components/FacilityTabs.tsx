@@ -16,6 +16,8 @@ export default function FacilityTabs({ facilities, stationId }: FacilityTabsProp
   const [activeTab, setActiveTab] = useState<string>(ALL_TAB);
   const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
   const [interestedIds, setInterestedIds] = useState<Set<string>>(new Set());
+  const [filterOutlet, setFilterOutlet] = useState(false);
+  const [filterSeating, setFilterSeating] = useState(false);
 
   const visitedKey    = `visited-${stationId}`;
   const interestedKey = `interested-${stationId}`;
@@ -43,10 +45,18 @@ export default function FacilityTabs({ facilities, stationId }: FacilityTabsProp
     });
   }
 
-  const displayed =
+  // Category filter
+  const categoryFiltered =
     activeTab === ALL_TAB
       ? facilities
       : facilities.filter((f) => f.category === activeTab);
+
+  // Attribute filters
+  const displayed = categoryFiltered.filter((f) => {
+    if (filterOutlet && f.outlet !== "available") return false;
+    if (filterSeating && f.seating !== "yes") return false;
+    return true;
+  });
 
   const tabs = [ALL_TAB, ...CATEGORIES];
 
@@ -79,12 +89,37 @@ export default function FacilityTabs({ facilities, stationId }: FacilityTabsProp
         })}
       </div>
 
+      {/* Attribute filter buttons */}
+      <div className="flex gap-2 mt-3">
+        <button
+          onClick={() => setFilterOutlet((v) => !v)}
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium border transition-all ${
+            filterOutlet
+              ? "bg-green-500 text-white border-green-500"
+              : "bg-white text-gray-600 border-gray-200 hover:border-green-400 hover:text-green-600"
+          }`}
+        >
+          🔌 コンセント
+        </button>
+        <button
+          onClick={() => setFilterSeating((v) => !v)}
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium border transition-all ${
+            filterSeating
+              ? "bg-blue-500 text-white border-blue-500"
+              : "bg-white text-gray-600 border-gray-200 hover:border-blue-400 hover:text-blue-600"
+          }`}
+        >
+          🪑 座れる
+        </button>
+      </div>
+
       {/* Facility list */}
       <div className="mt-4 flex flex-col gap-3">
         {displayed.map((facility) => (
           <FacilityCard
             key={facility.id}
             facility={facility}
+            stationId={stationId}
             visited={visitedIds.has(facility.id)}
             interested={interestedIds.has(facility.id)}
             onToggleVisited={() => toggle(facility.id, visitedIds, setVisitedIds, visitedKey)}
@@ -92,7 +127,9 @@ export default function FacilityTabs({ facilities, stationId }: FacilityTabsProp
           />
         ))}
         {displayed.length === 0 && (
-          <p className="text-center text-gray-400 py-8">施設情報がありません</p>
+          <p className="text-center text-gray-400 py-8">
+            {filterOutlet || filterSeating ? "条件に合う施設がありません" : "施設情報がありません"}
+          </p>
         )}
       </div>
     </div>
