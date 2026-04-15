@@ -44,17 +44,28 @@ function SeatingIcon({ status }: { status?: string }) {
   return <span className="text-xs bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full">🪑 不明</span>;
 }
 
+const crowdedIcon: Record<string, string> = {
+  empty: "🟢",
+  normal: "🟡",
+  crowded: "🔴",
+  unknown: "❓",
+};
+
+const crowdedLabel: Record<string, string> = {
+  empty: "空いてる",
+  normal: "普通",
+  crowded: "混んでる",
+  unknown: "混雑不明",
+};
+
 function CrowdedIcon({ status }: { status?: string }) {
-  if (status === "empty") {
-    return <span className="text-xs bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-medium">● 空いてる</span>;
-  }
-  if (status === "normal") {
-    return <span className="text-xs bg-yellow-100 text-yellow-700 px-1.5 py-0.5 rounded-full font-medium">◐ 普通</span>;
-  }
-  if (status === "crowded") {
-    return <span className="text-xs bg-red-100 text-red-700 px-1.5 py-0.5 rounded-full font-medium">◑ 混んでる</span>;
-  }
-  return null;
+  if (!status) return null;
+  return (
+    <span className="flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full">
+      <span className="text-lg leading-none">{crowdedIcon[status] ?? "❓"}</span>
+      {crowdedLabel[status]}
+    </span>
+  );
 }
 
 interface FacilityCardProps {
@@ -109,7 +120,7 @@ export default function FacilityCard({
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {facility.outlet !== undefined && <OutletIcon status={facility.outlet} />}
                 {facility.seating !== undefined && <SeatingIcon status={facility.seating} />}
-                {facility.crowded !== undefined && facility.crowded !== "unknown" && (
+                {facility.crowded !== undefined && (
                   <CrowdedIcon status={facility.crowded} />
                 )}
               </div>
