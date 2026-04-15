@@ -18,7 +18,11 @@
       "floor": "2F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "タイ料理・ガパオ・カオマンガイ"
+      "description": "タイ料理・ガパオ・カオマンガイ",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-002",
@@ -27,7 +31,11 @@
       "floor": "2F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "牛タン丼・和定食"
+      "description": "牛タン丼・和定食",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-003",
@@ -36,7 +44,11 @@
       "floor": "2F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "柿の葉すし・奈良の和食"
+      "description": "柿の葉すし・奈良の和食",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-004",
@@ -45,7 +57,11 @@
       "floor": "2F",
       "hours": "毎日 7:00〜22:00（モーニング 7:00〜11:00）",
       "gateArea": "改札内",
-      "description": "寿司"
+      "description": "寿司",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-005",
@@ -54,7 +70,11 @@
       "floor": "2F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "和食・玄米・野菜料理"
+      "description": "和食・玄米・野菜料理",
+      "outlet": "unknown",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-006",
@@ -63,7 +83,11 @@
       "floor": "2F",
       "hours": "平日・土 7:00〜22:00／日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "チョコレートカフェ・イートイン"
+      "description": "チョコレートカフェ・イートイン",
+      "outlet": "available",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-007",
@@ -72,7 +96,11 @@
       "floor": "2F",
       "hours": "月〜土 7:00〜22:00／日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "スペシャルティコーヒー"
+      "description": "スペシャルティコーヒー",
+      "outlet": "available",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-008",
@@ -81,7 +109,11 @@
       "floor": "2F",
       "hours": "毎日 7:00〜22:30",
       "gateArea": "改札内",
-      "description": "おむすび・和食"
+      "description": "おむすび・和食",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-009",
@@ -90,7 +122,11 @@
       "floor": "2F",
       "hours": "平日・土 7:00〜22:00／日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "高級ベーカリー"
+      "description": "高級ベーカリー",
+      "outlet": "available",
+      "seating": "yes",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-010",
@@ -99,7 +135,11 @@
       "floor": "2F",
       "hours": "月〜土 7:00〜22:00／日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "天丼・天むす弁当"
+      "description": "天丼・天むす弁当",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-011",
@@ -108,7 +148,11 @@
       "floor": "2F",
       "hours": "月〜土 8:30〜22:00／日祝 8:30〜20:30",
       "gateArea": "改札内",
-      "description": "ロティサリーチキン・サンドイッチ"
+      "description": "ロティサリーチキン・サンドイッチ",
+      "outlet": "unknown",
+      "seating": "unknown",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-012",
@@ -117,7 +161,11 @@
       "floor": "2F",
       "hours": "月〜土 8:30〜22:00／日祝 8:30〜20:30",
       "gateArea": "改札内",
-      "description": "韓国料理・惣菜"
+      "description": "韓国料理・惣菜",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-013",
@@ -126,7 +174,11 @@
       "floor": "2F",
       "hours": "月〜土 8:30〜22:00／日祝 8:30〜20:30",
       "gateArea": "改札内",
-      "description": "弁当・惣菜・豚肉専門"
+      "description": "弁当・惣菜・豚肉専門",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-014",
@@ -135,7 +187,11 @@
       "floor": "2F",
       "hours": "平日 7:00〜22:00／土日祝 7:00〜21:00",
       "gateArea": "改札内",
-      "description": "洋惣菜・サラダ"
+      "description": "洋惣菜・サラダ",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-015",
@@ -144,7 +200,11 @@
       "floor": "2F",
       "hours": "月〜土 8:00〜22:00／日祝 8:00〜20:30",
       "gateArea": "改札内",
-      "description": "洋菓子・チョコレートケーキ"
+      "description": "洋菓子・チョコレートケーキ",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-016",
@@ -153,7 +213,11 @@
       "floor": "2F",
       "hours": "月〜土 8:00〜22:00／日祝 8:00〜20:30",
       "gateArea": "改札内",
-      "description": "バターサンド専門店"
+      "description": "バターサンド専門店",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-017",
@@ -162,7 +226,11 @@
       "floor": "2F",
       "hours": "月〜土 8:00〜22:00／日祝 8:00〜20:30",
       "gateArea": "改札内",
-      "description": "洋菓子・焼菓子"
+      "description": "洋菓子・焼菓子",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-018",
@@ -171,7 +239,11 @@
       "floor": "2F",
       "hours": "月〜土 10:00〜21:00／日祝 10:00〜20:30",
       "gateArea": "改札内",
-      "description": "だし・惣菜・調味料"
+      "description": "だし・惣菜・調味料",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-019",
@@ -180,7 +252,11 @@
       "floor": "2F",
       "hours": "毎日 6:00〜22:00",
       "gateArea": "改札内",
-      "description": "駅弁・全国の名物弁当"
+      "description": "駅弁・全国の名物弁当",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-020",
@@ -189,7 +265,11 @@
       "floor": "2F",
       "hours": "平日・土 7:00〜22:00／日祝 7:00〜21:30",
       "gateArea": "改札内",
-      "description": "グルメスーパー・食品"
+      "description": "グルメスーパー・食品",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-021",
@@ -198,7 +278,11 @@
       "floor": "1F",
       "hours": "毎日 6:30〜23:00",
       "gateArea": "改札外",
-      "description": "JR東日本グループのコンビニ"
+      "description": "JR東日本グループのコンビニ",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-022",
@@ -207,7 +291,11 @@
       "floor": "2F",
       "hours": "月〜土 7:00〜22:00／日祝 7:00〜21:30",
       "gateArea": "改札内",
-      "description": "ドラッグストア・コスメ・雑貨"
+      "description": "ドラッグストア・コスメ・雑貨",
+      "outlet": "unknown",
+      "seating": "no",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-023",
@@ -216,7 +304,11 @@
       "floor": "1F",
       "hours": "8:00〜21:00（土日 8:00〜20:00）",
       "gateArea": "改札外",
-      "description": "JRビューカード対応ATM"
+      "description": "JRビューカード対応ATM",
+      "outlet": "unknown",
+      "seating": "unknown",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-024",
@@ -225,7 +317,11 @@
       "floor": "1F",
       "hours": "終日",
       "gateArea": "改札内",
-      "description": "男女・多目的トイレ・オストメイト対応"
+      "description": "男女・多目的トイレ・オストメイト対応",
+      "outlet": "unknown",
+      "seating": "unknown",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     },
     {
       "id": "om-025",
@@ -234,7 +330,11 @@
       "floor": "1F",
       "hours": "終日（ICカード対応）",
       "gateArea": "改札外",
-      "description": "大中小サイズあり・交通系ICカード対応"
+      "description": "大中小サイズあり・交通系ICカード対応",
+      "outlet": "unknown",
+      "seating": "unknown",
+      "crowded": "unknown",
+      "lastUpdated": "2026-04-15"
     }
   ]
 }
