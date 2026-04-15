@@ -11,7 +11,20 @@ export default function StationCard({ station }: StationCardProps) {
       <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-5 border border-gray-100 hover:border-blue-200">
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h2 className="text-xl font-bold text-gray-800">{station.name}</h2>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-xl font-bold text-gray-800">{station.name}</h2>
+              {station.brand && station.brandColor && (
+                <span
+                  className="text-xs font-bold px-1.5 py-0.5 rounded"
+                  style={{
+                    backgroundColor: `${station.brandColor}22`,
+                    color: station.brandColor,
+                  }}
+                >
+                  {station.brand.toUpperCase()}
+                </span>
+              )}
+            </div>
             {station.building && (
               <p className="text-sm text-gray-500 mt-0.5">{station.building}</p>
             )}

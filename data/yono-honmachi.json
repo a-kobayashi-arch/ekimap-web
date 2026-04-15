@@ -4,6 +4,8 @@
   "name": "与野本町駅",
   "nameEn": "Yono-Honmachi",
   "building": "Beans与野本町",
+  "brand": "beans",
+  "brandColor": "#00a651",
   "lines": [
     { "name": "埼京線", "color": "#009944" }
   ],

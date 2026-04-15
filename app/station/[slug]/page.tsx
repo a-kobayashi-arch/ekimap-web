@@ -27,7 +27,20 @@ export default async function StationPage({ params }: Props) {
       <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">{station.name}</h1>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h1 className="text-2xl font-bold text-gray-800">{station.name}</h1>
+              {station.brand && station.brandColor && (
+                <span
+                  className="text-xs font-bold px-2 py-0.5 rounded"
+                  style={{
+                    backgroundColor: `${station.brandColor}22`,
+                    color: station.brandColor,
+                  }}
+                >
+                  {station.brand.toUpperCase()}
+                </span>
+              )}
+            </div>
             {station.building && (
               <p className="text-sm text-gray-500 mt-0.5">{station.building}</p>
             )}

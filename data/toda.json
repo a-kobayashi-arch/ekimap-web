@@ -4,6 +4,8 @@
   "name": "戸田駅",
   "nameEn": "Toda",
   "building": "Beans戸田",
+  "brand": "beans",
+  "brandColor": "#00a651",
   "lines": [
     { "name": "埼京線", "color": "#009944" }
   ],

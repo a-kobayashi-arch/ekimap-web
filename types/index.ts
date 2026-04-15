@@ -25,12 +25,16 @@ export interface StationLine {
   color: string;
 }
 
+export type BrandId = "ecute" | "beans" | "gransta" | "equia" | "emio";
+
 export interface Station {
   id: string;
   slug: string;
   name: string;
   nameEn: string;
   building?: string | null;
+  brand?: BrandId;
+  brandColor?: string;
   lines: StationLine[];
   facilities: Facility[];
 }

@@ -4,6 +4,8 @@
   "name": "大宮駅",
   "nameEn": "Omiya",
   "building": "エキュート大宮",
+  "brand": "ecute",
+  "brandColor": "#e60012",
   "lines": [
     { "name": "埼京線", "color": "#009944" },
     { "name": "京浜東北線", "color": "#e60012" },

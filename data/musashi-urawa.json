@@ -4,6 +4,8 @@
   "name": "武蔵浦和駅",
   "nameEn": "Musashi-Urawa",
   "building": "Beans武蔵浦和",
+  "brand": "beans",
+  "brandColor": "#00a651",
   "lines": [
     { "name": "埼京線", "color": "#009944" },
     { "name": "武蔵野線", "color": "#f68b1e" }
