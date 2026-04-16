@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import type { Facility, GateArea } from "@/types";
+import type { Facility, GateArea, StationExit } from "@/types";
 import ReportModal from "./ReportModal";
+import { calcFacilityTransferTime } from "@/lib/transferTimeCalculator";
 
 const categoryEmoji: Record<string, string> = {
   飲食店: "🍽️",
@@ -71,6 +72,7 @@ function CrowdedIcon({ status }: { status?: string }) {
 interface FacilityCardProps {
   facility: Facility;
   stationId: string;
+  exits?: StationExit[];
   visited: boolean;
   interested: boolean;
   onToggleVisited: () => void;
@@ -80,6 +82,7 @@ interface FacilityCardProps {
 export default function FacilityCard({
   facility,
   stationId,
+  exits,
   visited,
   interested,
   onToggleVisited,
@@ -92,6 +95,14 @@ export default function FacilityCard({
     facility.outlet !== undefined ||
     facility.seating !== undefined ||
     facility.crowded !== undefined;
+
+  // 乗り換え時間の計算
+  const transferResult = calcFacilityTransferTime(
+    facility.distanceFromExit,
+    facility.floorsToClimb,
+    stationId
+  );
+  const nearestExitInfo = exits?.find((e) => e.id === facility.nearestExit);
 
   return (
     <>
@@ -127,6 +138,22 @@ export default function FacilityCard({
             )}
           </div>
         </div>
+
+        {/* Transfer time info */}
+        {transferResult && (
+          <div className="mt-2 px-3 py-2 bg-gray-50 rounded-lg text-xs text-gray-600 flex flex-wrap gap-x-4 gap-y-1">
+            {nearestExitInfo && (
+              <span>🚪 {nearestExitInfo.name}</span>
+            )}
+            <span>
+              ⏱ <span className="font-semibold text-gray-800">{transferResult.minutes}分</span>
+              <span className="text-gray-400 ml-1">（目安 {transferResult.range}）</span>
+            </span>
+            {facility.areaInBuilding && (
+              <span>🏢 {facility.areaInBuilding}</span>
+            )}
+          </div>
+        )}
 
         {/* Action buttons */}
         <div className="mt-3 flex gap-2 justify-between items-center">

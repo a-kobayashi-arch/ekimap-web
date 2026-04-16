@@ -18,11 +18,22 @@ export interface Facility {
   seating?: SeatingStatus;
   crowded?: CrowdedStatus;
   lastUpdated?: string;
+  // 乗り換え時間
+  nearestExit?: string;
+  areaInBuilding?: string;
+  distanceFromExit?: number;
+  floorsToClimb?: number;
 }
 
 export interface StationLine {
   name: string;
   color: string;
+}
+
+export interface StationExit {
+  id: string;
+  name: string;
+  description: string;
 }
 
 export type BrandId = "ecute" | "beans" | "gransta" | "equia" | "emio";
@@ -36,5 +47,6 @@ export interface Station {
   brand?: BrandId;
   brandColor?: string;
   lines: StationLine[];
+  exits?: StationExit[];
   facilities: Facility[];
 }

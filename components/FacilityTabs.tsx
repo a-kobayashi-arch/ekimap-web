@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import type { Category, Facility } from "@/types";
+import type { Category, Facility, StationExit } from "@/types";
 import FacilityCard from "./FacilityCard";
 
 const CATEGORIES: Category[] = ["飲食店", "ショップ", "サービス", "設備", "その他"];
@@ -10,9 +10,10 @@ const ALL_TAB = "すべて";
 interface FacilityTabsProps {
   facilities: Facility[];
   stationId: string;
+  exits?: StationExit[];
 }
 
-export default function FacilityTabs({ facilities, stationId }: FacilityTabsProps) {
+export default function FacilityTabs({ facilities, stationId, exits }: FacilityTabsProps) {
   const [activeTab, setActiveTab] = useState<string>(ALL_TAB);
   const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
   const [interestedIds, setInterestedIds] = useState<Set<string>>(new Set());
@@ -120,6 +121,7 @@ export default function FacilityTabs({ facilities, stationId }: FacilityTabsProp
             key={facility.id}
             facility={facility}
             stationId={stationId}
+            exits={exits}
             visited={visitedIds.has(facility.id)}
             interested={interestedIds.has(facility.id)}
             onToggleVisited={() => toggle(facility.id, visitedIds, setVisitedIds, visitedKey)}
