@@ -40,7 +40,7 @@ export default function FacilityTabs({ facilities, stationId, exits }: FacilityT
   ) {
     setter(() => {
       const next = new Set(current);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) { next.delete(id); } else { next.add(id); }
       try { localStorage.setItem(key, JSON.stringify([...next])); } catch {}
       return next;
     });

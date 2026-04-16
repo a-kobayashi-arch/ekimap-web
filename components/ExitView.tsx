@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Station, StationExit, Facility } from "@/types";
+import type { Station, Facility } from "@/types";
 import { calcFacilityTransferTime } from "@/lib/transferTimeCalculator";
 
 interface ExitViewProps {
@@ -50,9 +50,9 @@ function FacilityRow({
 
 export default function ExitView({ station }: ExitViewProps) {
   const exits = station.exits;
-  if (!exits || exits.length === 0) return null;
+  const [activeExit, setActiveExit] = useState<string>(exits?.[0]?.id ?? "");
 
-  const [activeExit, setActiveExit] = useState<string>(exits[0].id);
+  if (!exits || exits.length === 0) return null;
 
   // 選択中の改札に対応する施設を抽出し、距離昇順でソート
   const facilitiesForExit = station.facilities
