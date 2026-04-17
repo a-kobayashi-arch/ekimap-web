@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getStationBySlug, getAllStations } from "@/lib/stations";
 import FacilityTabs from "@/components/FacilityTabs";
-import ExitView from "@/components/ExitView";
 
 export function generateStaticParams() {
   return getAllStations().map((s) => ({ slug: s.slug }));
@@ -64,7 +63,7 @@ export default async function StationPage({ params }: Props) {
         </p>
       </div>
 
-      {/* Facilities */}
+      {/* Facilities — building tabs / exit tabs / category tabs をすべて統合 */}
       <section>
         <h2 className="font-semibold text-gray-700 mb-3">施設一覧</h2>
         <FacilityTabs
@@ -74,11 +73,6 @@ export default async function StationPage({ params }: Props) {
           buildings={station.buildings}
         />
       </section>
-
-      {/* Exit-based navigation (shown only when exits data exists) */}
-      {station.exits && station.exits.length > 0 && (
-        <ExitView station={station} />
-      )}
     </div>
   );
 }
