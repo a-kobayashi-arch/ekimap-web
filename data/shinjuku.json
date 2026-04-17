@@ -1,0 +1,203 @@
+{
+  "id": "shinjuku",
+  "slug": "shinjuku",
+  "name": "新宿駅",
+  "nameEn": "Shinjuku",
+  "building": null,
+  "lines": [
+    { "name": "埼京線", "color": "#009944" },
+    { "name": "山手線", "color": "#9acd32" },
+    { "name": "中央線", "color": "#e15b00" }
+  ],
+  "operators": [
+    {
+      "name": "JR東日本",
+      "color": "#1a7b3c",
+      "groups": [
+        {
+          "label": "山手・埼京系",
+          "lines": [
+            { "name": "山手線" },
+            { "name": "埼京線" },
+            { "name": "湘南新宿ライン" }
+          ]
+        },
+        {
+          "label": "中央・総武系",
+          "lines": [
+            { "name": "中央線快速" },
+            { "name": "総武線（各停）" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "京王電鉄",
+      "color": "#8b2346",
+      "lines": [
+        { "name": "京王線" },
+        { "name": "京王新線" }
+      ]
+    },
+    {
+      "name": "小田急電鉄",
+      "color": "#0072bc",
+      "url": "https://www.odakyu.jp/station/shinjuku/",
+      "lines": [
+        { "name": "小田急小田原線", "shortName": "小田急線" }
+      ]
+    },
+    {
+      "name": "東京都交通局",
+      "color": "#6cba3a",
+      "lines": [
+        { "name": "都営新宿線" },
+        { "name": "都営大江戸線（新宿駅・新宿西口駅）" }
+      ]
+    },
+    {
+      "name": "東京メトロ",
+      "color": "#f39700",
+      "url": "https://www.tokyometro.jp/station/shinjuku/",
+      "lines": [
+        { "name": "丸ノ内線" }
+      ]
+    }
+  ],
+  "exits": [
+    { "id": "south-exit", "name": "南改札", "description": "新南改札・ミライナタワー方面" },
+    { "id": "east-exit", "name": "東改札", "description": "中央東口・新宿東口方面" },
+    { "id": "west-exit", "name": "西改札", "description": "西口・都庁・小田急方面" },
+    { "id": "north-exit", "name": "北改札", "description": "北口・東南口方面" }
+  ],
+  "facilities": [
+    {
+      "id": "sjk-001",
+      "name": "NewDays 新宿東口改札内店",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "5:30〜24:00",
+      "gateArea": "改札内",
+      "description": "JR東日本グループのコンビニ"
+    },
+    {
+      "id": "sjk-002",
+      "name": "NewDays 新宿南改札内店",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "5:30〜24:00",
+      "gateArea": "改札内",
+      "description": "JR東日本グループのコンビニ（南改札内）"
+    },
+    {
+      "id": "sjk-003",
+      "name": "BECK'S COFFEE SHOP 新宿東口店",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜22:30",
+      "gateArea": "改札内",
+      "description": "JR東日本のカフェチェーン",
+      "seating": "yes"
+    },
+    {
+      "id": "sjk-004",
+      "name": "BERG 新宿",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜23:00",
+      "gateArea": "改札内",
+      "description": "新宿東口改札内の老舗ビアホール。軽食・ビールが人気",
+      "seating": "yes",
+      "outlet": "unknown"
+    },
+    {
+      "id": "sjk-005",
+      "name": "ビューアルッテ（ATM）",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "7:00〜23:00",
+      "gateArea": "改札内",
+      "description": "Suicaチャージ対応ATM"
+    },
+    {
+      "id": "sjk-006",
+      "name": "トイレ（東改札内）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "終日",
+      "gateArea": "改札内",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "sjk-007",
+      "name": "トイレ（南改札内）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "終日",
+      "gateArea": "改札内",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "sjk-008",
+      "name": "トイレ（西改札内）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "終日",
+      "gateArea": "改札内",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "sjk-009",
+      "name": "コインロッカー（南口）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外",
+      "description": "交通系ICカード対応・大型サイズあり"
+    },
+    {
+      "id": "sjk-010",
+      "name": "コインロッカー（東口）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外",
+      "description": "交通系ICカード対応"
+    },
+    {
+      "id": "sjk-011",
+      "name": "コインロッカー（西口）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外",
+      "description": "交通系ICカード対応・大型サイズあり"
+    },
+    {
+      "id": "sjk-012",
+      "name": "みどりの窓口",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "7:30〜20:00",
+      "gateArea": "改札外",
+      "description": "乗車券・指定席券の購入"
+    },
+    {
+      "id": "sjk-013",
+      "name": "指定席券売機",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外"
+    },
+    {
+      "id": "sjk-014",
+      "name": "新宿ステーションインフォメーション",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "7:00〜21:00",
+      "gateArea": "改札外",
+      "description": "観光・乗換案内所"
+    }
+  ]
+}

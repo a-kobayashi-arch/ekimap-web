@@ -1,0 +1,165 @@
+{
+  "id": "ikebukuro",
+  "slug": "ikebukuro",
+  "name": "池袋駅",
+  "nameEn": "Ikebukuro",
+  "building": "エキュート池袋",
+  "brand": "ecute",
+  "brandColor": "#e60012",
+  "lines": [
+    { "name": "埼京線", "color": "#009944" },
+    { "name": "山手線", "color": "#9acd32" },
+    { "name": "東武東上線", "color": "#f07c00" },
+    { "name": "西武池袋線", "color": "#1e50a2" }
+  ],
+  "operators": [
+    {
+      "name": "JR東日本",
+      "color": "#1a7b3c",
+      "lines": [
+        { "name": "山手線" },
+        { "name": "埼京線" },
+        { "name": "湘南新宿ライン" }
+      ]
+    },
+    {
+      "name": "東武鉄道",
+      "color": "#f07c00",
+      "url": "https://www.tobu.co.jp/railway/guide/station/info/3001/",
+      "lines": [
+        { "name": "東武東上線" }
+      ]
+    },
+    {
+      "name": "西武鉄道",
+      "color": "#1e50a2",
+      "lines": [
+        { "name": "西武池袋線" }
+      ]
+    },
+    {
+      "name": "東京メトロ",
+      "color": "#f39700",
+      "url": "https://www.tokyometro.jp/station/ikebukuro/",
+      "lines": [
+        { "name": "丸ノ内線" },
+        { "name": "有楽町線" },
+        { "name": "副都心線" }
+      ]
+    }
+  ],
+  "exits": [
+    { "id": "west-exit", "name": "西口改札", "description": "JR池袋西口・東武・西武方面" },
+    { "id": "east-exit", "name": "東口改札", "description": "JR池袋東口・東京メトロ方面" }
+  ],
+  "facilities": [
+    {
+      "id": "ike-001",
+      "name": "NewDays 池袋西口店",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "5:30〜24:00",
+      "gateArea": "改札内",
+      "description": "JR東日本グループのコンビニ"
+    },
+    {
+      "id": "ike-002",
+      "name": "BECK'S COFFEE SHOP 池袋西口店",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜22:30",
+      "gateArea": "改札内",
+      "description": "JR東日本のカフェチェーン",
+      "seating": "yes"
+    },
+    {
+      "id": "ike-003",
+      "name": "エキュート池袋（改札内ショップ街）",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "JR東日本の駅ナカ商業施設。食品・雑貨・カフェ等"
+    },
+    {
+      "id": "ike-004",
+      "name": "Subway 池袋改札内店",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜22:00",
+      "gateArea": "改札内",
+      "seating": "no"
+    },
+    {
+      "id": "ike-005",
+      "name": "ビューアルッテ（ATM）",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "7:00〜23:00",
+      "gateArea": "改札内",
+      "description": "Suicaチャージ対応ATM"
+    },
+    {
+      "id": "ike-006",
+      "name": "トイレ（西口改札内）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "終日",
+      "gateArea": "改札内",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "ike-007",
+      "name": "トイレ（東口改札内）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "終日",
+      "gateArea": "改札内",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "ike-008",
+      "name": "コインロッカー（西口改札外）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外",
+      "description": "交通系ICカード対応・大型サイズあり"
+    },
+    {
+      "id": "ike-009",
+      "name": "コインロッカー（東口改札外）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外",
+      "description": "交通系ICカード対応"
+    },
+    {
+      "id": "ike-010",
+      "name": "みどりの窓口",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "7:30〜20:00",
+      "gateArea": "改札外",
+      "description": "乗車券・指定席券の購入"
+    },
+    {
+      "id": "ike-011",
+      "name": "指定席券売機",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外"
+    },
+    {
+      "id": "ike-012",
+      "name": "NewDays 池袋東口店",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "5:30〜24:00",
+      "gateArea": "改札内",
+      "description": "JR東日本グループのコンビニ（東口改札内）"
+    }
+  ]
+}

@@ -8,6 +8,9 @@ import musashiUrawa from "@/data/musashi-urawa.json";
 import todaKoen from "@/data/toda-koen.json";
 import toda from "@/data/toda.json";
 import kitaToda from "@/data/kita-toda.json";
+import akabane from "@/data/akabane.json";
+import ikebukuro from "@/data/ikebukuro.json";
+import shinjuku from "@/data/shinjuku.json";
 
 /**
  * buildings が複数ある駅は、building フィールド未設定の施設に
@@ -27,9 +30,10 @@ function processStation(raw: unknown): Station {
   };
 }
 
-// 埼京線 大宮→戸田公園（埼玉県内・南行き順）
+// 埼京線 大宮→新宿（南行き順）
 // 大宮(JA26)→北与野(JA25)→与野本町(JA24)→南与野(JA23)→中浦和(JA22)
 // →武蔵浦和(JA21)→北戸田(JA20)→戸田(JA19)→戸田公園(JA18)
+// →赤羽(JA13)→池袋(JA12)→新宿(JA11)
 const stations: Station[] = [
   processStation(omiyaRaw),
   kitaYono,
@@ -40,6 +44,9 @@ const stations: Station[] = [
   kitaToda,
   toda,
   todaKoen,
+  akabane,
+  ikebukuro,
+  shinjuku,
 ] as Station[];
 
 export function getAllStations(): Station[] {

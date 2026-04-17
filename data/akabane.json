@@ -1,0 +1,112 @@
+{
+  "id": "akabane",
+  "slug": "akabane",
+  "name": "赤羽駅",
+  "nameEn": "Akabane",
+  "building": null,
+  "lines": [
+    { "name": "埼京線", "color": "#009944" },
+    { "name": "京浜東北線", "color": "#00b2e3" }
+  ],
+  "operators": [
+    {
+      "name": "JR東日本",
+      "color": "#1a7b3c",
+      "groups": [
+        {
+          "label": "近距離電車",
+          "lines": [
+            { "name": "埼京線" },
+            { "name": "京浜東北線" }
+          ]
+        },
+        {
+          "label": "中距離電車",
+          "lines": [
+            { "name": "宇都宮線" },
+            { "name": "高崎線" },
+            { "name": "湘南新宿ライン" },
+            { "name": "上野東京ライン" }
+          ]
+        }
+      ]
+    }
+  ],
+  "exits": [
+    { "id": "east-exit", "name": "東口", "description": "JR赤羽駅東口改札" },
+    { "id": "west-exit", "name": "西口", "description": "JR赤羽駅西口改札" }
+  ],
+  "facilities": [
+    {
+      "id": "aka-001",
+      "name": "NewDays 赤羽店",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "5:30〜23:30",
+      "gateArea": "改札内",
+      "description": "JR東日本グループのコンビニ"
+    },
+    {
+      "id": "aka-002",
+      "name": "BECK'S COFFEE SHOP 赤羽店",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜22:00",
+      "gateArea": "改札内",
+      "description": "JR東日本のカフェチェーン",
+      "seating": "yes"
+    },
+    {
+      "id": "aka-003",
+      "name": "ベルマート キオスク 赤羽",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "6:00〜23:00",
+      "gateArea": "改札内"
+    },
+    {
+      "id": "aka-004",
+      "name": "ビューアルッテ（ATM）",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "7:00〜23:00",
+      "gateArea": "改札内",
+      "description": "Suicaチャージ対応ATM"
+    },
+    {
+      "id": "aka-005",
+      "name": "トイレ（改札内）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "終日",
+      "gateArea": "改札内",
+      "description": "男女・多目的トイレ"
+    },
+    {
+      "id": "aka-006",
+      "name": "コインロッカー（東口改札外）",
+      "category": "設備",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外",
+      "description": "交通系ICカード対応"
+    },
+    {
+      "id": "aka-007",
+      "name": "みどりの窓口",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "7:30〜20:00",
+      "gateArea": "改札外",
+      "description": "乗車券・指定席券の購入"
+    },
+    {
+      "id": "aka-008",
+      "name": "指定席券売機",
+      "category": "サービス",
+      "floor": "1F",
+      "hours": "始発〜終電",
+      "gateArea": "改札外"
+    }
+  ]
+}
