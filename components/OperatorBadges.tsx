@@ -14,7 +14,7 @@ export default function OperatorBadges({ operators }: OperatorBadgesProps) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {operators.map((op) => {
-        const summary = summarizeOperator(op);
+        const summary = summarizeOperator(op, true);
         return (
           <span
             key={op.name}

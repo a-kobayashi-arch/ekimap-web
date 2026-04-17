@@ -40,7 +40,8 @@ export interface StationExit {
 
 /** 路線単体（Operator 内で使用） */
 export interface OperatorLine {
-  name: string;
+  name: string;          // 正式名（詳細画面で使用）
+  shortName?: string;    // 短縮名（一覧カードで使用）。空文字列の場合は非表示
   color?: string;
 }
 

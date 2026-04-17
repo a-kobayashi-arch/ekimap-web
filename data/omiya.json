@@ -48,7 +48,7 @@
       "color": "#f07c00",
       "url": "https://www.tobu.co.jp/railway/guide/station/info/6102/",
       "lines": [
-        { "name": "東武アーバンパークライン（野田線）" }
+        { "name": "東武アーバンパークライン（野田線）", "shortName": "東武アーバンパークライン" }
       ]
     },
     {
@@ -56,7 +56,7 @@
       "color": "#0097d6",
       "url": "https://www.new-shuttle.jp/",
       "lines": [
-        { "name": "ニューシャトル（伊奈線）" }
+        { "name": "ニューシャトル（伊奈線）", "shortName": "" }
       ]
     }
   ],
