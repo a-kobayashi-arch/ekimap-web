@@ -1,0 +1,29 @@
+import type { Operator } from "@/types";
+
+/**
+ * 事業者の路線サマリーを生成する
+ * - groups あり → "新幹線 6路線 / 在来線 7路線"
+ * - lines が1本 → 路線名をそのまま返す
+ * - lines が複数 → "N路線"
+ */
+export function summarizeOperator(op: Operator): string {
+  if (op.groups && op.groups.length > 0) {
+    return op.groups
+      .map((g) => `${g.label} ${g.lines.length}`)
+      .join(" / ");
+  }
+  if (op.lines && op.lines.length === 1) {
+    return op.lines[0].name;
+  }
+  if (op.lines && op.lines.length > 1) {
+    return `${op.lines.length}路線`;
+  }
+  return "";
+}
+
+/** 事業者が展開表示を持つか（1路線のみの場合は不要） */
+export function isExpandable(op: Operator): boolean {
+  if (op.groups && op.groups.length > 0) return true;
+  if (op.lines && op.lines.length > 1) return true;
+  return false;
+}

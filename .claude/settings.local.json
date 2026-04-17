@@ -28,7 +28,10 @@
       "WebFetch(domain:ja.wikipedia.org)",
       "WebFetch(domain:tabelog.com)",
       "Bash(grep -h '\"category\"' data/*.json)",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

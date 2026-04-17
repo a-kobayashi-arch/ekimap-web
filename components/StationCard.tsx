@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Station } from "@/types";
+import OperatorBadges from "./OperatorBadges";
 
 interface StationCardProps {
   station: Station;
@@ -32,16 +33,21 @@ export default function StationCard({ station }: StationCardProps) {
           <span className="text-3xl">🚉</span>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-3">
-          {station.lines.map((line) => (
-            <span
-              key={line.name}
-              className="text-xs font-semibold text-white px-2.5 py-1 rounded-full"
-              style={{ backgroundColor: line.color }}
-            >
-              {line.name}
-            </span>
-          ))}
+        {/* 路線 / 事業者バッジ */}
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {station.operators ? (
+            <OperatorBadges operators={station.operators} />
+          ) : (
+            station.lines.map((line) => (
+              <span
+                key={line.name}
+                className="text-xs font-semibold text-white px-2.5 py-1 rounded-full"
+                style={{ backgroundColor: line.color }}
+              >
+                {line.name}
+              </span>
+            ))
+          )}
         </div>
 
         <div className="flex items-center justify-between text-sm text-gray-500">

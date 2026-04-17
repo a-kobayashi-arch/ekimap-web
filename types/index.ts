@@ -38,6 +38,34 @@ export interface StationExit {
   description: string;
 }
 
+/** 路線単体（Operator 内で使用） */
+export interface OperatorLine {
+  name: string;
+  color?: string;
+}
+
+/**
+ * 路線グループ（新幹線・在来線など事業者内のサブ区分）
+ * 大型ターミナル駅でのみ使用
+ */
+export interface LineGroup {
+  label: string;       // "新幹線" | "在来線" | "地下鉄" | etc.
+  lines: OperatorLine[];
+}
+
+/**
+ * 鉄道事業者
+ * - groups: 新幹線/在来線などに分けたい大型事業者
+ * - lines:  グループ分け不要のシンプル事業者
+ */
+export interface Operator {
+  name: string;         // "JR東日本" / "東武鉄道" etc.
+  color: string;        // 事業者バッジ色
+  url?: string;         // 事業者の駅公式ページ
+  groups?: LineGroup[];
+  lines?: OperatorLine[];
+}
+
 /** 駅構内の複数ビルディング（南口・北口など）定義 */
 export interface Building {
   id: string;
@@ -55,7 +83,8 @@ export interface Station {
   building?: string | null;
   brand?: BrandId;
   brandColor?: string;
-  lines: StationLine[];
+  lines: StationLine[];          // 後方互換: operators がない駅で使用
+  operators?: Operator[];        // 事業者単位の豊富な路線情報
   exits?: StationExit[];
   buildings?: Building[];
   facilities: Facility[];

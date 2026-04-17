@@ -12,6 +12,54 @@
     { "name": "高崎線", "color": "#f68b1e" },
     { "name": "東北新幹線", "color": "#009944" }
   ],
+  "operators": [
+    {
+      "name": "JR東日本",
+      "color": "#1a7b3c",
+      "url": "https://www.jreast.co.jp/estation/stations/910.html",
+      "groups": [
+        {
+          "label": "新幹線",
+          "lines": [
+            { "name": "東北新幹線" },
+            { "name": "北海道新幹線" },
+            { "name": "山形新幹線（つばさ）" },
+            { "name": "秋田新幹線（こまち）" },
+            { "name": "上越新幹線" },
+            { "name": "北陸新幹線" }
+          ]
+        },
+        {
+          "label": "在来線",
+          "lines": [
+            { "name": "宇都宮線（東北本線）" },
+            { "name": "高崎線" },
+            { "name": "湘南新宿ライン" },
+            { "name": "上野東京ライン" },
+            { "name": "京浜東北線" },
+            { "name": "埼京線" },
+            { "name": "川越線" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "東武鉄道",
+      "color": "#f07c00",
+      "url": "https://railway.tobu.co.jp/guide/station/info/1102.html",
+      "lines": [
+        { "name": "東武アーバンパークライン（野田線）" }
+      ]
+    },
+    {
+      "name": "ニューシャトル",
+      "color": "#0097d6",
+      "url": "https://www.new-shuttle.jp/",
+      "lines": [
+        { "name": "ニューシャトル（伊奈線）" }
+      ]
+    }
+  ],
   "buildings": [
     { "id": "south", "name": "南口", "label": "エキュート大宮" },
     { "id": "north", "name": "北口", "label": "エキュート大宮ノース" }
