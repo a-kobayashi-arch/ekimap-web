@@ -26,6 +26,8 @@ export default function StampProgress({ station }: StampProgressProps) {
   const percent = total > 0 ? Math.round((visitedCount / total) * 100) : 0;
   const isComplete = visitedCount === total;
 
+  const hasMultiBuildings = (station.buildings?.length ?? 0) >= 2;
+
   return (
     <div className={`rounded-2xl p-5 ${isComplete ? "bg-yellow-50 border border-yellow-200" : "bg-white border border-gray-100"} shadow-sm`}>
       <div className="flex items-center justify-between mb-3">
@@ -56,6 +58,29 @@ export default function StampProgress({ station }: StampProgressProps) {
         />
       </div>
       <p className="text-right text-xs text-gray-400 mt-1">{percent}%</p>
+
+      {/* Building別サブ進捗（複数ビルディングがある場合のみ） */}
+      {hasMultiBuildings && station.buildings && (
+        <div className="flex gap-2 mt-3">
+          {station.buildings.map((b) => {
+            const bFacilities = station.facilities.filter((f) => f.building === b.id);
+            const bTotal = bFacilities.length;
+            const bVisited = bFacilities.filter((f) => visitedIds.has(f.id)).length;
+            return (
+              <div
+                key={b.id}
+                className="flex-1 bg-gray-50 rounded-xl px-3 py-2 border border-gray-100"
+              >
+                <p className="text-xs text-gray-500 font-medium">{b.name} · {b.label}</p>
+                <p className="text-sm font-bold text-green-600 mt-0.5">
+                  {bVisited}
+                  <span className="text-xs font-normal text-gray-400"> / {bTotal}</span>
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {isComplete && (
         <p className="text-center text-yellow-700 font-semibold mt-2 text-sm">

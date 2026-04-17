@@ -71,6 +71,7 @@ export default async function StationPage({ params }: Props) {
           facilities={station.facilities}
           stationId={station.id}
           exits={station.exits}
+          buildings={station.buildings}
         />
       </section>
 

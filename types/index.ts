@@ -23,6 +23,8 @@ export interface Facility {
   areaInBuilding?: string;
   distanceFromExit?: number;
   floorsToClimb?: number;
+  // 複数ビルディング
+  building?: string;
 }
 
 export interface StationLine {
@@ -34,6 +36,13 @@ export interface StationExit {
   id: string;
   name: string;
   description: string;
+}
+
+/** 駅構内の複数ビルディング（南口・北口など）定義 */
+export interface Building {
+  id: string;
+  name: string;
+  label: string;
 }
 
 export type BrandId = "ecute" | "beans" | "gransta" | "equia" | "emio";
@@ -48,5 +57,6 @@ export interface Station {
   brandColor?: string;
   lines: StationLine[];
   exits?: StationExit[];
+  buildings?: Building[];
   facilities: Facility[];
 }

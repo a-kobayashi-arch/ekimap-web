@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import type { Category, Facility, StationExit } from "@/types";
+import type { Building, Category, Facility, StationExit } from "@/types";
 import FacilityCard from "./FacilityCard";
 
 const CATEGORIES: Category[] = ["飲食店", "ショップ", "サービス", "設備", "その他"];
@@ -11,9 +11,14 @@ interface FacilityTabsProps {
   facilities: Facility[];
   stationId: string;
   exits?: StationExit[];
+  buildings?: Building[];
 }
 
-export default function FacilityTabs({ facilities, stationId, exits }: FacilityTabsProps) {
+export default function FacilityTabs({ facilities, stationId, exits, buildings }: FacilityTabsProps) {
+  const hasMultiBuildings = (buildings?.length ?? 0) >= 2;
+  const defaultBuilding = buildings?.[0]?.id ?? "";
+
+  const [activeBuilding, setActiveBuilding] = useState<string>(defaultBuilding);
   const [activeTab, setActiveTab] = useState<string>(ALL_TAB);
   const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
   const [interestedIds, setInterestedIds] = useState<Set<string>>(new Set());
@@ -46,11 +51,21 @@ export default function FacilityTabs({ facilities, stationId, exits }: FacilityT
     });
   }
 
+  function handleBuildingChange(buildingId: string) {
+    setActiveBuilding(buildingId);
+    setActiveTab(ALL_TAB); // タブ切り替え時はカテゴリをリセット
+  }
+
+  // Building filter
+  const buildingFiltered = hasMultiBuildings
+    ? facilities.filter((f) => f.building === activeBuilding)
+    : facilities;
+
   // Category filter
   const categoryFiltered =
     activeTab === ALL_TAB
-      ? facilities
-      : facilities.filter((f) => f.category === activeTab);
+      ? buildingFiltered
+      : buildingFiltered.filter((f) => f.category === activeTab);
 
   // Attribute filters
   const displayed = categoryFiltered.filter((f) => {
@@ -63,13 +78,39 @@ export default function FacilityTabs({ facilities, stationId, exits }: FacilityT
 
   return (
     <div>
-      {/* Tab bar */}
+      {/* Building tabs (複数ビルディングがある場合のみ表示) */}
+      {hasMultiBuildings && buildings && (
+        <div className="flex gap-1 p-1 bg-gray-100 rounded-2xl mb-4">
+          {buildings.map((b) => {
+            const count = facilities.filter((f) => f.building === b.id).length;
+            const isActive = activeBuilding === b.id;
+            return (
+              <button
+                key={b.id}
+                onClick={() => handleBuildingChange(b.id)}
+                className={`flex-1 flex flex-col items-center py-2 px-3 rounded-xl transition-all text-sm font-semibold ${
+                  isActive
+                    ? "bg-white shadow text-gray-900"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                <span>{b.name}</span>
+                <span className={`text-xs font-normal mt-0.5 ${isActive ? "text-gray-500" : "text-gray-400"}`}>
+                  {b.label} · {count}件
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Category tab bar */}
       <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-none">
         {tabs.map((tab) => {
           const count =
             tab === ALL_TAB
-              ? facilities.length
-              : facilities.filter((f) => f.category === tab).length;
+              ? buildingFiltered.length
+              : buildingFiltered.filter((f) => f.category === tab).length;
           if (tab !== ALL_TAB && count === 0) return null;
           return (
             <button
