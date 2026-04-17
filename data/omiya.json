@@ -15,13 +15,13 @@
   "exits": [
     {
       "id": "south-exit",
-      "name": "南改札（中央改札）",
-      "description": "埼京線・高崎線・東北新幹線ホームに近い。JR大宮駅メインゲート。"
+      "name": "中央改札（南）",
+      "description": "大宮駅メインゲート。高崎線・上越新幹線方面ホームに近い。街への主要出入口。"
     },
     {
       "id": "north-exit",
-      "name": "北改札",
-      "description": "京浜東北線・東武野田線ホームに近い。北口方面への最短ルート。"
+      "name": "南改札",
+      "description": "埼京線・東北新幹線（南のりかえ口）に近い。プラットホーム19〜22番線側。"
     }
   ],
   "facilities": [
@@ -36,11 +36,11 @@
       "outlet": "unknown",
       "seating": "unknown",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 40,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-002",
@@ -53,11 +53,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 42,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-003",
@@ -70,11 +70,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 44,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-004",
@@ -87,11 +87,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 46,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-005",
@@ -104,11 +104,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 48,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-006",
@@ -121,11 +121,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 50,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-007",
@@ -138,11 +138,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 52,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-008",
@@ -155,11 +155,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 54,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-009",
@@ -172,11 +172,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 56,
-      "floorsToClimb": 1
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-010",
@@ -189,11 +189,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 58,
-      "floorsToClimb": 1
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-011",
@@ -206,11 +206,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 42,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 70,
+      "floorsToClimb": 0
     },
     {
       "id": "om-012",
@@ -223,11 +223,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 38,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-013",
@@ -240,11 +240,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 40,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-014",
@@ -257,11 +257,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 44,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 45,
+      "floorsToClimb": 0
     },
     {
       "id": "om-015",
@@ -274,11 +274,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 46,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-016",
@@ -291,11 +291,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 48,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-017",
@@ -308,11 +308,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 50,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-018",
@@ -325,11 +325,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 52,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-019",
@@ -342,11 +342,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 54,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-020",
@@ -359,11 +359,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 56,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-021",
@@ -376,11 +376,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 58,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-022",
@@ -393,11 +393,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "north-exit",
+      "areaInBuilding": "西エリア（南改札）",
       "distanceFromExit": 60,
-      "floorsToClimb": 1
+      "floorsToClimb": 0
     },
     {
       "id": "om-023",
@@ -410,9 +410,9 @@
       "outlet": "available",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（改札直近）",
+      "areaInBuilding": "中央改札エリア（改札直近）",
       "distanceFromExit": 15,
       "floorsToClimb": 0
     },
@@ -427,11 +427,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
+      "areaInBuilding": "中央エリア",
       "distanceFromExit": 50,
-      "floorsToClimb": 1
+      "floorsToClimb": 0
     },
     {
       "id": "om-025",
@@ -444,11 +444,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 52,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-026",
@@ -461,11 +461,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 40,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-027",
@@ -478,11 +478,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 42,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-028",
@@ -495,11 +495,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 44,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-029",
@@ -512,11 +512,11 @@
       "outlet": "available",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 38,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 25,
+      "floorsToClimb": 0
     },
     {
       "id": "om-030",
@@ -529,11 +529,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 46,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-031",
@@ -546,11 +546,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 48,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-032",
@@ -563,11 +563,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 36,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 35,
+      "floorsToClimb": 0
     },
     {
       "id": "om-033",
@@ -580,11 +580,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 38,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 35,
+      "floorsToClimb": 0
     },
     {
       "id": "om-034",
@@ -597,11 +597,11 @@
       "outlet": "available",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
       "distanceFromExit": 40,
-      "floorsToClimb": 1
+      "floorsToClimb": 0
     },
     {
       "id": "om-035",
@@ -614,11 +614,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 50,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-036",
@@ -631,11 +631,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 52,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-037",
@@ -648,11 +648,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 54,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-038",
@@ -665,11 +665,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 56,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-039",
@@ -682,11 +682,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 58,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-040",
@@ -699,11 +699,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 60,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-041",
@@ -716,11 +716,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 48,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 70,
+      "floorsToClimb": 0
     },
     {
       "id": "om-042",
@@ -733,11 +733,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 50,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 70,
+      "floorsToClimb": 0
     },
     {
       "id": "om-043",
@@ -750,11 +750,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 44,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-044",
@@ -767,11 +767,11 @@
       "outlet": "available",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 42,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 40,
+      "floorsToClimb": 0
     },
     {
       "id": "om-045",
@@ -784,11 +784,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 46,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-046",
@@ -801,11 +801,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 48,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 45,
+      "floorsToClimb": 0
     },
     {
       "id": "om-047",
@@ -818,11 +818,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 50,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 45,
+      "floorsToClimb": 0
     },
     {
       "id": "om-048",
@@ -835,11 +835,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 52,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-049",
@@ -852,11 +852,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 54,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 55,
+      "floorsToClimb": 0
     },
     {
       "id": "om-050",
@@ -869,11 +869,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 56,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 45,
+      "floorsToClimb": 0
     },
     {
       "id": "om-051",
@@ -886,11 +886,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 58,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-052",
@@ -903,11 +903,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 60,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 40,
+      "floorsToClimb": 0
     },
     {
       "id": "om-053",
@@ -920,11 +920,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 62,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-054",
@@ -937,11 +937,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 64,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 60,
+      "floorsToClimb": 0
     },
     {
       "id": "om-055",
@@ -954,11 +954,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 60,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-056",
@@ -971,11 +971,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 58,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-057",
@@ -988,11 +988,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 56,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-058",
@@ -1005,11 +1005,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 54,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-059",
@@ -1022,11 +1022,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 52,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 75,
+      "floorsToClimb": 0
     },
     {
       "id": "om-060",
@@ -1039,11 +1039,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 50,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 75,
+      "floorsToClimb": 0
     },
     {
       "id": "om-061",
@@ -1056,11 +1056,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 48,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 70,
+      "floorsToClimb": 0
     },
     {
       "id": "om-062",
@@ -1073,11 +1073,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
-      "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 46,
-      "floorsToClimb": 1
+      "lastUpdated": "2026-04-17",
+      "nearestExit": "south-exit",
+      "areaInBuilding": "東エリア",
+      "distanceFromExit": 65,
+      "floorsToClimb": 0
     },
     {
       "id": "om-063",
@@ -1090,11 +1090,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 44,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 70,
+      "floorsToClimb": 0
     },
     {
       "id": "om-064",
@@ -1107,11 +1107,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 42,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 70,
+      "floorsToClimb": 0
     },
     {
       "id": "om-065",
@@ -1124,11 +1124,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "north-exit",
-      "areaInBuilding": "北エリア",
-      "distanceFromExit": 40,
-      "floorsToClimb": 1
+      "areaInBuilding": "西エリア（南改札）",
+      "distanceFromExit": 70,
+      "floorsToClimb": 0
     },
     {
       "id": "om-066",
@@ -1141,11 +1141,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 38,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 30,
+      "floorsToClimb": 0
     },
     {
       "id": "om-067",
@@ -1158,11 +1158,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア",
-      "distanceFromExit": 40,
-      "floorsToClimb": 1
+      "areaInBuilding": "中央エリア",
+      "distanceFromExit": 30,
+      "floorsToClimb": 0
     },
     {
       "id": "om-068",
@@ -1175,11 +1175,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-069",
@@ -1192,11 +1192,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-070",
@@ -1209,11 +1209,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-071",
@@ -1226,11 +1226,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-072",
@@ -1243,11 +1243,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-073",
@@ -1260,11 +1260,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-074",
@@ -1277,11 +1277,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-075",
@@ -1294,11 +1294,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-076",
@@ -1311,11 +1311,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-077",
@@ -1328,11 +1328,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-078",
@@ -1345,11 +1345,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-079",
@@ -1362,11 +1362,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-080",
@@ -1379,11 +1379,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-081",
@@ -1396,11 +1396,11 @@
       "outlet": "unknown",
       "seating": "yes",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-082",
@@ -1413,11 +1413,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-083",
@@ -1430,11 +1430,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     },
     {
       "id": "om-084",
@@ -1447,11 +1447,11 @@
       "outlet": "unknown",
       "seating": "no",
       "crowded": "unknown",
-      "lastUpdated": "2026-04-15",
+      "lastUpdated": "2026-04-17",
       "nearestExit": "south-exit",
-      "areaInBuilding": "南エリア（イベントスペース）",
-      "distanceFromExit": 65,
-      "floorsToClimb": 1
+      "areaInBuilding": "イベントスペース（中央エリア）",
+      "distanceFromExit": 50,
+      "floorsToClimb": 0
     }
   ]
 }
