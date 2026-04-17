@@ -18,11 +18,14 @@ interface StationParams {
 }
 
 const STATION_PARAMS: Record<string, StationParams> = {
+  // ecute大宮: 改札・店舗とも2F同フロア直結のため固定オーバーヘッドを抑制
+  // crowdLoss=30s（通常の半分）+ buildingWalkExtra=15s = 計45s固定
+  // → dist≤58m: 1分 / dist≥60m: 2分 の分岐が実現
   omiya: {
     walkingSpeed: 1.3,
     stairSecondsPerFloor: 40,
-    crowdLoss: 60,
-    buildingWalkExtra: 30,
+    crowdLoss: 30,
+    buildingWalkExtra: 15,
   },
   default: {
     walkingSpeed: 1.3,
