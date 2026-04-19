@@ -13,6 +13,7 @@
     {
       "name": "JR東日本",
       "color": "#1a7b3c",
+      "url": "https://www.jreast.co.jp/estation/stations/866.html",
       "groups": [
         {
           "label": "山手・埼京系",
@@ -34,6 +35,7 @@
     {
       "name": "京王電鉄",
       "color": "#8b2346",
+      "url": "https://www.keio.co.jp/train/station/ko01_shinjuku/",
       "lines": [
         { "name": "京王線" },
         { "name": "京王新線" }
@@ -50,6 +52,7 @@
     {
       "name": "東京都交通局",
       "color": "#6cba3a",
+      "url": "https://www.kotsu.metro.tokyo.jp/subway/stations/shinjuku.html",
       "lines": [
         { "name": "都営新宿線" },
         { "name": "都営大江戸線（新宿駅・新宿西口駅）" }
