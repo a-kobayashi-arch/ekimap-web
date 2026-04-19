@@ -15,7 +15,7 @@
     {
       "name": "JR東日本",
       "color": "#1a7b3c",
-      "url": "https://www.jreast.co.jp/estation/stations/1466.html",
+      "url": "https://www.jreast.co.jp/estation/stations/108.html",
       "lines": [
         { "name": "山手線" },
         { "name": "埼京線" },
@@ -25,7 +25,7 @@
     {
       "name": "東武鉄道",
       "color": "#f07c00",
-      "url": "https://www.tobu.co.jp/railway/guide/station/info/3001.html",
+      "url": "https://www.tobu.co.jp/railway/guide/station/info/7105.html",
       "lines": [
         { "name": "東武東上線" }
       ]
@@ -33,7 +33,7 @@
     {
       "name": "西武鉄道",
       "color": "#1e50a2",
-      "url": "https://www.seibu-group.co.jp/railways/station/ikebukuro/",
+      "url": "https://www.seiburailway.jp/railway/station/ikebukuro/",
       "lines": [
         { "name": "西武池袋線" }
       ]
