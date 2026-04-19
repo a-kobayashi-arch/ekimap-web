@@ -3,7 +3,9 @@
   "slug": "akabane",
   "name": "赤羽駅",
   "nameEn": "Akabane",
-  "building": null,
+  "building": "Ecute赤羽",
+  "brand": "ecute",
+  "brandColor": "#e60012",
   "lines": [
     { "name": "埼京線", "color": "#009944" },
     { "name": "京浜東北線", "color": "#00b2e3" }
@@ -32,81 +34,646 @@
       ]
     }
   ],
+  "buildings": [
+    { "id": "kita", "name": "きた", "label": "Ecute赤羽きた", "gate": "北改札" },
+    { "id": "minami", "name": "みなみ", "label": "Ecute赤羽みなみ", "gate": "南改札" }
+  ],
   "exits": [
-    { "id": "east-exit", "name": "東口", "description": "JR赤羽駅東口改札" },
-    { "id": "west-exit", "name": "西口", "description": "JR赤羽駅西口改札" }
+    { "id": "north-exit", "name": "北改札", "description": "Ecute赤羽きた（メインエリア）" },
+    { "id": "south-exit", "name": "南改札", "description": "Ecute赤羽みなみ（2024年7月開業）" }
   ],
   "facilities": [
     {
-      "id": "aka-001",
-      "name": "NewDays 赤羽店",
+      "id": "aka-k-001",
+      "name": "青山フラワーマーケット",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "フラワーショップ",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-002",
+      "name": "船橋屋",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "江戸時代創業のくず餅専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-003",
+      "name": "パティスリー銀座千疋屋",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "銀座千疋屋グループの洋菓子店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-004",
+      "name": "ラ・メゾン アンソレイユターブル パティスリー",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "フルーツタルトが人気の洋菓子店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-005",
+      "name": "ル・ビアン",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "7:30〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "人気のベーカリー。はちみつバターあんパンが名物",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-006",
+      "name": "PAO PAO",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "中華惣菜・点心専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-007",
+      "name": "不二家 赤羽きた",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "ペコちゃんでおなじみの洋菓子店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-008",
+      "name": "成城石井 赤羽きた",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "グロッサリー・惣菜・ワイン等",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-009",
+      "name": "BECK'S COFFEE SHOP 赤羽",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "7:00〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "JR東日本系カフェ",
+      "seating": "yes",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-010",
+      "name": "NewDays 赤羽きた",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "6:00〜23:00",
+      "gateArea": "改札内",
+      "description": "JR東日本系コンビニ",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-011",
+      "name": "そばいち",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "6:30〜23:00",
+      "gateArea": "改札内",
+      "description": "本格そば・うどんのイートイン",
+      "seating": "yes",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-012",
+      "name": "ブックエキスプレス",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "7:00〜23:00",
+      "gateArea": "改札内",
+      "description": "駅ナカ書店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-013",
+      "name": "グリーンデリ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "新鮮野菜・グロッサリー",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-014",
+      "name": "ヴィドフランスエクスプレス",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "7:30〜22:00（日祝20:00）",
+      "gateArea": "改札内",
+      "description": "人気のフランス系ベーカリーチェーン",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-015",
+      "name": "赤羽あんこ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "9:30〜22:00（日祝20:00）",
+      "gateArea": "改札内",
+      "description": "あんこスイーツ専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-016",
+      "name": "ダロワイヨ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "フランス発の洋菓子ブランド",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-017",
+      "name": "豆狸",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "お稲荷さん・いなり寿司の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-018",
+      "name": "おこわ米八",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "おこわ・お赤飯の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-019",
+      "name": "四陸",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "中華惣菜・焼売の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-020",
+      "name": "イーション",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "中華デリカ・点心の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-021",
+      "name": "RF1（アールエフワン）",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "サラダ・惣菜の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-022",
+      "name": "ほんのり屋",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "6:30〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "焼きおにぎり・おむすびの専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-023",
+      "name": "ローカルスタンド 東京バル",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "11:00〜23:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "駅ナカのカフェバー",
+      "seating": "yes",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-024",
+      "name": "やなか珈琲店",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "9:30〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "谷中発のこだわりコーヒー専門店",
+      "seating": "yes",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-025",
+      "name": "パンチャンとジョン",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "韓国惣菜（パンチャン）・チヂミ専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-026",
+      "name": "鶏三和",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "名古屋コーチン・地鶏の惣菜専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-027",
+      "name": "舎鈴",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "6:30〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "つけ麺・ラーメンの専門店",
+      "seating": "yes",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-028",
+      "name": "シターラ ダイナー",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "本格インドカレー・ナンのデリ",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-029",
+      "name": "文明堂",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "カステラ・どら焼きの老舗",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-030",
+      "name": "ブールミッシュ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "ガトーショコラが人気のフランス菓子店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-031",
+      "name": "はらドーナッツ はらロール",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "豆乳ドーナツ・ロールケーキの専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-032",
+      "name": "モロゾフグラン トウキョウ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "神戸発・老舗洋菓子ブランドのプレミアムライン",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-033",
+      "name": "とんかつ和幸",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "とんかつ・かつ丼のデリカ",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-034",
+      "name": "ラップド クレープ コロット",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "くるくるクレープの専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-035",
+      "name": "四季の味 献心亭 匠",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "和惣菜・お弁当の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-036",
+      "name": "千住宿 喜田家",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "草加煎餅・和菓子の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-037",
+      "name": "ゴディバ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "ベルギー発のチョコレートブランド",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-038",
+      "name": "ゴンチャ",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "台湾発のタピオカティー専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-039",
+      "name": "ブルーノ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "カラフル家電・キッチン雑貨の人気ブランド",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-040",
+      "name": "ラティス",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "アクセサリー・雑貨の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-041",
+      "name": "イアパピヨネ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "イヤリング・アクセサリーの専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-042",
+      "name": "ローリーズファームプラス",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "カジュアルレディスウエア・雑貨",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-043",
+      "name": "日本橋 天丼 天むす 金子半之助",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "江戸前天ぷらの天丼・天むすデリ",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-044",
+      "name": "サンドイッチカフェ おいしいメルヘン。",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "手作りサンドイッチのカフェ",
+      "seating": "yes",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-045",
+      "name": "マイスターシュトュック ユーハイム",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "ユーハイムのプレミアムライン・バウムクーヘン",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-046",
+      "name": "ちよだ鮨",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "お持ち帰り寿司・惣菜の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-047",
+      "name": "博多 肉の壱丁田",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "博多の焼き物・肉惣菜の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-048",
+      "name": "京都・宇治式部郷",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "宇治抹茶スイーツ・茶葉の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-049",
+      "name": "銀座甘楽",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "和スイーツ・豆大福の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-050",
+      "name": "ゑびすダイコク",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "おでん・和惣菜の専門店",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-051",
+      "name": "アンジェリーナ ファイブギャラリー",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "パリの老舗カフェ。モンブランが名物（ポップアップ展開）",
+      "building": "kita"
+    },
+    {
+      "id": "aka-k-052",
+      "name": "toroa ファイブギャラリー",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "10:00〜21:30（土日祝20:30）",
+      "gateArea": "改札内",
+      "description": "なめらかプリンが人気のスイーツ（ポップアップ展開）",
+      "building": "kita"
+    },
+    {
+      "id": "aka-m-001",
+      "name": "成城石井 赤羽みなみ",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "8:00〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "グロッサリー・惣菜・ワイン等",
+      "building": "minami"
+    },
+    {
+      "id": "aka-m-002",
+      "name": "スターバックスコーヒー 赤羽みなみ",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "スターバックス南改札内店",
+      "seating": "yes",
+      "building": "minami"
+    },
+    {
+      "id": "aka-m-003",
+      "name": "いろり庵きらく",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜22:00（土7:00〜21:00、日祝8:00〜21:00）",
+      "gateArea": "改札内",
+      "description": "そば・うどんの和食店",
+      "seating": "yes",
+      "building": "minami"
+    },
+    {
+      "id": "aka-m-004",
+      "name": "スタンディング 鮨 バー ヤスケ",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "11:00〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "立ち食い寿司の新業態",
+      "seating": "yes",
+      "building": "minami"
+    },
+    {
+      "id": "aka-m-005",
+      "name": "トウキョウ豚骨ベース メイド バイ 一風堂",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "11:00〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "一風堂グループのラーメン店",
+      "seating": "yes",
+      "building": "minami"
+    },
+    {
+      "id": "aka-m-006",
+      "name": "JB's BURGER",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "10:00〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "エキナカ初出店のクラフトバーガー店",
+      "seating": "yes",
+      "building": "minami"
+    },
+    {
+      "id": "aka-m-007",
+      "name": "タイ料理研究所",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "11:00〜22:00（土日祝21:00）",
+      "gateArea": "改札内",
+      "description": "本格タイ料理のイートイン",
+      "seating": "yes",
+      "building": "minami"
+    },
+    {
+      "id": "aka-m-008",
+      "name": "NewDays 赤羽みなみ",
       "category": "ショップ",
       "floor": "1F",
       "hours": "5:30〜23:30",
       "gateArea": "改札内",
-      "description": "JR東日本グループのコンビニ"
+      "description": "JR東日本系コンビニ",
+      "building": "minami"
     },
     {
-      "id": "aka-002",
-      "name": "BECK'S COFFEE SHOP 赤羽店",
-      "category": "飲食店",
-      "floor": "1F",
-      "hours": "7:00〜22:00",
-      "gateArea": "改札内",
-      "description": "JR東日本のカフェチェーン",
-      "seating": "yes"
-    },
-    {
-      "id": "aka-003",
-      "name": "ベルマート キオスク 赤羽",
+      "id": "aka-m-009",
+      "name": "ジュピター 赤羽みなみ",
       "category": "ショップ",
       "floor": "1F",
-      "hours": "6:00〜23:00",
-      "gateArea": "改札内"
-    },
-    {
-      "id": "aka-004",
-      "name": "ビューアルッテ（ATM）",
-      "category": "サービス",
-      "floor": "1F",
-      "hours": "7:00〜23:00",
+      "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
-      "description": "Suicaチャージ対応ATM"
+      "description": "コーヒー豆・輸入食品のグロッサリー",
+      "building": "minami"
     },
     {
-      "id": "aka-005",
-      "name": "トイレ（改札内）",
-      "category": "設備",
+      "id": "aka-m-010",
+      "name": "ウエルシア薬局 赤羽みなみ",
+      "category": "ショップ",
       "floor": "1F",
-      "hours": "終日",
+      "hours": "9:00〜23:00（調剤10:00〜21:00、日祝19:00）",
       "gateArea": "改札内",
-      "description": "男女・多目的トイレ"
-    },
-    {
-      "id": "aka-006",
-      "name": "コインロッカー（東口改札外）",
-      "category": "設備",
-      "floor": "1F",
-      "hours": "始発〜終電",
-      "gateArea": "改札外",
-      "description": "交通系ICカード対応"
-    },
-    {
-      "id": "aka-007",
-      "name": "みどりの窓口",
-      "category": "サービス",
-      "floor": "1F",
-      "hours": "7:30〜20:00",
-      "gateArea": "改札外",
-      "description": "乗車券・指定席券の購入"
-    },
-    {
-      "id": "aka-008",
-      "name": "指定席券売機",
-      "category": "サービス",
-      "floor": "1F",
-      "hours": "始発〜終電",
-      "gateArea": "改札外"
+      "description": "調剤薬局・ドラッグストア",
+      "building": "minami"
     }
   ]
 }

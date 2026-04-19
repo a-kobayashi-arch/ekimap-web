@@ -44,7 +44,7 @@ const stations: Station[] = [
   kitaToda,
   toda,
   todaKoen,
-  akabane,
+  processStation(akabane),
   ikebukuro,
   shinjuku,
 ] as Station[];

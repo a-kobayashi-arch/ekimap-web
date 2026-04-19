@@ -3,7 +3,7 @@
   "slug": "shinjuku",
   "name": "新宿駅",
   "nameEn": "Shinjuku",
-  "building": null,
+  "building": "EATo LUMINE",
   "lines": [
     { "name": "埼京線", "color": "#009944" },
     { "name": "山手線", "color": "#9acd32" },
@@ -198,6 +198,255 @@
       "hours": "7:00〜21:00",
       "gateArea": "改札外",
       "description": "観光・乗換案内所"
+    },
+    {
+      "id": "sjk-101",
+      "name": "ランディーズ ドーナツ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "ドーナツ専門店"
+    },
+    {
+      "id": "sjk-102",
+      "name": "BONBONS DE K",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "グルテンフリーのパティスリー"
+    },
+    {
+      "id": "sjk-103",
+      "name": "トーキョー煎餅",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "東京発の新感覚米菓専門店"
+    },
+    {
+      "id": "sjk-104",
+      "name": "RUMBLE CRUMBLE",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "クランブルケーキ専門店"
+    },
+    {
+      "id": "sjk-105",
+      "name": "ラニカイジュース",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "アサイーボウル・スムージー専門店"
+    },
+    {
+      "id": "sjk-106",
+      "name": "Biop",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "コスメセレクトショップ"
+    },
+    {
+      "id": "sjk-107",
+      "name": "germe",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "フラワーショップ"
+    },
+    {
+      "id": "sjk-108",
+      "name": "治一郎",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "静岡発・バウムクーヘンの名店"
+    },
+    {
+      "id": "sjk-109",
+      "name": "岡田謹製あんバタ屋",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "あんことバターのスイーツ専門店"
+    },
+    {
+      "id": "sjk-110",
+      "name": "woofie",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "ソフトクリーム・スイーツ専門店"
+    },
+    {
+      "id": "sjk-111",
+      "name": "35MM",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "フィルムをモチーフにしたスイーツ店"
+    },
+    {
+      "id": "sjk-112",
+      "name": "バンコク屋台 カオサン",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "本格タイ料理",
+      "seating": "yes"
+    },
+    {
+      "id": "sjk-113",
+      "name": "BAKERs' Symphony",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "全国人気ベーカリーのセレクトショップ"
+    },
+    {
+      "id": "sjk-114",
+      "name": "羅家 東京豚饅",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "豚まん・点心の専門店"
+    },
+    {
+      "id": "sjk-115",
+      "name": "つばめグリルDELI",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "つばめグリルの洋惣菜デリ"
+    },
+    {
+      "id": "sjk-116",
+      "name": "成城石井 イイトルミネ新宿",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "グロッサリー・惣菜・ワイン等"
+    },
+    {
+      "id": "sjk-117",
+      "name": "アイコスメ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "トレカ・Vtuberグッズ・コスメ雑貨"
+    },
+    {
+      "id": "sjk-118",
+      "name": "BLOSSOM＆BOUQUET TOKYO",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "サンドイッチ専門カフェ",
+      "seating": "yes"
+    },
+    {
+      "id": "sjk-119",
+      "name": "RF1／神戸コロッケ",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "サラダ・コロッケの惣菜店"
+    },
+    {
+      "id": "sjk-120",
+      "name": "サラダデリ MARGO",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "サラダ・弁当の専門店"
+    },
+    {
+      "id": "sjk-121",
+      "name": "日本橋 天丼 天むす 金子半之助",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "江戸前天ぷらの天丼・天むす"
+    },
+    {
+      "id": "sjk-122",
+      "name": "立鮨 すし横",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "立ち食い寿司とお持ち帰り寿司",
+      "seating": "yes"
+    },
+    {
+      "id": "sjk-123",
+      "name": "らーめん鴨to葱",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "鴨だしラーメン専門店",
+      "seating": "yes"
+    },
+    {
+      "id": "sjk-124",
+      "name": "お茶漬けおにぎり 山本山",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "お茶漬け・おにぎりの専門店"
+    },
+    {
+      "id": "sjk-125",
+      "name": "果実とバター canarina",
+      "category": "ショップ",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "フルーツとバターのスイーツ専門店"
+    },
+    {
+      "id": "sjk-126",
+      "name": "ベックスコーヒーショップ イイトルミネ新宿",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "JR東日本系カフェ",
+      "seating": "yes"
+    },
+    {
+      "id": "sjk-127",
+      "name": "そばいち",
+      "category": "飲食店",
+      "floor": "B1F",
+      "hours": "8:00〜22:00",
+      "gateArea": "改札内",
+      "description": "本格そば専門店",
+      "seating": "yes"
     }
   ]
 }

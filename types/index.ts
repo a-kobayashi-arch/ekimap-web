@@ -72,6 +72,7 @@ export interface Building {
   id: string;
   name: string;
   label: string;
+  gate?: string;   // 対応する改札口（例: "北改札"）
 }
 
 export type BrandId = "ecute" | "beans" | "gransta" | "equia" | "emio";
