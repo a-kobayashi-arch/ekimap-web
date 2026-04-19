@@ -1,11 +1,10 @@
 {
+  "_note": "池袋駅はJR改札内の駅ナカ商業施設が限定的。Echika池袋（東京メトロ系）・Emio池袋（西武系）は改札外または他社管轄のため対象外。今後の拡充は要検討。",
   "id": "ikebukuro",
   "slug": "ikebukuro",
   "name": "池袋駅",
   "nameEn": "Ikebukuro",
-  "building": "エキュート池袋",
-  "brand": "ecute",
-  "brandColor": "#e60012",
+  "building": null,
   "lines": [
     { "name": "埼京線", "color": "#009944" },
     { "name": "山手線", "color": "#9acd32" },
@@ -73,15 +72,6 @@
       "seating": "yes"
     },
     {
-      "id": "ike-003",
-      "name": "エキュート池袋（改札内ショップ街）",
-      "category": "ショップ",
-      "floor": "1F",
-      "hours": "8:00〜22:00",
-      "gateArea": "改札内",
-      "description": "JR東日本の駅ナカ商業施設。食品・雑貨・カフェ等"
-    },
-    {
       "id": "ike-004",
       "name": "Subway 池袋改札内店",
       "category": "飲食店",
@@ -118,41 +108,6 @@
       "description": "男女・多目的トイレ"
     },
     {
-      "id": "ike-008",
-      "name": "コインロッカー（西口改札外）",
-      "category": "設備",
-      "floor": "1F",
-      "hours": "始発〜終電",
-      "gateArea": "改札外",
-      "description": "交通系ICカード対応・大型サイズあり"
-    },
-    {
-      "id": "ike-009",
-      "name": "コインロッカー（東口改札外）",
-      "category": "設備",
-      "floor": "1F",
-      "hours": "始発〜終電",
-      "gateArea": "改札外",
-      "description": "交通系ICカード対応"
-    },
-    {
-      "id": "ike-010",
-      "name": "みどりの窓口",
-      "category": "サービス",
-      "floor": "1F",
-      "hours": "7:30〜20:00",
-      "gateArea": "改札外",
-      "description": "乗車券・指定席券の購入"
-    },
-    {
-      "id": "ike-011",
-      "name": "指定席券売機",
-      "category": "サービス",
-      "floor": "1F",
-      "hours": "始発〜終電",
-      "gateArea": "改札外"
-    },
-    {
       "id": "ike-012",
       "name": "NewDays 池袋東口店",
       "category": "ショップ",
@@ -160,6 +115,34 @@
       "hours": "5:30〜24:00",
       "gateArea": "改札内",
       "description": "JR東日本グループのコンビニ（東口改札内）"
+    },
+    {
+      "id": "ike-013",
+      "name": "ほんのり屋 池袋西口改札内店",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "7:00〜22:30",
+      "gateArea": "改札内",
+      "description": "おむすび・お味噌汁の専門店"
+    },
+    {
+      "id": "ike-014",
+      "name": "いろり庵きらく 池袋西口改札内店",
+      "category": "飲食店",
+      "floor": "1F",
+      "hours": "7:00〜22:00（土日祝21:30）",
+      "gateArea": "改札内",
+      "description": "そば・うどんの和食チェーン",
+      "seating": "yes"
+    },
+    {
+      "id": "ike-015",
+      "name": "NewDays 池袋中央改札内店",
+      "category": "ショップ",
+      "floor": "1F",
+      "hours": "5:30〜24:00",
+      "gateArea": "改札内",
+      "description": "JR東日本系コンビニ（中央改札内）"
     }
   ]
 }
