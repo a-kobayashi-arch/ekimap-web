@@ -16,7 +16,7 @@
     {
       "name": "JR東日本",
       "color": "#1a7b3c",
-      "url": "https://www.jreast.co.jp/estation/stations/910.html",
+      "url": "https://www.jreast.co.jp/estation/stations/350.html",
       "groups": [
         {
           "label": "新幹線",
@@ -54,7 +54,7 @@
     {
       "name": "ニューシャトル",
       "color": "#0097d6",
-      "url": "https://www.new-shuttle.jp/",
+      "url": "https://www.new-shuttle.jp/station/omiya/",
       "lines": [
         { "name": "ニューシャトル（伊奈線）", "shortName": "" }
       ]
