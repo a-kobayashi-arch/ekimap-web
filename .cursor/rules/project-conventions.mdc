@@ -1,0 +1,16 @@
+---
+description: Core project workflow, Claude Code handoff, Git discipline, Vercel env
+alwaysApply: true
+---
+
+# 開発ルール
+
+- このプロジェクトのメイン開発者は「Claude Code」です。
+- Cursor のエージェントは、Claude Code が作成したコードの構造や意図を尊重してください。
+- 大規模なリファクタリングやファイル構造の変更を勝手に行わないでください。
+- 変更を加える前に必ず現在の Git ステータスを確認し、未コミットの作業がある場合は警告してください。
+- コミットメッセージの形式は、プロジェクトの既存の履歴（Claude Code が生成したもの）に習ってください。
+
+# Vercel 連携
+
+- 環境変数は `.env.local` で管理されています。Vercel の管理画面と齟齬が出ないよう注意してください。
