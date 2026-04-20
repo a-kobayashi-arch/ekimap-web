@@ -9,7 +9,7 @@ interface StationCardProps {
 export default function StationCard({ station }: StationCardProps) {
   return (
     <Link href={`/station/${station.slug}`} className="block">
-      <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-5 border border-gray-100 hover:border-blue-200">
+      <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-5 border border-gray-100 border-l-4 border-l-green-500 hover:border-l-green-700 hover:shadow-md">
         <div className="flex items-start justify-between mb-3">
           <div>
             <div className="flex items-center gap-2 flex-wrap">

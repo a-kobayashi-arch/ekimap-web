@@ -28,8 +28,23 @@ export default function StampProgress({ station }: StampProgressProps) {
 
   const hasMultiBuildings = (station.buildings?.length ?? 0) >= 2;
 
+  const barColor =
+    isComplete    ? "bg-yellow-400" :
+    percent >= 50 ? "bg-green-500"  :
+                    "bg-green-300";
+
+  const percentLabel =
+    isComplete    ? "🏆 制覇！"   :
+    percent >= 70 ? "🔥 もうすぐ！" :
+    percent >= 30 ? "📈 順調！"   :
+    percent > 0   ? "🚶 スタート！" : "";
+
   return (
-    <div className={`rounded-2xl p-5 ${isComplete ? "bg-yellow-50 border border-yellow-200" : "bg-white border border-gray-100"} shadow-sm`}>
+    <div className={`rounded-2xl p-5 shadow-sm ${
+      isComplete
+        ? "bg-yellow-50 border border-yellow-200 ring-2 ring-yellow-300"
+        : "bg-white border border-gray-100"
+    }`}>
       <div className="flex items-center justify-between mb-3">
         <div>
           <h3 className="font-bold text-gray-800">{station.name}</h3>
@@ -53,11 +68,13 @@ export default function StampProgress({ station }: StampProgressProps) {
 
       <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
         <div
-          className={`h-3 rounded-full transition-all duration-500 ${isComplete ? "bg-yellow-400" : "bg-green-500"}`}
+          className={`h-3 rounded-full transition-all duration-500 ${barColor}`}
           style={{ width: `${percent}%` }}
         />
       </div>
-      <p className="text-right text-xs text-gray-400 mt-1">{percent}%</p>
+      <p className="text-right text-xs text-gray-400 mt-1">
+        {percent}% {percentLabel}
+      </p>
 
       {/* Building別サブ進捗（複数ビルディングがある場合のみ） */}
       {hasMultiBuildings && station.buildings && (

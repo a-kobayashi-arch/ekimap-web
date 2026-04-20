@@ -164,11 +164,11 @@ export default function StampsPage() {
 
       {/* ── サマリーカード ─────────────────────────── */}
       <div className="grid grid-cols-3 gap-3">
-        <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-100">
-          <p className="text-xs text-indigo-500 font-medium mb-1">🏅 駅スタンプ</p>
+        <div className="bg-green-50 rounded-2xl p-4 border border-green-200">
+          <p className="text-xs text-green-600 font-medium mb-1">🏅 駅スタンプ</p>
           <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-indigo-700">{stationVisitedCount}</span>
-            <span className="text-indigo-400 text-xs">/ {stationTotalCount}</span>
+            <span className="text-3xl font-bold text-green-700">{stationVisitedCount}</span>
+            <span className="text-green-400 text-xs">/ {stationTotalCount}</span>
           </div>
         </div>
         <div className="bg-green-50 rounded-2xl p-4 border border-green-100">
@@ -191,22 +191,25 @@ export default function StampsPage() {
       <section className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-bold text-gray-800 flex items-center gap-2">
-            🚉 路線制覇
+            🚃 埼京線コンプリートチャレンジ
           </h2>
           <span className="text-sm text-gray-500">
-            {stationVisitedCount} / {stationTotalCount} 駅訪問
+            {stationVisitedCount}/{stationTotalCount}駅制覇
           </span>
         </div>
 
         {/* プログレスバー */}
-        <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden mb-4">
+        <div className="w-full bg-gray-100 rounded-full h-4 overflow-hidden">
           <div
-            className={`h-2.5 rounded-full transition-all duration-500 ${
-              stationVisitedCount === stationTotalCount ? "bg-yellow-400" : "bg-indigo-500"
+            className={`h-4 rounded-full transition-all duration-500 ${
+              stationVisitedCount === stationTotalCount ? "bg-yellow-400" : "bg-green-500"
             }`}
             style={{ width: `${linePercent}%` }}
           />
         </div>
+        <span className="text-xs text-gray-400 mt-1 text-right block mb-3">
+          {linePercent}% 制覇
+        </span>
 
         {/* 駅スタンプグリッド */}
         <div className="flex flex-wrap gap-2">
@@ -218,11 +221,11 @@ export default function StampsPage() {
                 href={`/station/${station.slug}`}
                 className={`flex flex-col items-center px-3 py-2 rounded-xl border text-xs font-medium transition-all ${
                   visited
-                    ? "bg-indigo-50 border-indigo-200 text-indigo-700"
+                    ? "bg-green-500 border-green-600 text-white shadow-md"
                     : "bg-gray-50 border-gray-200 text-gray-400 hover:border-gray-300"
                 }`}
               >
-                <span className="text-base">{visited ? "🏅" : "⬜"}</span>
+                <span className="text-base">{visited ? "✅" : "⬜"}</span>
                 <span className="mt-0.5 whitespace-nowrap">{station.name}</span>
               </Link>
             );
