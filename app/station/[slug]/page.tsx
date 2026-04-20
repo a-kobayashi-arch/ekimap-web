@@ -4,6 +4,7 @@ import { getStationBySlug, getAllStations } from "@/lib/stations";
 import FacilityTabs from "@/components/FacilityTabs";
 import OperatorBadges from "@/components/OperatorBadges";
 import OperatorSection from "@/components/OperatorSection";
+import StationCheckinButton from "@/components/StationCheckinButton";
 
 export function generateStaticParams() {
   return getAllStations().map((s) => ({ slug: s.slug }));
@@ -74,6 +75,9 @@ export default async function StationPage({ params }: Props) {
           乗換駅 • {station.facilities.length}件の施設
         </p>
       </div>
+
+      {/* 駅チェックインボタン（層1：駅スタンプ） */}
+      <StationCheckinButton stationSlug={station.slug} stationName={station.name} />
 
       {/* 路線・事業者セクション（operators が定義された駅のみ） */}
       {station.operators && station.operators.length > 0 && (
