@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getAllStations } from "@/lib/stations";
 import StampProgress from "@/components/StampProgress";
 import type { Facility } from "@/types";
+import { getUserId } from "@/lib/userId";
 
 export default function StampsPage() {
   const stations = getAllStations();
@@ -29,6 +30,35 @@ export default function StampsPage() {
     setVisitedMap(vm);
     setInterestedMap(im);
     setMounted(true);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // マウント後に API から最新のチェックイン一覧を取得して visitedMap を上書き
+  useEffect(() => {
+    const userId = getUserId();
+    if (!userId) return;
+
+    fetch(`/api/checkins?userId=${encodeURIComponent(userId)}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((data: { checkins: string[] }) => {
+        if (!Array.isArray(data.checkins)) return;
+
+        setVisitedMap(() => {
+          const next: Record<string, Set<string>> = {};
+          for (const station of stations) {
+            const facilityIdSet = new Set(station.facilities.map((f: Facility) => f.id));
+            const matched = data.checkins.filter((id) => facilityIdSet.has(id));
+            next[station.id] = new Set(matched);
+            // localStorage にも書き戻し（StampProgress との同期）
+            try {
+              localStorage.setItem(`visited-${station.id}`, JSON.stringify(matched));
+            } catch {}
+          }
+          return next;
+        });
+      })
+      .catch(() => {
+        // API エラー時は localStorage 状態をそのまま維持
+      });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!mounted) {
@@ -61,6 +91,16 @@ export default function StampsPage() {
     }
     setVisitedMap(emptyV);
     setInterestedMap(emptyI);
+
+    // KV からも削除（facilityId 省略 → 全チェックインリセット）
+    const userId = getUserId();
+    if (userId) {
+      fetch("/api/checkins", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId }),
+      }).catch(() => {});
+    }
   }
 
   const hasAny = visitedAll > 0 || interestedAll > 0;

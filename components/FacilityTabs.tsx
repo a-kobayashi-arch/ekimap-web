@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import type { Building, Category, Facility, StationExit } from "@/types";
 import FacilityCard from "./FacilityCard";
+import { useCheckins } from "@/hooks/useCheckins";
 
 const CATEGORIES: Category[] = ["飲食店", "ショップ", "サービス", "設備", "その他"];
 const ALL_TAB = "すべて";
@@ -22,33 +23,27 @@ export default function FacilityTabs({ facilities, stationId, exits, buildings }
   const [activeBuilding, setActiveBuilding] = useState<string>(defaultBuilding);
   const [activeExit, setActiveExit] = useState<string>(ALL_EXIT);
   const [activeTab, setActiveTab] = useState<string>(ALL_TAB);
-  const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
   const [interestedIds, setInterestedIds] = useState<Set<string>>(new Set());
   const [filterOutlet, setFilterOutlet] = useState(false);
   const [filterSeating, setFilterSeating] = useState(false);
 
-  const visitedKey    = `visited-${stationId}`;
+  // visited は useCheckins フック（KV + localStorage 同期）
+  const { checkedIds: visitedIds, toggle: toggleVisited } = useCheckins(stationId);
+
   const interestedKey = `interested-${stationId}`;
 
   useEffect(() => {
     try {
-      const v = localStorage.getItem(visitedKey);
       const i = localStorage.getItem(interestedKey);
-      if (v) setVisitedIds(new Set(JSON.parse(v)));
       if (i) setInterestedIds(new Set(JSON.parse(i)));
     } catch {}
-  }, [visitedKey, interestedKey]);
+  }, [interestedKey]);
 
-  function toggle(
-    id: string,
-    current: Set<string>,
-    setter: React.Dispatch<React.SetStateAction<Set<string>>>,
-    key: string
-  ) {
-    setter(() => {
-      const next = new Set(current);
+  function toggleInterested(id: string) {
+    setInterestedIds((prev) => {
+      const next = new Set(prev);
       if (next.has(id)) { next.delete(id); } else { next.add(id); }
-      try { localStorage.setItem(key, JSON.stringify([...next])); } catch {}
+      try { localStorage.setItem(interestedKey, JSON.stringify([...next])); } catch {}
       return next;
     });
   }
@@ -234,8 +229,8 @@ export default function FacilityTabs({ facilities, stationId, exits, buildings }
             exits={exits}
             visited={visitedIds.has(facility.id)}
             interested={interestedIds.has(facility.id)}
-            onToggleVisited={() => toggle(facility.id, visitedIds, setVisitedIds, visitedKey)}
-            onToggleInterested={() => toggle(facility.id, interestedIds, setInterestedIds, interestedKey)}
+            onToggleVisited={() => toggleVisited(facility.id)}
+            onToggleInterested={() => toggleInterested(facility.id)}
           />
         ))}
         {displayed.length === 0 && (
