@@ -1,0 +1,26 @@
+[
+  {
+    "id": "kanto",
+    "name": "関東",
+    "nameEn": "Kanto",
+    "emoji": "🗾",
+    "status": "active",
+    "operators": ["jr-east", "tokyo-metro", "tobu", "seibu", "keio", "odakyu"]
+  },
+  {
+    "id": "kansai",
+    "name": "関西",
+    "nameEn": "Kansai",
+    "emoji": "🗾",
+    "status": "coming_soon",
+    "operators": ["jr-west", "osaka-metro", "hankyu", "hanshin"]
+  },
+  {
+    "id": "chubu",
+    "name": "中部",
+    "nameEn": "Chubu",
+    "emoji": "🗾",
+    "status": "coming_soon",
+    "operators": ["jr-central"]
+  }
+]

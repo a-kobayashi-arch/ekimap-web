@@ -1,0 +1,101 @@
+[
+  {
+    "id": "jr-east",
+    "name": "JR東日本",
+    "shortName": "JR東",
+    "color": "#1a7b3c",
+    "area": "kanto",
+    "status": "active",
+    "lines": ["saikyo"]
+  },
+  {
+    "id": "tokyo-metro",
+    "name": "東京メトロ",
+    "shortName": "メトロ",
+    "color": "#f39700",
+    "area": "kanto",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "tobu",
+    "name": "東武鉄道",
+    "shortName": "東武",
+    "color": "#f07c00",
+    "area": "kanto",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "seibu",
+    "name": "西武鉄道",
+    "shortName": "西武",
+    "color": "#1e50a2",
+    "area": "kanto",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "keio",
+    "name": "京王電鉄",
+    "shortName": "京王",
+    "color": "#8b2346",
+    "area": "kanto",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "odakyu",
+    "name": "小田急電鉄",
+    "shortName": "小田急",
+    "color": "#0072bc",
+    "area": "kanto",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "jr-west",
+    "name": "JR西日本",
+    "shortName": "JR西",
+    "color": "#0066cc",
+    "area": "kansai",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "osaka-metro",
+    "name": "大阪メトロ",
+    "shortName": "大阪メトロ",
+    "color": "#e5171f",
+    "area": "kansai",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "hankyu",
+    "name": "阪急電鉄",
+    "shortName": "阪急",
+    "color": "#6b2d8b",
+    "area": "kansai",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "hanshin",
+    "name": "阪神電気鉄道",
+    "shortName": "阪神",
+    "color": "#f7941d",
+    "area": "kansai",
+    "status": "coming_soon",
+    "lines": []
+  },
+  {
+    "id": "jr-central",
+    "name": "JR東海",
+    "shortName": "JR東海",
+    "color": "#f77f00",
+    "area": "chubu",
+    "status": "coming_soon",
+    "lines": []
+  }
+]

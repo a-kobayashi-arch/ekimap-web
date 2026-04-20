@@ -1,0 +1,24 @@
+[
+  {
+    "id": "saikyo",
+    "name": "埼京線",
+    "nameEn": "Saikyo Line",
+    "color": "#009944",
+    "operator": "jr-east",
+    "status": "active",
+    "stations": [
+      { "slug": "omiya",        "name": "大宮" },
+      { "slug": "kita-yono",    "name": "北与野" },
+      { "slug": "yono-honmachi","name": "与野本町" },
+      { "slug": "minami-yono",  "name": "南与野" },
+      { "slug": "naka-urawa",   "name": "中浦和" },
+      { "slug": "musashi-urawa","name": "武蔵浦和" },
+      { "slug": "kita-toda",    "name": "北戸田" },
+      { "slug": "toda",         "name": "戸田" },
+      { "slug": "toda-koen",    "name": "戸田公園" },
+      { "slug": "akabane",      "name": "赤羽" },
+      { "slug": "ikebukuro",    "name": "池袋" },
+      { "slug": "shinjuku",     "name": "新宿" }
+    ]
+  }
+]
