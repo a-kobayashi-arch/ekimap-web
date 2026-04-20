@@ -169,7 +169,7 @@ export default function JrDemoPage() {
         }
       )
       .catch(() => { setStatsLoaded(true); });
-  }, []);
+  }, [activeSlug]);
 
   // 駅切り替え時にフィルタをリセット
   function switchStation(slug: DemoSlug) {
