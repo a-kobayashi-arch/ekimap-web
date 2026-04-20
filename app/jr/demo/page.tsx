@@ -64,6 +64,36 @@ const CATEGORY_TABS = [
 ] as const;
 type CategoryTab = (typeof CATEGORY_TABS)[number];
 
+// ── 目的別導線フィルタ ────────────────────────────────
+// ※ 暫定実装：seating/outlet/category による簡易判定
+
+type Facility = { category: string; seating?: string; outlet?: string };
+
+const PURPOSE_FILTERS = [
+  {
+    id: "eat" as const,
+    label: "🍽️ 食べる",
+    match: (f: Facility) => f.category === "飲食店",
+  },
+  {
+    id: "buy" as const,
+    label: "🛍️ 買う",
+    match: (f: Facility) => f.category === "ショップ",
+  },
+  {
+    id: "sit" as const,
+    label: "🪑 座る",
+    match: (f: Facility) => f.seating === "yes",
+  },
+  {
+    id: "charge" as const,
+    label: "⚡ 充電",
+    match: (f: Facility) => f.outlet === "available",
+  },
+] as const;
+
+type PurposeId = (typeof PURPOSE_FILTERS)[number]["id"] | null;
+
 // ── ユーティリティ ────────────────────────────────────
 
 function GateAreaBadge({ area }: { area: string }) {
@@ -144,6 +174,7 @@ export default function JrDemoPage() {
   const [activeSlug, setActiveSlug] = useState<DemoSlug>("omiya");
   const [activeCategory, setActiveCategory] = useState<CategoryTab>("すべて");
   const [onlyGateInside, setOnlyGateInside] = useState(false);
+  const [activePurpose, setActivePurpose]     = useState<PurposeId>(null);
   const [facilityStats, setFacilityStats]   = useState<Record<string, number>>({});
   const [stationStampMap, setStationStampMap] = useState<Record<string, number>>({});
   const [statsLoaded, setStatsLoaded]         = useState(false);
@@ -176,6 +207,7 @@ export default function JrDemoPage() {
     setActiveSlug(slug);
     setActiveCategory("すべて");
     setOnlyGateInside(false);
+    setActivePurpose(null);
   }
 
   const stationConfig = DEMO_STATIONS.find((s) => s.slug === activeSlug)!;
@@ -185,9 +217,14 @@ export default function JrDemoPage() {
   const hasMultiBuildings = (station.buildings?.length ?? 0) >= 2;
 
   // ── フィルタ適用 ──────────────────────────────
+  const activePurposeFilter = activePurpose
+    ? PURPOSE_FILTERS.find((p) => p.id === activePurpose) ?? null
+    : null;
+
   const filtered = station.facilities.filter((f) => {
     if (onlyGateInside && f.gateArea !== "改札内") return false;
     if (activeCategory !== "すべて" && f.category !== activeCategory) return false;
+    if (activePurposeFilter && !activePurposeFilter.match(f)) return false;
     return true;
   });
 
@@ -371,6 +408,52 @@ export default function JrDemoPage() {
               （{insideCount}件）
             </span>
           </label>
+        </div>
+
+        {/* 目的別導線フィルタ */}
+        <div className="mb-4">
+          <p className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-2">
+            目的から探す
+          </p>
+          <div className="flex gap-2 flex-wrap">
+            {PURPOSE_FILTERS.map((p) => {
+              const count = station.facilities.filter(
+                (f) =>
+                  (!onlyGateInside || f.gateArea === "改札内") && p.match(f)
+              ).length;
+              const isActive = activePurpose === p.id;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => {
+                    setActivePurpose(isActive ? null : p.id);
+                    setActiveCategory("すべて");
+                  }}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold border transition-all ${
+                    isActive
+                      ? "bg-gray-900 text-white border-gray-900 shadow-sm"
+                      : count === 0
+                      ? "bg-gray-50 text-gray-300 border-gray-200 cursor-default"
+                      : "bg-white text-gray-600 border-gray-300 hover:border-gray-700 hover:text-gray-900"
+                  }`}
+                  disabled={count === 0 && !isActive}
+                >
+                  {p.label}
+                  <span className={`ml-1.5 text-xs ${isActive ? "text-gray-400" : "text-gray-400"}`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+            {activePurpose && (
+              <button
+                onClick={() => setActivePurpose(null)}
+                className="px-3 py-2 rounded-lg text-xs text-gray-400 border border-gray-200 hover:border-gray-400 hover:text-gray-600 transition-all"
+              >
+                ✕ クリア
+              </button>
+            )}
+          </div>
         </div>
 
         {/* カテゴリフィルタ */}
