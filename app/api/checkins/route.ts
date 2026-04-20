@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
 
 /** POST /api/checkins
  * body: { userId, facilityId, stationId }
- * チェックインを保存し集計カウンターをインクリメント */
+ * チェックインを保存し、集計カウンター stats:facility:{facilityId} をインクリメント */
 export async function POST(req: NextRequest) {
   if (!KV_AVAILABLE) return NextResponse.json({ ok: true });
 
@@ -47,19 +47,27 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    const now = new Date().toISOString();
     const userData = await kv.get<UserData>(`user:${userId}`);
     const checkins = userData?.checkins ?? [];
 
-    if (!checkins.includes(facilityId)) {
+    // 重複チェックイン時はカウントしない
+    const isNew = !checkins.includes(facilityId);
+
+    if (isNew) {
       checkins.push(facilityId);
-      const now = new Date().toISOString();
-      await kv.set(`user:${userId}`, {
-        checkins,
-        createdAt: userData?.createdAt ?? now,
-        lastSeen: now,
-      } satisfies UserData);
-      // 施設ごとのチェックイン数（sorted set でランキングにも利用）
-      await kv.zadd("stats:top", { incr: true }, { score: 1, member: facilityId });
+    }
+
+    // ① ユーザーデータの保存（重複でも lastSeen は更新）
+    await kv.set(`user:${userId}`, {
+      checkins,
+      createdAt: userData?.createdAt ?? now,
+      lastSeen: now,
+    } satisfies UserData);
+
+    // ② 集計カウンターのインクリメント（新規チェックインのみ）
+    if (isNew) {
+      await kv.incr(`stats:facility:${facilityId}`);
     }
 
     return NextResponse.json({ ok: true });
@@ -94,7 +102,7 @@ export async function DELETE(req: NextRequest) {
       if (userData?.checkins?.length) {
         // 各施設のカウンターを一括デクリメント
         for (const fid of userData.checkins) {
-          await kv.zincrby("stats:top", -1, fid);
+          await kv.decr(`stats:facility:${fid}`);
         }
       }
       await kv.del(`user:${userId}`);
@@ -105,14 +113,19 @@ export async function DELETE(req: NextRequest) {
     const userData = await kv.get<UserData>(`user:${userId}`);
     if (!userData) return NextResponse.json({ ok: true });
 
+    const wasPresent = userData.checkins.includes(facilityId);
     const checkins = userData.checkins.filter((id) => id !== facilityId);
+
     await kv.set(`user:${userId}`, {
       ...userData,
       checkins,
       lastSeen: new Date().toISOString(),
     } satisfies UserData);
 
-    await kv.zincrby("stats:top", -1, facilityId);
+    // 集計カウンターのデクリメント（実際に存在していた場合のみ）
+    if (wasPresent) {
+      await kv.decr(`stats:facility:${facilityId}`);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (e) {
