@@ -1,4 +1,42 @@
 import Link from "next/link";
+import { kv } from "@vercel/kv";
+import { getAllStations } from "@/lib/stations";
+
+// ── サーバー側データ取得 ──────────────────────────────
+
+const KV_AVAILABLE = !!process.env.KV_REST_API_URL;
+
+/** KV から集計数を取得（失敗時は null） */
+async function fetchKvStats(): Promise<{
+  totalFacilityCheckins: number;
+  totalStationCheckins: number;
+  facilitiesWithCheckins: number;
+  stationsWithCheckins: number;
+} | null> {
+  if (!KV_AVAILABLE) return null;
+  try {
+    const [facilityKeys, stationKeys] = await Promise.all([
+      kv.keys("stats:facility:*"),
+      kv.keys("stats:station:*"),
+    ]);
+    const [facilityCounts, stationCounts] = await Promise.all([
+      facilityKeys.length > 0
+        ? Promise.all(facilityKeys.map((k) => kv.get<number>(k)))
+        : Promise.resolve([]),
+      stationKeys.length > 0
+        ? Promise.all(stationKeys.map((k) => kv.get<number>(k)))
+        : Promise.resolve([]),
+    ]);
+    return {
+      totalFacilityCheckins: facilityCounts.reduce((s: number, c) => s + (Number(c) || 0), 0),
+      totalStationCheckins:  stationCounts.reduce((s: number, c) => s + (Number(c) || 0), 0),
+      facilitiesWithCheckins: facilityKeys.length,
+      stationsWithCheckins:   stationKeys.length,
+    };
+  } catch {
+    return null;
+  }
+}
 
 // ── 共通スタイル ─────────────────────────────────────
 
@@ -229,6 +267,177 @@ function ImplementationSection() {
 
 // ── 6. JR に求めるアセット ──────────────────────────
 
+// ── 5.5. 開発状況・実績データ ───────────────────────
+
+interface LiveStatsProps {
+  totalStations: number;
+  totalFacilities: number;
+  insideFacilities: number;
+  kv: {
+    totalFacilityCheckins: number;
+    totalStationCheckins: number;
+    facilitiesWithCheckins: number;
+    stationsWithCheckins: number;
+  } | null;
+}
+
+function Stat({
+  label,
+  value,
+  sub,
+  accent = false,
+}: {
+  label: string;
+  value: string | number;
+  sub?: string;
+  accent?: boolean;
+}) {
+  return (
+    <div className={`rounded-lg border p-5 ${accent ? "border-gray-700 bg-gray-800" : "border-gray-200 bg-white"}`}>
+      <p className={`text-xs font-semibold uppercase tracking-wider mb-2 ${accent ? "text-gray-400" : "text-gray-400"}`}>
+        {label}
+      </p>
+      <p className={`text-4xl font-bold ${accent ? "text-white" : "text-gray-800"}`}>
+        {value}
+      </p>
+      {sub && (
+        <p className={`text-xs mt-1 ${accent ? "text-gray-500" : "text-gray-400"}`}>{sub}</p>
+      )}
+    </div>
+  );
+}
+
+function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv: kvData }: LiveStatsProps) {
+  const hasKvData = kvData !== null;
+  const hasCheckins = hasKvData && (kvData.totalFacilityCheckins + kvData.totalStationCheckins) > 0;
+
+  return (
+    <Section id="live-stats" className="bg-gray-950 text-white">
+      {/* ヘッダー */}
+      <div className="flex items-start justify-between flex-wrap gap-4 mb-10">
+        <div>
+          <SectionLabel>開発状況・実績データ</SectionLabel>
+          <SectionHeading>
+            <span className="text-white">すでに動くプロトタイプが公開されています</span>
+          </SectionHeading>
+          <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
+            実際に動作するプロトタイプを Vercel 上で稼働中。施設データ・チェックイン機能・駅スタンプ・KV 集計まで、
+            PoC に必要な土台が整っています。
+          </p>
+        </div>
+        <div className="flex gap-3 flex-wrap">
+          <Link
+            href="/jr/demo"
+            className="inline-block px-4 py-2 text-sm font-semibold bg-white text-gray-900 rounded hover:bg-gray-200 transition-colors"
+          >
+            デモを見る →
+          </Link>
+          <Link
+            href="/"
+            className="inline-block px-4 py-2 text-sm font-semibold border border-gray-600 text-gray-300 rounded hover:border-gray-400 hover:text-white transition-colors"
+          >
+            一般向けサイト
+          </Link>
+        </div>
+      </div>
+
+      {/* 静的指標：実装状況 */}
+      <div className="mb-8">
+        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+          実装状況（静的データ）
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <Stat label="公開駅数"        value={totalStations}    sub="埼京線全駅対応済み" accent />
+          <Stat label="施設データ数"    value={totalFacilities}  sub="全駅合計"            accent />
+          <Stat label="改札内施設"      value={insideFacilities} sub="PoC 主対象"          accent />
+          <Stat label="稼働環境"        value="Vercel"           sub="本番公開中"          accent />
+        </div>
+      </div>
+
+      {/* 動的指標：KV 実績 */}
+      <div>
+        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+          実績データ（Vercel KV リアルタイム集計）
+        </p>
+        {hasCheckins ? (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Stat
+              label="施設チェックイン"
+              value={kvData!.totalFacilityCheckins}
+              sub="累計回数"
+              accent
+            />
+            <Stat
+              label="チェックイン施設数"
+              value={kvData!.facilitiesWithCheckins}
+              sub="施設ユニーク数"
+              accent
+            />
+            <Stat
+              label="駅スタンプ"
+              value={kvData!.totalStationCheckins}
+              sub="累計取得数"
+              accent
+            />
+            <Stat
+              label="訪問駅種類"
+              value={kvData!.stationsWithCheckins}
+              sub="駅ユニーク数"
+              accent
+            />
+          </div>
+        ) : hasKvData ? (
+          /* KV は繋がっているが実績データがまだない */
+          <div className="border border-gray-700 rounded-lg p-6 text-center">
+            <p className="text-gray-400 text-sm">
+              KV 接続済み・データ蓄積中。
+              <Link href="/jr/demo" className="text-gray-300 underline ml-1 hover:text-white">
+                デモページ
+              </Link>
+              でチェックインすると実績が反映されます。
+            </p>
+          </div>
+        ) : (
+          /* KV 未接続（ローカル環境等） */
+          <div className="border border-gray-700 rounded-lg p-6 text-center">
+            <p className="text-gray-400 text-sm">
+              KV 未接続環境のため実績データは非表示です（本番環境では表示されます）。
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* 補足 */}
+      <div className="mt-8 pt-6 border-t border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div>
+            <p className="text-gray-400 font-medium mb-1">データ永続化</p>
+            <p className="text-gray-500">
+              チェックイン実績は Vercel KV（Redis 互換）に永続保存。
+              匿名 UUID によるユーザー識別・クロスデバイス同期済み。
+            </p>
+          </div>
+          <div>
+            <p className="text-gray-400 font-medium mb-1">今すぐ実証可能</p>
+            <p className="text-gray-500">
+              新宿・大宮・赤羽の施設データは整備済み。
+              JR 側データ連携なしでも PoC としてすぐに動かせる状態。
+            </p>
+          </div>
+          <div>
+            <p className="text-gray-400 font-medium mb-1">拡張性</p>
+            <p className="text-gray-500">
+              全国展開・多事業者対応を前提にした 3 階層ナビ構造（エリア・事業者・路線）を実装済み。
+            </p>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+// ──────────────────────────────────────────────────────
+
 const assets = [
   {
     title: "改札内施設の公式データ提供",
@@ -367,7 +576,17 @@ function TeamSection() {
 
 // ── メインページ ─────────────────────────────────────
 
-export default function JrPage() {
+export default async function JrPage() {
+  // サーバー側でデータ取得
+  const allStations     = getAllStations();
+  const totalStations   = allStations.length;
+  const totalFacilities = allStations.reduce((s, st) => s + st.facilities.length, 0);
+  const insideFacilities = allStations.reduce(
+    (s, st) => s + st.facilities.filter((f) => f.gateArea === "改札内").length,
+    0
+  );
+  const kvData = await fetchKvStats();
+
   return (
     <>
       <HeroSection />
@@ -375,6 +594,12 @@ export default function JrPage() {
       <ValueSection />
       <PocThemeSection />
       <ImplementationSection />
+      <LiveStatsSection
+        totalStations={totalStations}
+        totalFacilities={totalFacilities}
+        insideFacilities={insideFacilities}
+        kv={kvData}
+      />
       <AssetsSection />
       <RoadmapSection />
       <TeamSection />
