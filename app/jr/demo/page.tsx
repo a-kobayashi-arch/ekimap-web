@@ -144,22 +144,31 @@ export default function JrDemoPage() {
   const [activeSlug, setActiveSlug] = useState<DemoSlug>("omiya");
   const [activeCategory, setActiveCategory] = useState<CategoryTab>("すべて");
   const [onlyGateInside, setOnlyGateInside] = useState(false);
-  const [facilityStats, setFacilityStats] = useState<Record<string, number>>({});
+  const [facilityStats, setFacilityStats]   = useState<Record<string, number>>({});
+  const [stationStampMap, setStationStampMap] = useState<Record<string, number>>({});
+  const [statsLoaded, setStatsLoaded]         = useState(false);
 
-  // stats API からチェックイン実績を取得
+  // stats API からチェックイン実績・駅スタンプを取得
   useEffect(() => {
     fetch("/api/stats")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then(
-        (data: { facilityStats?: { facilityId: string; count: number }[] }) => {
-          const map: Record<string, number> = {};
-          for (const s of data.facilityStats ?? []) {
-            map[s.facilityId] = s.count;
-          }
-          setFacilityStats(map);
+        (data: {
+          facilityStats?: { facilityId: string; count: number }[];
+          stationStats?:  { stationSlug: string;  count: number }[];
+        }) => {
+          const fmap: Record<string, number> = {};
+          for (const s of data.facilityStats ?? []) fmap[s.facilityId] = s.count;
+          setFacilityStats(fmap);
+
+          const smap: Record<string, number> = {};
+          for (const s of data.stationStats ?? []) smap[s.stationSlug] = s.count;
+          setStationStampMap(smap);
+
+          setStatsLoaded(true);
         }
       )
-      .catch(() => {});
+      .catch(() => { setStatsLoaded(true); });
   }, []);
 
   // 駅切り替え時にフィルタをリセット
@@ -183,13 +192,14 @@ export default function JrDemoPage() {
   });
 
   // ── 主要指標 ──────────────────────────────────
-  const insideCount  = station.facilities.filter((f) => f.gateArea === "改札内").length;
-  const seatCount    = station.facilities.filter((f) => f.seating === "yes").length;
-  const outletCount  = station.facilities.filter((f) => f.outlet === "available").length;
+  const insideCount   = station.facilities.filter((f) => f.gateArea === "改札内").length;
+  const seatCount     = station.facilities.filter((f) => f.seating === "yes").length;
+  const outletCount   = station.facilities.filter((f) => f.outlet === "available").length;
   const totalCheckins = station.facilities.reduce(
     (sum, f) => sum + (facilityStats[f.id] ?? 0),
     0
   );
+  const stationStampCount = stationStampMap[activeSlug] ?? 0;
 
   // カテゴリ別件数（フィルタ考慮）
   const baseForCount = station.facilities.filter(
@@ -297,25 +307,53 @@ export default function JrDemoPage() {
         </div>
       </div>
 
-      {/* ── チェックイン実績（stats API） ─────────────── */}
-      {totalCheckins > 0 && (
-        <div className="border border-green-200 bg-green-50 rounded-xl p-5 flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <p className="text-xs text-green-600 font-semibold uppercase tracking-wider mb-1">
-              チェックイン実績（KV 集計・リアルタイム）
-            </p>
-            <p className="text-3xl font-bold text-green-700">
+      {/* ── この駅の実績（KV 集計・常時表示） ─────────── */}
+      <div className="border border-gray-200 rounded-xl overflow-hidden">
+        <div className="bg-gray-50 border-b border-gray-200 px-5 py-3 flex items-center justify-between">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            {station.name} の実績データ（Vercel KV リアルタイム集計）
+          </p>
+          {!statsLoaded && (
+            <span className="text-xs text-gray-400 animate-pulse">取得中…</span>
+          )}
+        </div>
+        <div className="grid grid-cols-3 divide-x divide-gray-100">
+          {/* 施設チェックイン */}
+          <div className="px-6 py-5">
+            <p className="text-xs text-gray-400 mb-1">施設チェックイン</p>
+            <p className="text-3xl font-bold text-gray-800">
               {totalCheckins}
-              <span className="text-sm font-normal text-green-500 ml-1">回</span>
+              <span className="text-sm font-normal text-gray-400 ml-1">回</span>
+            </p>
+            <p className="text-xs text-gray-400 mt-1">
+              {totalCheckins > 0
+                ? "KV に蓄積済み"
+                : statsLoaded ? "まだ記録なし" : "–"}
             </p>
           </div>
-          <p className="text-xs text-green-700 max-w-xs leading-relaxed">
-            実ユーザーによるチェックインデータ。
-            施設ごとの回遊行動把握・人気施設分析に活用可能。
-            Vercel KV に永続化済み。
-          </p>
+          {/* 駅スタンプ */}
+          <div className="px-6 py-5">
+            <p className="text-xs text-gray-400 mb-1">駅スタンプ</p>
+            <p className="text-3xl font-bold text-gray-800">
+              {stationStampCount}
+              <span className="text-sm font-normal text-gray-400 ml-1">回</span>
+            </p>
+            <p className="text-xs text-gray-400 mt-1">
+              {stationStampCount > 0
+                ? "駅チェックイン取得数"
+                : statsLoaded ? "まだ記録なし" : "–"}
+            </p>
+          </div>
+          {/* 補足 */}
+          <div className="px-6 py-5 flex items-center">
+            <p className="text-xs text-gray-400 leading-relaxed">
+              実ユーザーの行動データ。
+              施設ごとの回遊把握・送客効果測定に活用可能。
+              Vercel KV に永続化・クロスデバイス同期済み。
+            </p>
+          </div>
         </div>
-      )}
+      </div>
 
       {/* ── 施設一覧テーブル ─────────────────────────── */}
       <div>

@@ -6,13 +6,27 @@ import { getAllStations } from "@/lib/stations";
 
 const KV_AVAILABLE = !!process.env.KV_REST_API_URL;
 
-/** KV から集計数を取得（失敗時は null） */
-async function fetchKvStats(): Promise<{
+export interface PerStationStat {
+  facilityCheckins: number;
+  stationStamps: number;
+}
+
+export interface AllKvStats {
   totalFacilityCheckins: number;
   totalStationCheckins: number;
   facilitiesWithCheckins: number;
   stationsWithCheckins: number;
-} | null> {
+  /** stationSlug → 集計 */
+  perStation: Record<string, PerStationStat>;
+}
+
+/**
+ * KV から全集計データを一括取得（失敗時は null）
+ * @param facilityToStation facilityId → stationSlug の逆引きマップ
+ */
+async function fetchAllKvStats(
+  facilityToStation: Record<string, string>
+): Promise<AllKvStats | null> {
   if (!KV_AVAILABLE) return null;
   try {
     const [facilityKeys, stationKeys] = await Promise.all([
@@ -22,16 +36,35 @@ async function fetchKvStats(): Promise<{
     const [facilityCounts, stationCounts] = await Promise.all([
       facilityKeys.length > 0
         ? Promise.all(facilityKeys.map((k) => kv.get<number>(k)))
-        : Promise.resolve([]),
+        : Promise.resolve([] as (number | null)[]),
       stationKeys.length > 0
         ? Promise.all(stationKeys.map((k) => kv.get<number>(k)))
-        : Promise.resolve([]),
+        : Promise.resolve([] as (number | null)[]),
     ]);
+
+    // 駅別に集計
+    const perStation: Record<string, PerStationStat> = {};
+
+    for (let i = 0; i < facilityKeys.length; i++) {
+      const facilityId = facilityKeys[i].replace("stats:facility:", "");
+      const slug = facilityToStation[facilityId];
+      if (slug) {
+        perStation[slug] ??= { facilityCheckins: 0, stationStamps: 0 };
+        perStation[slug].facilityCheckins += Number(facilityCounts[i]) || 0;
+      }
+    }
+    for (let i = 0; i < stationKeys.length; i++) {
+      const slug = stationKeys[i].replace("stats:station:", "");
+      perStation[slug] ??= { facilityCheckins: 0, stationStamps: 0 };
+      perStation[slug].stationStamps += Number(stationCounts[i]) || 0;
+    }
+
     return {
       totalFacilityCheckins: facilityCounts.reduce((s: number, c) => s + (Number(c) || 0), 0),
       totalStationCheckins:  stationCounts.reduce((s: number, c) => s + (Number(c) || 0), 0),
       facilitiesWithCheckins: facilityKeys.length,
       stationsWithCheckins:   stationKeys.length,
+      perStation,
     };
   } catch {
     return null;
@@ -273,12 +306,7 @@ interface LiveStatsProps {
   totalStations: number;
   totalFacilities: number;
   insideFacilities: number;
-  kv: {
-    totalFacilityCheckins: number;
-    totalStationCheckins: number;
-    facilitiesWithCheckins: number;
-    stationsWithCheckins: number;
-  } | null;
+  kv: AllKvStats | null;
 }
 
 function Stat({
@@ -438,6 +466,130 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
 
 // ──────────────────────────────────────────────────────
 
+// ── 5.6. 駅別サマリー ────────────────────────────────
+
+/** PoC で見せる主要駅（路線順） */
+const POC_STATIONS = [
+  { slug: "omiya",    label: "大宮" },
+  { slug: "akabane",  label: "赤羽" },
+  { slug: "shinjuku", label: "新宿" },
+] as const;
+
+interface StationBreakdownProps {
+  stationFacilityCount: Record<string, number>;
+  stationInsideCount:   Record<string, number>;
+  kv: AllKvStats | null;
+}
+
+function StationBreakdownSection({
+  stationFacilityCount,
+  stationInsideCount,
+  kv,
+}: StationBreakdownProps) {
+  const hasKv = kv !== null;
+
+  return (
+    <Section id="station-breakdown">
+      <SectionLabel>駅別実績データ</SectionLabel>
+      <SectionHeading>主要PoC駅ごとの状況</SectionHeading>
+      <p className="text-sm text-gray-500 mb-8 -mt-2">
+        新宿・大宮・赤羽の3駅を対象に、施設データとチェックイン実績を駅単位で確認できます。
+      </p>
+
+      <div className="border border-gray-200 rounded-xl overflow-hidden">
+        <table className="w-full text-sm">
+          <thead className="bg-gray-50 border-b border-gray-200">
+            <tr>
+              <th className="text-left px-5 py-3 font-medium text-gray-500">駅名</th>
+              <th className="text-center px-5 py-3 font-medium text-gray-500">施設数</th>
+              <th className="text-center px-5 py-3 font-medium text-gray-500">改札内</th>
+              <th className="text-center px-5 py-3 font-medium text-gray-500">
+                施設チェックイン
+                {!hasKv && <span className="text-gray-300 font-normal ml-1">※</span>}
+              </th>
+              <th className="text-center px-5 py-3 font-medium text-gray-500">
+                駅スタンプ
+                {!hasKv && <span className="text-gray-300 font-normal ml-1">※</span>}
+              </th>
+              <th className="text-left px-5 py-3 font-medium text-gray-500">デモ</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100">
+            {POC_STATIONS.map(({ slug, label }) => {
+              const facilityCount = stationFacilityCount[slug] ?? 0;
+              const insideCount   = stationInsideCount[slug] ?? 0;
+              const stat          = kv?.perStation[slug];
+              return (
+                <tr key={slug} className="hover:bg-gray-50 transition-colors">
+                  <td className="px-5 py-4 font-semibold text-gray-800">{label}</td>
+                  <td className="px-5 py-4 text-center text-gray-700">{facilityCount}</td>
+                  <td className="px-5 py-4 text-center">
+                    <span className="text-xs bg-blue-50 text-blue-600 border border-blue-200 px-2 py-0.5 rounded-full">
+                      {insideCount}件
+                    </span>
+                  </td>
+                  <td className="px-5 py-4 text-center">
+                    {hasKv ? (
+                      stat?.facilityCheckins ? (
+                        <span className="text-lg font-bold text-gray-800">
+                          {stat.facilityCheckins}
+                          <span className="text-xs font-normal text-gray-400 ml-1">回</span>
+                        </span>
+                      ) : (
+                        <span className="text-gray-300 text-sm">–</span>
+                      )
+                    ) : (
+                      <span className="text-gray-300 text-sm">–</span>
+                    )}
+                  </td>
+                  <td className="px-5 py-4 text-center">
+                    {hasKv ? (
+                      stat?.stationStamps ? (
+                        <span className="text-lg font-bold text-gray-800">
+                          {stat.stationStamps}
+                          <span className="text-xs font-normal text-gray-400 ml-1">回</span>
+                        </span>
+                      ) : (
+                        <span className="text-gray-300 text-sm">–</span>
+                      )
+                    ) : (
+                      <span className="text-gray-300 text-sm">–</span>
+                    )}
+                  </td>
+                  <td className="px-5 py-4">
+                    <Link
+                      href={`/jr/demo?station=${slug}`}
+                      className="text-xs text-gray-400 hover:text-gray-700 border border-gray-200 px-2 py-1 rounded hover:border-gray-400 transition-all"
+                    >
+                      デモを見る →
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        {!hasKv && (
+          <p className="text-xs text-gray-400 text-right px-5 py-2 border-t border-gray-100">
+            ※ KV未接続環境のためチェックイン実績は非表示（本番環境では表示）
+          </p>
+        )}
+      </div>
+
+      <div className="mt-4 text-right">
+        <Link
+          href="/jr/demo"
+          className="text-sm text-gray-500 hover:text-gray-800 transition-colors"
+        >
+          /jr/demo で詳細データを確認 →
+        </Link>
+      </div>
+    </Section>
+  );
+}
+
+// ─────────────────────────────────────────────────────
+
 const assets = [
   {
     title: "改札内施設の公式データ提供",
@@ -577,7 +729,7 @@ function TeamSection() {
 // ── メインページ ─────────────────────────────────────
 
 export default async function JrPage() {
-  // サーバー側でデータ取得
+  // ── 静的データ（ビルド時確定） ──
   const allStations     = getAllStations();
   const totalStations   = allStations.length;
   const totalFacilities = allStations.reduce((s, st) => s + st.facilities.length, 0);
@@ -585,7 +737,23 @@ export default async function JrPage() {
     (s, st) => s + st.facilities.filter((f) => f.gateArea === "改札内").length,
     0
   );
-  const kvData = await fetchKvStats();
+
+  // facilityId → stationSlug の逆引きマップを構築
+  const facilityToStation: Record<string, string> = {};
+  const stationFacilityCount: Record<string, number> = {};
+  const stationInsideCount:   Record<string, number> = {};
+  for (const station of allStations) {
+    stationFacilityCount[station.slug] = station.facilities.length;
+    stationInsideCount[station.slug]   = station.facilities.filter(
+      (f) => f.gateArea === "改札内"
+    ).length;
+    for (const facility of station.facilities) {
+      facilityToStation[facility.id] = station.slug;
+    }
+  }
+
+  // ── KV 動的データ ──
+  const kvData = await fetchAllKvStats(facilityToStation);
 
   return (
     <>
@@ -598,6 +766,11 @@ export default async function JrPage() {
         totalStations={totalStations}
         totalFacilities={totalFacilities}
         insideFacilities={insideFacilities}
+        kv={kvData}
+      />
+      <StationBreakdownSection
+        stationFacilityCount={stationFacilityCount}
+        stationInsideCount={stationInsideCount}
         kv={kvData}
       />
       <AssetsSection />
