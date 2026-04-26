@@ -34,7 +34,10 @@ function OutletIcon({ status }: { status?: string }) {
   if (status === "available") {
     return <span className="text-xs bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-medium">🔌 あり</span>;
   }
-  return <span className="text-xs bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full">🔌 不明</span>;
+  if (status === "none") {
+    return <span className="text-xs bg-red-50 text-red-400 px-1.5 py-0.5 rounded-full">🔌 なし</span>;
+  }
+  return <span className="text-xs bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full">🔌 未確認</span>;
 }
 
 function SeatingIcon({ status }: { status?: string }) {

@@ -2,7 +2,7 @@ export type Category = "飲食店" | "ショップ" | "サービス" | "設備" 
 
 export type GateArea = "改札内" | "改札外" | "調査中";
 
-export type OutletStatus = "available" | "unknown";
+export type OutletStatus = "available" | "none" | "unknown";
 export type SeatingStatus = "yes" | "no" | "unknown";
 export type CrowdedStatus = "empty" | "normal" | "crowded" | "unknown";
 

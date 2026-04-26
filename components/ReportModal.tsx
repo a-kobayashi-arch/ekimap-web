@@ -83,7 +83,7 @@ export default function ReportModal({
             <fieldset className="space-y-1.5">
               <legend className="text-sm font-semibold text-gray-700">🔌 コンセント</legend>
               <div className="flex gap-3">
-                {(["available", "unknown"] as OutletStatus[]).map((v) => (
+                {(["available", "none", "unknown"] as OutletStatus[]).map((v) => (
                   <label key={v} className="flex items-center gap-1.5 cursor-pointer">
                     <input
                       type="radio"
@@ -94,7 +94,7 @@ export default function ReportModal({
                       className="accent-blue-500"
                     />
                     <span className="text-sm text-gray-700">
-                      {v === "available" ? "ある" : "不明"}
+                      {v === "available" ? "ある" : v === "none" ? "ない" : "未確認"}
                     </span>
                   </label>
                 ))}
