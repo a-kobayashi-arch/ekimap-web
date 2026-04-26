@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getStationBySlug, getAllStations } from "@/lib/stations";
+import { getStationBackNav } from "@/lib/navigation";
 import FacilityTabs from "@/components/FacilityTabs";
 import OperatorBadges from "@/components/OperatorBadges";
 import OperatorSection from "@/components/OperatorSection";
@@ -19,6 +20,9 @@ export default async function StationPage({ params }: Props) {
   const station = getStationBySlug(slug);
   if (!station) notFound();
 
+  // 戻り先ナビゲーション
+  const backNav = getStationBackNav(slug);
+
   // 期間限定ショップを通常一覧から除外
   const visibleFacilities = station.facilities.filter((f) => !f.isTemporary);
 
@@ -26,10 +30,10 @@ export default async function StationPage({ params }: Props) {
     <div className="space-y-6">
       {/* Back */}
       <Link
-        href="/"
+        href={backNav.href}
         className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 transition-colors"
       >
-        ← 駅一覧へ
+        ← {backNav.label}
       </Link>
 
       {/* Station header */}
