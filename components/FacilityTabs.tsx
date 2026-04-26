@@ -234,9 +234,16 @@ export default function FacilityTabs({ facilities, stationId, exits, buildings }
           />
         ))}
         {displayed.length === 0 && (
-          <p className="text-center text-gray-400 py-8">
-            {filterOutlet || filterSeating ? "条件に合う施設がありません" : "施設情報がありません"}
-          </p>
+          <div className="text-center text-gray-400 py-8 space-y-1">
+            {filterOutlet ? (
+              <>
+                <p>現在、客用コンセントが確認できている施設はありません。</p>
+                <p className="text-xs text-gray-300">現地確認・投稿により順次更新されます。</p>
+              </>
+            ) : (
+              <p>{filterSeating ? "条件に合う施設がありません" : "施設情報がありません"}</p>
+            )}
+          </div>
         )}
       </div>
     </div>

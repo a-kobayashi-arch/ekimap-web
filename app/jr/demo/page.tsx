@@ -595,7 +595,14 @@ export default function JrDemoPage() {
                       }
                       className="px-4 py-10 text-center text-gray-400"
                     >
-                      条件に合う施設がありません
+                      {activePurpose === "charge" ? (
+                        <span className="space-y-1 block">
+                          <span className="block">現在、客用コンセントが確認できている施設はありません。</span>
+                          <span className="block text-xs text-gray-300">現地確認・投稿により順次更新されます。</span>
+                        </span>
+                      ) : (
+                        "条件に合う施設がありません"
+                      )}
                     </td>
                   </tr>
                 )}
