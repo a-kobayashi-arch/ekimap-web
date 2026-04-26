@@ -51,7 +51,7 @@ export default function StationCard({ station }: StationCardProps) {
         </div>
 
         <div className="flex items-center justify-between text-sm text-gray-500">
-          <span>{station.facilities.length}件の施設</span>
+          <span>{station.facilities.filter((f) => !f.isTemporary).length}件の施設</span>
           <span className="text-blue-500 font-medium">詳細を見る →</span>
         </div>
       </div>

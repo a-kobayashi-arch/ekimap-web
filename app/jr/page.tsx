@@ -270,7 +270,7 @@ const implementations = [
   { status: "done", label: "改札内/外の区別フラグ" },
   { status: "done", label: "UGC 更新モーダル（施設情報の報告）" },
   { status: "done", label: "stats API（チェックイン集計）" },
-  { status: "wip",  label: "目的別導線 UI（/jr/demo で整備中）" },
+  { status: "done", label: "目的別導線 UI（食べる / 買う / 座る / 充電）" },
   { status: "plan", label: "リアルタイム空席・充電状況（要JR側アセット）" },
   { status: "plan", label: "Suica 連携・購買データ分析" },
 ];
@@ -732,9 +732,13 @@ export default async function JrPage() {
   // ── 静的データ（ビルド時確定） ──
   const allStations     = getAllStations();
   const totalStations   = allStations.length;
-  const totalFacilities = allStations.reduce((s, st) => s + st.facilities.length, 0);
+  const totalFacilities = allStations.reduce(
+    (s, st) => s + st.facilities.filter((f) => !f.isTemporary).length,
+    0
+  );
   const insideFacilities = allStations.reduce(
-    (s, st) => s + st.facilities.filter((f) => f.gateArea === "改札内").length,
+    (s, st) =>
+      s + st.facilities.filter((f) => !f.isTemporary && f.gateArea === "改札内").length,
     0
   );
 
@@ -743,10 +747,13 @@ export default async function JrPage() {
   const stationFacilityCount: Record<string, number> = {};
   const stationInsideCount:   Record<string, number> = {};
   for (const station of allStations) {
-    stationFacilityCount[station.slug] = station.facilities.length;
-    stationInsideCount[station.slug]   = station.facilities.filter(
-      (f) => f.gateArea === "改札内"
+    stationFacilityCount[station.slug] = station.facilities.filter(
+      (f) => !f.isTemporary
     ).length;
+    stationInsideCount[station.slug] = station.facilities.filter(
+      (f) => !f.isTemporary && f.gateArea === "改札内"
+    ).length;
+    // facilityToStation は isTemporary も含めて登録（既存KVデータへの逆引き対応）
     for (const facility of station.facilities) {
       facilityToStation[facility.id] = station.slug;
     }
