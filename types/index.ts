@@ -25,6 +25,10 @@ export interface Facility {
   floorsToClimb?: number;
   // 複数ビルディング
   building?: string;
+  // カテゴリ詳細（飲食店: "レストラン" | "カフェ＆イートイン・バー" 等）
+  subCategory?: string;
+  // 公式サイトのカテゴリ名（エキュート等）
+  officialCategory?: string;
 }
 
 export interface StationLine {
