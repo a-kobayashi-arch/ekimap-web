@@ -19,6 +19,9 @@ export default async function StationPage({ params }: Props) {
   const station = getStationBySlug(slug);
   if (!station) notFound();
 
+  // 期間限定ショップを通常一覧から除外
+  const visibleFacilities = station.facilities.filter((f) => !f.isTemporary);
+
   return (
     <div className="space-y-6">
       {/* Back */}
@@ -72,7 +75,7 @@ export default async function StationPage({ params }: Props) {
         </div>
 
         <p className="text-sm text-gray-400 mt-2">
-          乗換駅 • {station.facilities.length}件の施設
+          乗換駅 • {visibleFacilities.length}件の施設
         </p>
       </div>
 
@@ -86,9 +89,26 @@ export default async function StationPage({ params }: Props) {
 
       {/* Facilities */}
       <section>
-        <h2 className="font-semibold text-gray-700 mb-3">施設一覧</h2>
+        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <h2 className="font-semibold text-gray-700">施設一覧</h2>
+          {station.externalLinks?.limitedShops && (
+            <a
+              href={station.externalLinks.limitedShops}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-gray-400 border border-gray-200 px-3 py-1.5 rounded-full hover:border-gray-400 hover:text-gray-600 transition-all"
+            >
+              🎪 期間限定ショップを見る →
+            </a>
+          )}
+        </div>
+        {station.externalLinks?.limitedShops && (
+          <p className="text-xs text-gray-400 mb-3">
+            期間限定ショップ・ポップアップは入れ替わりがあるため、最新情報はエキュート公式ページをご確認ください。
+          </p>
+        )}
         <FacilityTabs
-          facilities={station.facilities}
+          facilities={visibleFacilities}
           stationId={station.id}
           exits={station.exits}
           buildings={station.buildings}

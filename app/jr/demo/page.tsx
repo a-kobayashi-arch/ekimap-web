@@ -221,6 +221,9 @@ export default function JrDemoPage() {
   const station = getStationBySlug(activeSlug) as Station;
   if (!station) return null;
 
+  // 期間限定ショップを通常一覧から除外
+  const visibleFacilities = station.facilities.filter((f) => !f.isTemporary);
+
   const hasMultiBuildings = (station.buildings?.length ?? 0) >= 2;
 
   // ── フィルタ適用 ──────────────────────────────
@@ -228,7 +231,7 @@ export default function JrDemoPage() {
     ? PURPOSE_FILTERS.find((p) => p.id === activePurpose) ?? null
     : null;
 
-  const filtered = station.facilities.filter((f) => {
+  const filtered = visibleFacilities.filter((f) => {
     if (onlyGateInside && f.gateArea !== "改札内") return false;
     if (activeCategory !== "すべて" && f.category !== activeCategory) return false;
     if (activePurposeFilter && !activePurposeFilter.match(f)) return false;
@@ -236,17 +239,17 @@ export default function JrDemoPage() {
   });
 
   // ── 主要指標 ──────────────────────────────────
-  const insideCount   = station.facilities.filter((f) => f.gateArea === "改札内").length;
-  const seatCount     = station.facilities.filter((f) => f.seating === "yes").length;
-  const outletCount   = station.facilities.filter((f) => f.outlet === "available").length;
-  const totalCheckins = station.facilities.reduce(
+  const insideCount   = visibleFacilities.filter((f) => f.gateArea === "改札内").length;
+  const seatCount     = visibleFacilities.filter((f) => f.seating === "yes").length;
+  const outletCount   = visibleFacilities.filter((f) => f.outlet === "available").length;
+  const totalCheckins = visibleFacilities.reduce(
     (sum, f) => sum + (facilityStats[f.id] ?? 0),
     0
   );
   const stationStampCount = stationStampMap[activeSlug] ?? 0;
 
   // カテゴリ別件数（フィルタ考慮）
-  const baseForCount = station.facilities.filter(
+  const baseForCount = visibleFacilities.filter(
     (f) => !onlyGateInside || f.gateArea === "改札内"
   );
 
@@ -326,7 +329,7 @@ export default function JrDemoPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <MetricCard
             label="施設数（全体）"
-            value={station.facilities.length}
+            value={visibleFacilities.length}
             unit="件"
           />
           <MetricCard
@@ -424,7 +427,7 @@ export default function JrDemoPage() {
           </p>
           <div className="flex gap-2 flex-wrap">
             {PURPOSE_FILTERS.map((p) => {
-              const count = station.facilities.filter(
+              const count = visibleFacilities.filter(
                 (f) =>
                   (!onlyGateInside || f.gateArea === "改札内") && p.match(f)
               ).length;
@@ -602,7 +605,7 @@ export default function JrDemoPage() {
         </div>
 
         <p className="text-xs text-gray-400 mt-2">
-          {filtered.length} 件表示 / 全 {station.facilities.length} 件
+          {filtered.length} 件表示 / 全 {visibleFacilities.length} 件
           {onlyGateInside && "（改札内のみ）"}
         </p>
       </div>

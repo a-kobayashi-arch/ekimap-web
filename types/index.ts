@@ -29,6 +29,8 @@ export interface Facility {
   subCategory?: string;
   // 公式サイトのカテゴリ名（エキュート等）
   officialCategory?: string;
+  // 期間限定ショップ・ポップアップ（true の場合は通常一覧に表示しない）
+  isTemporary?: boolean;
 }
 
 export interface StationLine {
@@ -94,4 +96,8 @@ export interface Station {
   exits?: StationExit[];
   buildings?: Building[];
   facilities: Facility[];
+  // 外部リンク（期間限定ショップ等への公式サイト誘導）
+  externalLinks?: {
+    limitedShops?: string;  // 期間限定ショップ・ポップアップ一覧URL
+  };
 }

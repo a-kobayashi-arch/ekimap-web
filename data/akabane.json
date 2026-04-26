@@ -43,6 +43,9 @@
     { "id": "north-exit", "name": "北改札", "description": "Ecute赤羽きた（メインエリア）" },
     { "id": "south-exit", "name": "南改札", "description": "Ecute赤羽みなみ（2024年7月開業）" }
   ],
+  "externalLinks": {
+    "limitedShops": "https://www.ecute.jp/akabane/shop?a%5B%5D=2&c%5B%5D=15"
+  },
   "facilities": [
     {
       "id": "aka-k-001",
@@ -657,6 +660,7 @@
       "category": "その他",
       "subCategory": "その他",
       "officialCategory": "期間限定ショップ",
+      "isTemporary": true,
       "floor": "1F",
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
@@ -669,6 +673,7 @@
       "category": "その他",
       "subCategory": "その他",
       "officialCategory": "期間限定ショップ",
+      "isTemporary": true,
       "floor": "1F",
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
