@@ -376,13 +376,14 @@
     {
       "id": "aka-k-028",
       "name": "シターラ ダイナー",
-      "category": "食材・お土産",
-      "subCategory": "食材・お土産",
-      "officialCategory": "弁当・惣菜",
+      "category": "飲食店",
+      "subCategory": "カフェ＆イートイン・バー",
+      "officialCategory": "カフェ＆イートイン・バー",
       "floor": "1F",
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
-      "description": "本格インドカレー・ナンのデリ",
+      "description": "本格インドカレー・ナンのイートイン",
+      "seating": "yes",
       "building": "kita"
     },
     {
