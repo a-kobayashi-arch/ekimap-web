@@ -8,6 +8,8 @@ import { calcFacilityTransferTime } from "@/lib/transferTimeCalculator";
 const categoryEmoji: Record<string, string> = {
   飲食店: "🍽️",
   ショップ: "🛍️",
+  "食材・お土産": "🎁",
+  "雑貨・文具": "🛒",
   サービス: "💆",
   設備: "🔧",
   その他: "📦",

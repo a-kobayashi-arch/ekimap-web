@@ -5,7 +5,7 @@ import type { Building, Category, Facility, StationExit } from "@/types";
 import FacilityCard from "./FacilityCard";
 import { useCheckins } from "@/hooks/useCheckins";
 
-const CATEGORIES: Category[] = ["飲食店", "ショップ", "サービス", "設備", "その他"];
+const CATEGORIES: Category[] = ["飲食店", "食材・お土産", "雑貨・文具", "ショップ", "サービス", "設備", "その他"];
 const ALL_TAB = "すべて";
 const ALL_EXIT = "all";
 

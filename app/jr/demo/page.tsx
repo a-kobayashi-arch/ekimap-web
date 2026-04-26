@@ -57,6 +57,8 @@ type DemoSlug = (typeof DEMO_STATIONS)[number]["slug"];
 const CATEGORY_TABS = [
   "すべて",
   "飲食店",
+  "食材・お土産",
+  "雑貨・文具",
   "ショップ",
   "サービス",
   "設備",
@@ -78,7 +80,10 @@ const PURPOSE_FILTERS = [
   {
     id: "buy" as const,
     label: "🛍️ 買う",
-    match: (f: Facility) => f.category === "ショップ",
+    match: (f: Facility) =>
+      f.category === "ショップ" ||
+      f.category === "食材・お土産" ||
+      f.category === "雑貨・文具",
   },
   {
     id: "sit" as const,
@@ -119,6 +124,8 @@ function GateAreaBadge({ area }: { area: string }) {
 const CATEGORY_COLORS: Record<string, string> = {
   飲食店: "bg-orange-50 text-orange-600 border-orange-200",
   ショップ: "bg-purple-50 text-purple-600 border-purple-200",
+  "食材・お土産": "bg-amber-50 text-amber-700 border-amber-200",
+  "雑貨・文具": "bg-indigo-50 text-indigo-600 border-indigo-200",
   サービス: "bg-teal-50 text-teal-600 border-teal-200",
   設備: "bg-gray-100 text-gray-500 border-gray-200",
   その他: "bg-gray-100 text-gray-400 border-gray-200",

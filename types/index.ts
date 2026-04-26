@@ -1,4 +1,4 @@
-export type Category = "飲食店" | "ショップ" | "サービス" | "設備" | "その他";
+export type Category = "飲食店" | "ショップ" | "サービス" | "設備" | "その他" | "食材・お土産" | "雑貨・文具";
 
 export type GateArea = "改札内" | "改札外" | "調査中";
 
