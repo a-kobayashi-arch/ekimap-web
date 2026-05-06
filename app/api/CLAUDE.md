@@ -2,11 +2,26 @@
 
 ## エンドポイント一覧
 
-| パス | 用途 |
-|------|------|
-| `/api/checkins` | 施設チェックイン（GET / POST / DELETE）|
-| `/api/station-checkin` | 駅スタンプ（GET / POST）|
-| `/api/stats` | 全施設・全駅の集計（GET）|
+| パス | 用途 | 状態 |
+|------|------|------|
+| `/api/checkins` | 施設チェックイン（GET / POST / DELETE）| ✅ 実装済み |
+| `/api/station-checkin` | 駅スタンプ（GET / POST）| ✅ 実装済み |
+| `/api/stats` | 全施設・全駅の集計（GET）| ✅ 実装済み |
+| `/api/events` | 行動ログ記録（POST）| 🔴 未実装・応募前に追加 |
+| `/api/events/summary` | 行動ログ集計（GET）| 🔴 未実装・応募前に追加 |
+
+## /api/events の設計方針（未実装）
+
+既存 API・KV キーを**一切変更しない**。新規 KV キーとして追加する。
+
+```
+event:{eventId}          → EventLog（探索・目的選択・確認タップ等）
+events:summary:{date}    → 日次集計
+```
+
+- `POST /api/events`: `{ userId, action, facilityId?, stationSlug?, purpose? }` を KV に書く
+- `GET /api/events/summary`: JR 管理画面向け集計を返す
+- 既存の `/api/checkins`・`/api/stats` は変更しない
 
 ## KV 利用の必須パターン
 

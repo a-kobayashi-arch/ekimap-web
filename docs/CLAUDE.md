@@ -11,6 +11,7 @@
 | `05_jr-startup-application.md` | JR 応募 PoC の目的・ページ構成 | 低 |
 | `06_next-implementation-plan.md` | 優先タスク・データ整備手順 | 高 |
 | `07_session-handover.md` | 直近作業ログ・未完了タスク | **毎セッション更新** |
+| `08_new-claude-session-start-prompt.md` | 新セッション開始時の投入プロンプト | 低 |
 | `JR_POC_DIRECTION.md` | 初期設定の方針文書（参照専用）| 変更しない |
 
 ## セッション終了時の必須更新

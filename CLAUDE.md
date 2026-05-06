@@ -22,11 +22,14 @@
 🚫 大規模リファクタリング
 🚫 新路線追加
 🚫 店舗データ大量追加
+🚫 他駅（新宿等）seating/outlet 整備（応募前対象外）
+🚫 改札外施設の追加
 🚫 GPS測位
 🚫 屋内地図
 🚫 Suica連携
 🚫 JRE ID連携
 🚫 POS連携
+🚫 CSV出力
 🚫 認証機能追加
 🚫 既存API破壊
 🚫 既存KVキー変更
@@ -39,8 +42,9 @@
 
 ## このプロジェクトは何か
 
-**駅ナカマップ（ekimap-web）** — 駅構内施設の検索・チェックイン・スタンプ Web アプリ。  
-一般ユーザー向けと **JR東日本スタートアップ応募用 PoC** の 2 本立て。
+**駅ナカマップ（ekimap-web）** — 改札内施設の回遊・滞在・送客を可視化する **駅ナカ運営DXプラットフォーム**。  
+一般ユーザー向け（施設検索・チェックイン・スタンプ）と **JR東日本スタートアップ応募用 PoC** の 2 本立て。  
+応募資料では「便利アプリ」ではなく「駅ナカ運営DX・販促基盤」として訴求する。
 
 - 本番: https://ekimap-web.vercel.app
 - GitHub: https://github.com/a-kobayashi-arch/ekimap-web.git
@@ -60,16 +64,20 @@
 
 ---
 
-## 今すぐやるべきタスク
+## 今すぐやるべきタスク（応募前最小改修）
 
-| 優先 | タスク | ファイル |
-|------|--------|---------|
-| 🔴 | **赤羽駅 seating/outlet 整備**（62 件すべて未設定）| `data/akabane.json` |
-| 🔴 | **新宿駅 seating/outlet 整備**（41 件中ほぼ未設定）| `data/shinjuku.json` |
-| 🟡 | 現地確認後に outlet: "available" 施設を追加（現在全デモ駅で 0 件）| 各駅 JSON |
+| 優先 | タスク | 対象ファイル |
+|------|--------|------------|
+| 🔴 | **行動ログ API 実装**（`/api/events` POST・`/api/events/summary` GET）| `app/api/events/` |
+| 🔴 | **JR 管理画面 簡易ダッシュボード**（`/jr` に集計パネル追加）| `app/jr/page.tsx` |
+| ✅ | 赤羽駅 seating/outlet 整備（v0.15.7 完了） | — |
 
-→ 詳細: [docs/06_next-implementation-plan.md](./docs/06_next-implementation-plan.md)  
-→ 引き継ぎ: [docs/07_session-handover.md](./docs/07_session-handover.md)
+**保留（応募前対象外）:**
+- 新宿駅・他駅 seating/outlet 整備
+- outlet: "available" 現地確認追加
+- 新規駅・施設データ追加
+
+→ 詳細: [docs/07_session-handover.md](./docs/07_session-handover.md)
 
 ---
 
