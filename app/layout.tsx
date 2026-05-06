@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "駅ナカマップ",
-  description: "駅ナカ施設をチェックイン＆スタンプ収集",
+  description: "改札内施設の探索・目的別検索・滞在サポートアプリ",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

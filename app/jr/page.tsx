@@ -265,7 +265,7 @@ const implementations = [
   { status: "done", label: "駅ナカ施設データ（新宿・大宮・赤羽 等）" },
   { status: "done", label: "目的別施設一覧（座る・充電・食べる・買う）" },
   { status: "done", label: "施設チェックイン（Vercel KV 永続化）" },
-  { status: "done", label: "駅スタンプ（チェックイン実績の可視化）" },
+  { status: "done", label: "駅訪問ログ（チェックイン実績の可視化・永続化）" },
   { status: "done", label: "クロスデバイス同期（ユーザーID管理）" },
   { status: "done", label: "改札内/外の区別フラグ" },
   { status: "done", label: "UGC 更新モーダル（施設情報の報告）" },
@@ -349,7 +349,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
             <span className="text-white">すでに動くプロトタイプが公開されています</span>
           </SectionHeading>
           <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
-            実際に動作するプロトタイプを Vercel 上で稼働中。施設データ・チェックイン機能・駅スタンプ・KV 集計まで、
+            実際に動作するプロトタイプを Vercel 上で稼働中。施設データ・チェックイン機能・駅訪問ログ・KV 集計まで、
             PoC に必要な土台が整っています。
           </p>
         </div>
@@ -402,7 +402,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
               accent
             />
             <Stat
-              label="駅スタンプ"
+              label="駅訪問ログ"
               value={kvData!.totalStationCheckins}
               sub="累計取得数"
               accent
@@ -508,7 +508,7 @@ function StationBreakdownSection({
                 {!hasKv && <span className="text-gray-300 font-normal ml-1">※</span>}
               </th>
               <th className="text-center px-5 py-3 font-medium text-gray-500">
-                駅スタンプ
+                駅訪問ログ
                 {!hasKv && <span className="text-gray-300 font-normal ml-1">※</span>}
               </th>
               <th className="text-left px-5 py-3 font-medium text-gray-500">デモ</th>

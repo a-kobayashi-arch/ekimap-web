@@ -75,7 +75,7 @@ function AreaScreen({ areas }: { areas: Area[] }) {
       {/* ヒーロー */}
       <div className="text-center space-y-2 pt-4">
         <h1 className="text-3xl font-bold text-gray-800">駅ナカマップ</h1>
-        <p className="text-gray-500 text-sm">エリアを選んでスタンプを集めよう</p>
+        <p className="text-gray-500 text-sm">エリアを選んで、改札内の施設を探そう</p>
       </div>
 
       <SearchBar stations={getAllStations()} />

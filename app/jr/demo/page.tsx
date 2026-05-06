@@ -343,13 +343,13 @@ export default function JrDemoPage() {
             label="座れる場所"
             value={seatCount}
             unit="件"
-            sub="seating: yes"
+            sub="座席あり施設"
           />
           <MetricCard
             label="充電スポット"
             value={outletCount}
             unit="件"
-            sub="outlet: available"
+            sub="コンセントあり施設"
           />
         </div>
       </div>
@@ -378,9 +378,9 @@ export default function JrDemoPage() {
                 : statsLoaded ? "まだ記録なし" : "–"}
             </p>
           </div>
-          {/* 駅スタンプ */}
+          {/* 駅訪問ログ */}
           <div className="px-6 py-5">
-            <p className="text-xs text-gray-400 mb-1">駅スタンプ</p>
+            <p className="text-xs text-gray-400 mb-1">駅訪問ログ</p>
             <p className="text-3xl font-bold text-gray-800">
               {stationStampCount}
               <span className="text-sm font-normal text-gray-400 ml-1">回</span>
