@@ -122,7 +122,7 @@ git push origin main
 git push origin vX.Y.Z
 ```
 
-現在の最新タグ: **v0.15.5**
+現在の最新タグ: **v0.15.7**
 
 ---
 
