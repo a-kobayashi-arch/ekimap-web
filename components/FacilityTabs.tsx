@@ -4,6 +4,17 @@ import { useState, useEffect } from "react";
 import type { Building, Category, Facility, StationExit } from "@/types";
 import FacilityCard from "./FacilityCard";
 import { useCheckins } from "@/hooks/useCheckins";
+import { getUserId } from "@/lib/userId";
+
+/** category_select イベントを fire-and-forget で送信 */
+function postCategorySelect(stationSlug: string | undefined, category: string) {
+  const userId = getUserId();
+  fetch("/api/events", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ eventName: "category_select", stationSlug, category, userId }),
+  }).catch(() => {});
+}
 
 const CATEGORIES: Category[] = ["飲食店", "食材・お土産", "雑貨・文具", "ショップ", "サービス", "設備", "その他"];
 const ALL_TAB = "すべて";
@@ -12,11 +23,12 @@ const ALL_EXIT = "all";
 interface FacilityTabsProps {
   facilities: Facility[];
   stationId: string;
+  stationSlug?: string;
   exits?: StationExit[];
   buildings?: Building[];
 }
 
-export default function FacilityTabs({ facilities, stationId, exits, buildings }: FacilityTabsProps) {
+export default function FacilityTabs({ facilities, stationId, stationSlug, exits, buildings }: FacilityTabsProps) {
   const hasMultiBuildings = (buildings?.length ?? 0) >= 2;
   const defaultBuilding = buildings?.[0]?.id ?? "";
 
@@ -172,7 +184,11 @@ export default function FacilityTabs({ facilities, stationId, exits, buildings }
           return (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => {
+                setActiveTab(tab);
+                // カテゴリ選択ログ（"すべて" 以外の実カテゴリのみ記録）
+                if (tab !== ALL_TAB) postCategorySelect(stationSlug, tab);
+              }}
               className={`shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
                 activeTab === tab
                   ? "bg-blue-500 text-white shadow"
@@ -226,6 +242,7 @@ export default function FacilityTabs({ facilities, stationId, exits, buildings }
             key={facility.id}
             facility={facility}
             stationId={stationId}
+            stationSlug={stationSlug}
             exits={exits}
             visited={visitedIds.has(facility.id)}
             interested={interestedIds.has(facility.id)}

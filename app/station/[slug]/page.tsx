@@ -114,6 +114,7 @@ export default async function StationPage({ params }: Props) {
         <FacilityTabs
           facilities={visibleFacilities}
           stationId={station.id}
+          stationSlug={station.slug}
           exits={station.exits}
           buildings={station.buildings}
         />

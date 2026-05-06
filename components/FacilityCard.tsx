@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Facility, GateArea, StationExit } from "@/types";
 import ReportModal from "./ReportModal";
 import { calcFacilityTransferTime } from "@/lib/transferTimeCalculator";
+import { getUserId } from "@/lib/userId";
 
 const categoryEmoji: Record<string, string> = {
   飲食店: "🍽️",
@@ -74,9 +75,28 @@ function CrowdedIcon({ status }: { status?: string }) {
   );
 }
 
+type OneTapStatus = "vacant" | "crowded" | "charging_available";
+
+/** POST /api/events へ fire-and-forget で送信する */
+function postEvent(payload: {
+  eventName: string;
+  stationSlug?: string;
+  facilityId?: string;
+  category?: string;
+  status?: OneTapStatus;
+}) {
+  const userId = getUserId();
+  fetch("/api/events", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ...payload, userId }),
+  }).catch(() => {});
+}
+
 interface FacilityCardProps {
   facility: Facility;
   stationId: string;
+  stationSlug?: string;
   exits?: StationExit[];
   visited: boolean;
   interested: boolean;
@@ -87,6 +107,7 @@ interface FacilityCardProps {
 export default function FacilityCard({
   facility,
   stationId,
+  stationSlug,
   exits,
   visited,
   interested,
@@ -94,7 +115,34 @@ export default function FacilityCard({
   onToggleInterested,
 }: FacilityCardProps) {
   const [showReport, setShowReport] = useState(false);
+  /** 詳細閲覧ログ送信済みフラグ（セッション内で1回のみ） */
+  const [detailLogged, setDetailLogged] = useState(false);
+  /** ワンタップ確認済みステータス */
+  const [tappedStatus, setTappedStatus] = useState<OneTapStatus | null>(null);
+
   const gate = gateAreaStyle[facility.gateArea];
+
+  function handleDetailLog() {
+    if (detailLogged) return;
+    setDetailLogged(true);
+    postEvent({
+      eventName: "facility_detail_open",
+      stationSlug,
+      facilityId: facility.id,
+      category: facility.category,
+    });
+  }
+
+  function handleOneTap(status: OneTapStatus) {
+    if (tappedStatus) return;
+    setTappedStatus(status);
+    postEvent({
+      eventName: "one_tap_status",
+      stationSlug,
+      facilityId: facility.id,
+      status,
+    });
+  }
 
   const hasStatusInfo =
     facility.outlet !== undefined ||
@@ -162,12 +210,24 @@ export default function FacilityCard({
 
         {/* Action buttons */}
         <div className="mt-3 flex gap-2 justify-between items-center">
-          <button
-            onClick={() => setShowReport(true)}
-            className="text-xs text-gray-400 hover:text-blue-500 hover:bg-blue-50 px-2 py-1 rounded-lg transition-colors"
-          >
-            📝 情報を報告する
-          </button>
+          <div className="flex gap-1.5">
+            <button
+              onClick={() => setShowReport(true)}
+              className="text-xs text-gray-400 hover:text-blue-500 hover:bg-blue-50 px-2 py-1 rounded-lg transition-colors"
+            >
+              📝 情報を報告する
+            </button>
+            <button
+              onClick={handleDetailLog}
+              className={`text-xs px-2 py-1 rounded-lg transition-colors ${
+                detailLogged
+                  ? "text-green-500 bg-green-50 cursor-default"
+                  : "text-gray-400 hover:text-indigo-500 hover:bg-indigo-50"
+              }`}
+            >
+              {detailLogged ? "✓ 閲覧を記録" : "👁 詳細を見る"}
+            </button>
+          </div>
           <div className="flex gap-2">
             <button
               onClick={onToggleInterested}
@@ -190,6 +250,34 @@ export default function FacilityCard({
               {visited ? "✓ 行った" : "行った"}
             </button>
           </div>
+        </div>
+
+        {/* ワンタップ確認ボタン */}
+        <div className="mt-2 pt-2 border-t border-gray-100">
+          {tappedStatus ? (
+            <p className="text-xs text-green-600 text-center py-1">
+              ✓ 確認情報を記録しました
+            </p>
+          ) : (
+            <div className="flex gap-1.5">
+              <span className="text-xs text-gray-400 self-center mr-0.5">鮮度確認：</span>
+              {(
+                [
+                  { status: "vacant" as OneTapStatus, label: "空いてた" },
+                  { status: "crowded" as OneTapStatus, label: "混んでた" },
+                  { status: "charging_available" as OneTapStatus, label: "充電できた" },
+                ] as const
+              ).map(({ status, label }) => (
+                <button
+                  key={status}
+                  onClick={() => handleOneTap(status)}
+                  className="text-xs px-2 py-1 rounded-full border border-gray-200 text-gray-500 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

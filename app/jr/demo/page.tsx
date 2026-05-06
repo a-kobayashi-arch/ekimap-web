@@ -177,6 +177,20 @@ function MetricCard({
 
 // ── メインページ ─────────────────────────────────────
 
+// ── events/summary の型 ───────────────────────────────
+
+interface EventsSummary {
+  date: string;
+  totalEvents: number;
+  eventCounts: { facility_detail_open: number; category_select: number; one_tap_status: number };
+  topStations: { stationSlug: string; facilityDetailOpen: number; categorySelect: number; oneTapStatus: number }[];
+  topFacilities: { facilityId: string; facilityDetailOpen: number }[];
+  categoryCounts: { category: string; count: number }[];
+  oneTapStatusCounts: { vacant: number; crowded: number; charging_available: number };
+}
+
+// ── メインページ ─────────────────────────────────────
+
 export default function JrDemoPage() {
   const [activeSlug, setActiveSlug] = useState<DemoSlug>("omiya");
   const [activeCategory, setActiveCategory] = useState<CategoryTab>("すべて");
@@ -185,6 +199,7 @@ export default function JrDemoPage() {
   const [facilityStats, setFacilityStats]   = useState<Record<string, number>>({});
   const [stationStampMap, setStationStampMap] = useState<Record<string, number>>({});
   const [statsLoaded, setStatsLoaded]         = useState(false);
+  const [eventsSummary, setEventsSummary]     = useState<EventsSummary | null>(null);
 
   // stats API からチェックイン実績・駅スタンプを取得
   useEffect(() => {
@@ -208,6 +223,14 @@ export default function JrDemoPage() {
       )
       .catch(() => { setStatsLoaded(true); });
   }, [activeSlug]);
+
+  // events/summary API から探索行動ログを取得
+  useEffect(() => {
+    fetch("/api/events/summary")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((data: EventsSummary) => setEventsSummary(data))
+      .catch(() => {});
+  }, []);
 
   // 駅切り替え時にフィルタをリセット
   function switchStation(slug: DemoSlug) {
@@ -615,6 +638,118 @@ export default function JrDemoPage() {
           {filtered.length} 件表示 / 全 {visibleFacilities.length} 件
           {onlyGateInside && "（改札内のみ）"}
         </p>
+      </div>
+
+      {/* ── 駅ナカ探索データ サマリー ────────────────── */}
+      <div className="border border-gray-200 rounded-xl overflow-hidden">
+        <div className="bg-gray-50 border-b border-gray-200 px-5 py-3">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            駅ナカ探索データ サマリー（本日）
+          </p>
+        </div>
+
+        {eventsSummary && eventsSummary.totalEvents > 0 ? (
+          <div className="p-5 space-y-6">
+            {/* 説明文 */}
+            <p className="text-xs text-gray-400 leading-relaxed">
+              ユーザーが改札内施設を探す過程で発生する閲覧・目的選択・状態確認ログを集計します。
+              POSやSuica統計だけでは把握しにくい、購買前の探索行動や施設検討データを可視化します。
+            </p>
+
+            {/* 3指標 */}
+            <div className="grid grid-cols-3 gap-4">
+              <div className="rounded-lg border border-gray-200 p-4 text-center">
+                <p className="text-xs text-gray-400 mb-1">施設詳細閲覧</p>
+                <p className="text-3xl font-bold text-gray-800">
+                  {eventsSummary.eventCounts.facility_detail_open}
+                  <span className="text-sm font-normal text-gray-400 ml-1">件</span>
+                </p>
+              </div>
+              <div className="rounded-lg border border-gray-200 p-4 text-center">
+                <p className="text-xs text-gray-400 mb-1">目的カテゴリ選択</p>
+                <p className="text-3xl font-bold text-gray-800">
+                  {eventsSummary.eventCounts.category_select}
+                  <span className="text-sm font-normal text-gray-400 ml-1">件</span>
+                </p>
+              </div>
+              <div className="rounded-lg border border-gray-200 p-4 text-center">
+                <p className="text-xs text-gray-400 mb-1">ワンタップ確認</p>
+                <p className="text-3xl font-bold text-gray-800">
+                  {eventsSummary.eventCounts.one_tap_status}
+                  <span className="text-sm font-normal text-gray-400 ml-1">件</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* 目的別ニーズ */}
+              {eventsSummary.categoryCounts.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                    目的別ニーズ
+                  </p>
+                  <div className="space-y-2">
+                    {eventsSummary.categoryCounts.map((c) => (
+                      <div key={c.category} className="flex items-center justify-between text-sm">
+                        <span className="text-gray-600">{c.category}</span>
+                        <span className="font-semibold text-gray-800">{c.count}件</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 鮮度確認ログ */}
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                  鮮度確認ログ
+                </p>
+                <div className="space-y-2">
+                  {(
+                    [
+                      { key: "vacant",              label: "空いてた" },
+                      { key: "crowded",             label: "混んでた" },
+                      { key: "charging_available",  label: "充電できた" },
+                    ] as const
+                  ).map(({ key, label }) => (
+                    <div key={key} className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">{label}</span>
+                      <span className="font-semibold text-gray-800">
+                        {eventsSummary.oneTapStatusCounts[key]}件
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 施設別閲覧ランキング */}
+            {eventsSummary.topFacilities.length > 0 && (
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                  施設別閲覧ランキング
+                </p>
+                <div className="space-y-1.5">
+                  {eventsSummary.topFacilities.map((f, i) => (
+                    <div key={f.facilityId} className="flex items-center justify-between text-sm border border-gray-100 rounded px-3 py-2">
+                      <span className="text-gray-400 text-xs w-5">{i + 1}</span>
+                      <span className="flex-1 text-gray-700 text-xs mx-2 truncate">{f.facilityId}</span>
+                      <span className="font-semibold text-gray-800 text-xs">{f.facilityDetailOpen}件</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="p-6 text-center">
+            <p className="text-sm text-gray-400">
+              {eventsSummary
+                ? `本日（${eventsSummary.date}）の探索ログはまだありません。施設ページでカテゴリ選択・詳細閲覧・鮮度確認を行うとデータが蓄積されます。`
+                : "データ取得中…"}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* ── 一般向けページへのリンク ──────────────────── */}
