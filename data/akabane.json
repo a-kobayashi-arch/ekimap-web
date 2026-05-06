@@ -7,8 +7,14 @@
   "brand": "ecute",
   "brandColor": "#e60012",
   "lines": [
-    { "name": "埼京線", "color": "#009944" },
-    { "name": "京浜東北線", "color": "#00b2e3" }
+    {
+      "name": "埼京線",
+      "color": "#009944"
+    },
+    {
+      "name": "京浜東北線",
+      "color": "#00b2e3"
+    }
   ],
   "operators": [
     {
@@ -19,29 +25,59 @@
         {
           "label": "近距離電車",
           "lines": [
-            { "name": "埼京線" },
-            { "name": "京浜東北線" }
+            {
+              "name": "埼京線"
+            },
+            {
+              "name": "京浜東北線"
+            }
           ]
         },
         {
           "label": "中距離電車",
           "lines": [
-            { "name": "宇都宮線" },
-            { "name": "高崎線" },
-            { "name": "湘南新宿ライン" },
-            { "name": "上野東京ライン" }
+            {
+              "name": "宇都宮線"
+            },
+            {
+              "name": "高崎線"
+            },
+            {
+              "name": "湘南新宿ライン"
+            },
+            {
+              "name": "上野東京ライン"
+            }
           ]
         }
       ]
     }
   ],
   "buildings": [
-    { "id": "kita", "name": "きた", "label": "Ecute赤羽きた", "gate": "北改札" },
-    { "id": "minami", "name": "みなみ", "label": "Ecute赤羽みなみ", "gate": "南改札" }
+    {
+      "id": "kita",
+      "name": "きた",
+      "label": "Ecute赤羽きた",
+      "gate": "北改札"
+    },
+    {
+      "id": "minami",
+      "name": "みなみ",
+      "label": "Ecute赤羽みなみ",
+      "gate": "南改札"
+    }
   ],
   "exits": [
-    { "id": "north-exit", "name": "北改札", "description": "Ecute赤羽きた（メインエリア）" },
-    { "id": "south-exit", "name": "南改札", "description": "Ecute赤羽みなみ（2024年7月開業）" }
+    {
+      "id": "north-exit",
+      "name": "北改札",
+      "description": "Ecute赤羽きた（メインエリア）"
+    },
+    {
+      "id": "south-exit",
+      "name": "南改札",
+      "description": "Ecute赤羽みなみ（2024年7月開業）"
+    }
   ],
   "externalLinks": {
     "limitedShops": "https://www.ecute.jp/akabane/shop?a%5B%5D=2&c%5B%5D=15"
@@ -57,7 +93,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "フラワーショップ",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-002",
@@ -69,7 +107,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "江戸時代創業のくず餅専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-003",
@@ -81,7 +121,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "銀座千疋屋グループの洋菓子店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-004",
@@ -93,7 +135,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "フルーツタルトが人気の洋菓子店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-005",
@@ -105,7 +149,9 @@
       "hours": "7:30〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "人気のベーカリー。はちみつバターあんパンが名物",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-006",
@@ -117,7 +163,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "中華惣菜・点心専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-007",
@@ -129,7 +177,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "ペコちゃんでおなじみの洋菓子店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-008",
@@ -141,7 +191,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "グロッサリー・惣菜・ワイン等",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-009",
@@ -154,7 +206,8 @@
       "gateArea": "改札内",
       "description": "JR東日本系カフェ",
       "seating": "yes",
-      "building": "kita"
+      "building": "kita",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-010",
@@ -166,7 +219,9 @@
       "hours": "6:00〜23:00",
       "gateArea": "改札内",
       "description": "JR東日本系コンビニ",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-011",
@@ -179,7 +234,8 @@
       "gateArea": "改札内",
       "description": "本格そば・うどんのイートイン",
       "seating": "yes",
-      "building": "kita"
+      "building": "kita",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-012",
@@ -191,7 +247,9 @@
       "hours": "7:00〜23:00",
       "gateArea": "改札内",
       "description": "駅ナカ書店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-013",
@@ -203,7 +261,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "新鮮野菜・グロッサリー",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-014",
@@ -215,7 +275,9 @@
       "hours": "7:30〜22:00（日祝20:00）",
       "gateArea": "改札内",
       "description": "人気のフランス系ベーカリーチェーン",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-015",
@@ -227,7 +289,9 @@
       "hours": "9:30〜22:00（日祝20:00）",
       "gateArea": "改札内",
       "description": "あんこスイーツ専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-016",
@@ -239,7 +303,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "フランス発の洋菓子ブランド",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-017",
@@ -251,7 +317,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "お稲荷さん・いなり寿司の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-018",
@@ -263,7 +331,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "おこわ・お赤飯の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-019",
@@ -275,7 +345,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "中華惣菜・焼売の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-020",
@@ -287,7 +359,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "中華デリカ・点心の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-021",
@@ -299,7 +373,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "サラダ・惣菜の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-022",
@@ -311,7 +387,9 @@
       "hours": "6:30〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "焼きおにぎり・おむすびの専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-023",
@@ -324,7 +402,8 @@
       "gateArea": "改札内",
       "description": "駅ナカのカフェバー",
       "seating": "yes",
-      "building": "kita"
+      "building": "kita",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-024",
@@ -337,7 +416,8 @@
       "gateArea": "改札内",
       "description": "谷中発のこだわりコーヒー専門店",
       "seating": "yes",
-      "building": "kita"
+      "building": "kita",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-025",
@@ -349,7 +429,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "韓国惣菜（パンチャン）・チヂミ専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-026",
@@ -361,7 +443,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "名古屋コーチン・地鶏の惣菜専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-027",
@@ -374,7 +458,8 @@
       "gateArea": "改札内",
       "description": "つけ麺・ラーメンの専門店",
       "seating": "yes",
-      "building": "kita"
+      "building": "kita",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-028",
@@ -387,7 +472,8 @@
       "gateArea": "改札内",
       "description": "本格インドカレー・ナンのイートイン",
       "seating": "yes",
-      "building": "kita"
+      "building": "kita",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-029",
@@ -399,7 +485,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "カステラ・どら焼きの老舗",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-030",
@@ -411,7 +499,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "ガトーショコラが人気のフランス菓子店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-031",
@@ -423,7 +513,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "豆乳ドーナツ・ロールケーキの専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-032",
@@ -435,7 +527,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "神戸発・老舗洋菓子ブランドのプレミアムライン",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-033",
@@ -447,7 +541,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "とんかつ・かつ丼のデリカ",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-034",
@@ -459,7 +555,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "くるくるクレープの専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-035",
@@ -471,7 +569,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "和惣菜・お弁当の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-036",
@@ -483,7 +583,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "草加煎餅・和菓子の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-037",
@@ -495,7 +597,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "ベルギー発のチョコレートブランド",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-038",
@@ -507,7 +611,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "台湾発のタピオカティー専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "yes",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-039",
@@ -519,7 +625,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "カラフル家電・キッチン雑貨の人気ブランド",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-040",
@@ -531,7 +639,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "アクセサリー・雑貨の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-041",
@@ -543,7 +653,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "イヤリング・アクセサリーの専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-042",
@@ -555,7 +667,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "カジュアルレディスウエア・雑貨",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-043",
@@ -567,7 +681,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "江戸前天ぷらの天丼・天むすデリ",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-044",
@@ -580,7 +696,8 @@
       "gateArea": "改札内",
       "description": "手作りサンドイッチのカフェ",
       "seating": "yes",
-      "building": "kita"
+      "building": "kita",
+      "outlet": "unknown"
     },
     {
       "id": "aka-k-045",
@@ -592,7 +709,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "ユーハイムのプレミアムライン・バウムクーヘン",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-046",
@@ -604,7 +723,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "お持ち帰り寿司・惣菜の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-047",
@@ -616,7 +737,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "博多の焼き物・肉惣菜の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-048",
@@ -628,7 +751,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "宇治抹茶スイーツ・茶葉の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-049",
@@ -640,7 +765,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "和スイーツ・豆大福の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-050",
@@ -652,7 +779,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "おでん・和惣菜の専門店",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-051",
@@ -665,7 +794,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "パリの老舗カフェ。モンブランが名物（ポップアップ展開）",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-k-052",
@@ -678,7 +809,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "なめらかプリンが人気のスイーツ（ポップアップ展開）",
-      "building": "kita"
+      "building": "kita",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-m-001",
@@ -690,7 +823,9 @@
       "hours": "8:00〜22:00（土日祝21:00）",
       "gateArea": "改札内",
       "description": "グロッサリー・惣菜・ワイン等",
-      "building": "minami"
+      "building": "minami",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-m-002",
@@ -703,7 +838,8 @@
       "gateArea": "改札内",
       "description": "スターバックス南改札内店",
       "seating": "yes",
-      "building": "minami"
+      "building": "minami",
+      "outlet": "unknown"
     },
     {
       "id": "aka-m-003",
@@ -716,7 +852,8 @@
       "gateArea": "改札内",
       "description": "そば・うどんの和食店",
       "seating": "yes",
-      "building": "minami"
+      "building": "minami",
+      "outlet": "unknown"
     },
     {
       "id": "aka-m-004",
@@ -729,7 +866,8 @@
       "gateArea": "改札内",
       "description": "立ち食い寿司の新業態",
       "seating": "yes",
-      "building": "minami"
+      "building": "minami",
+      "outlet": "unknown"
     },
     {
       "id": "aka-m-005",
@@ -742,7 +880,8 @@
       "gateArea": "改札内",
       "description": "一風堂グループのラーメン店",
       "seating": "yes",
-      "building": "minami"
+      "building": "minami",
+      "outlet": "unknown"
     },
     {
       "id": "aka-m-006",
@@ -755,7 +894,8 @@
       "gateArea": "改札内",
       "description": "エキナカ初出店のクラフトバーガー店",
       "seating": "yes",
-      "building": "minami"
+      "building": "minami",
+      "outlet": "unknown"
     },
     {
       "id": "aka-m-007",
@@ -768,7 +908,8 @@
       "gateArea": "改札内",
       "description": "本格タイ料理のイートイン",
       "seating": "yes",
-      "building": "minami"
+      "building": "minami",
+      "outlet": "unknown"
     },
     {
       "id": "aka-m-008",
@@ -780,7 +921,9 @@
       "hours": "5:30〜23:30",
       "gateArea": "改札内",
       "description": "JR東日本系コンビニ",
-      "building": "minami"
+      "building": "minami",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-m-009",
@@ -792,7 +935,9 @@
       "hours": "10:00〜21:30（土日祝20:30）",
       "gateArea": "改札内",
       "description": "コーヒー豆・輸入食品のグロッサリー",
-      "building": "minami"
+      "building": "minami",
+      "seating": "no",
+      "outlet": "none"
     },
     {
       "id": "aka-m-010",
@@ -804,7 +949,9 @@
       "hours": "9:00〜23:00（調剤10:00〜21:00、日祝19:00）",
       "gateArea": "改札内",
       "description": "調剤薬局・ドラッグストア",
-      "building": "minami"
+      "building": "minami",
+      "seating": "no",
+      "outlet": "none"
     }
   ]
 }
