@@ -16,9 +16,15 @@ export default function JrLayout({ children }: { children: React.ReactNode }) {
           <Link href="/jr" className="text-sm font-semibold text-gray-800 tracking-wide">
             駅空間DXプラットフォーム
           </Link>
-          <nav className="flex items-center gap-6 text-sm text-gray-500">
+          <nav className="flex items-center gap-5 text-sm text-gray-500">
+            <Link href="/jr" className="hover:text-gray-800 transition-colors">
+              提案概要
+            </Link>
             <Link href="/jr/demo" className="hover:text-gray-800 transition-colors">
               デモを見る
+            </Link>
+            <Link href="/jr/logs" className="hover:text-gray-800 transition-colors">
+              ログ確認
             </Link>
             <Link
               href="/"
