@@ -62,7 +62,7 @@ function Breadcrumb({
 function ComingSoonBadge() {
   return (
     <span className="text-xs font-medium bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">
-      近日公開
+      参考表示
     </span>
   );
 }
@@ -183,7 +183,7 @@ function OperatorScreen({
                   />
                   <div>
                     <p className="text-lg font-bold text-gray-500">{op.name}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">準備中</p>
+                    <p className="text-xs text-gray-400 mt-0.5">接続路線</p>
                   </div>
                 </div>
                 <ComingSoonBadge />
