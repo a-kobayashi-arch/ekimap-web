@@ -381,7 +381,7 @@ export default function JrDemoPage() {
       <div className="border border-gray-200 rounded-xl overflow-hidden">
         <div className="bg-[#F6FAF7] border-b border-[#c8e6d0] px-5 py-3 flex items-center justify-between">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-            {station.name} の実績データ（Vercel KV リアルタイム集計）
+            {station.name} の利用ログ・実績データ
           </p>
           {!statsLoaded && (
             <span className="text-xs text-gray-400 animate-pulse">取得中…</span>
@@ -397,7 +397,7 @@ export default function JrDemoPage() {
             </p>
             <p className="text-xs text-gray-400 mt-1">
               {totalCheckins > 0
-                ? "KV に蓄積済み"
+                ? "データ蓄積済み"
                 : statsLoaded ? "まだ記録なし" : "–"}
             </p>
           </div>
@@ -419,7 +419,7 @@ export default function JrDemoPage() {
             <p className="text-xs text-gray-400 leading-relaxed">
               実ユーザーの行動データ。
               施設ごとの回遊把握・送客効果測定に活用可能。
-              Vercel KV に永続化・クロスデバイス同期済み。
+              利用ログとして蓄積・クロスデバイス対応済み。
             </p>
           </div>
         </div>
