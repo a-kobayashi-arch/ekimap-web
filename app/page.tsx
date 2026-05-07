@@ -9,10 +9,9 @@ import {
   type Area,
   type NavOperator,
   type NavLine,
-  type StationEntry,
 } from "@/lib/navigation";
 import SearchBar from "@/components/SearchBar";
-import StationCard from "@/components/StationCard";
+import LineAccordion from "@/components/LineAccordion";
 
 interface Props {
   searchParams: Promise<{ area?: string; operator?: string }>;
@@ -198,51 +197,6 @@ function OperatorScreen({
 
 // ── 画面3：路線・駅一覧 ──────────────────────────────
 
-function LineBlock({
-  line,
-  entries,
-}: {
-  line: NavLine;
-  entries: StationEntry[];
-}) {
-  return (
-    <div className="space-y-3">
-      {/* 路線ヘッダー */}
-      <div className="flex items-center gap-2">
-        <div
-          className="h-1 w-6 rounded-full"
-          style={{ backgroundColor: line.color }}
-        />
-        <h3 className="font-bold text-gray-700" style={{ color: line.color }}>
-          {line.name}
-        </h3>
-        <span className="text-xs text-gray-400">{entries.length}駅</span>
-      </div>
-
-      {/* 駅カード */}
-      <div className="flex flex-col gap-3">
-        {entries.map(({ slug, name, station }) =>
-          station ? (
-            <StationCard key={slug} station={station} />
-          ) : (
-            /* 未実装駅のプレースホルダー */
-            <div
-              key={slug}
-              className="bg-gray-50 rounded-2xl p-4 border border-gray-100 border-l-4 border-l-gray-200 flex items-center justify-between opacity-60"
-            >
-              <div>
-                <p className="font-semibold text-gray-500">{name}駅</p>
-                <p className="text-xs text-gray-400 mt-0.5">施設データ準備中</p>
-              </div>
-              <ComingSoonBadge />
-            </div>
-          )
-        )}
-      </div>
-    </div>
-  );
-}
-
 function StationScreen({
   area,
   operator,
@@ -265,7 +219,7 @@ function StationScreen({
 
       {lines.map((line) => {
         const entries = getStationsByLine(line.id);
-        return <LineBlock key={line.id} line={line} entries={entries} />;
+        return <LineAccordion key={line.id} line={line} entries={entries} />;
       })}
     </div>
   );
