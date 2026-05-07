@@ -264,7 +264,7 @@ function PocThemeSection() {
 const implementations = [
   { status: "done", label: "駅ナカ施設データ（新宿・大宮・赤羽 等）" },
   { status: "done", label: "目的別施設一覧（座る・充電・食べる・買う）" },
-  { status: "done", label: "施設チェックイン（Vercel KV 永続化）" },
+  { status: "done", label: "施設チェックイン（利用ログ永続化）" },
   { status: "done", label: "駅訪問ログ（チェックイン実績の可視化・永続化）" },
   { status: "done", label: "クロスデバイス同期（ユーザーID管理）" },
   { status: "done", label: "改札内/外の区別フラグ" },
@@ -349,7 +349,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
             <span className="text-white">すでに動くプロトタイプが公開されています</span>
           </SectionHeading>
           <p className="text-green-100 text-sm leading-relaxed max-w-2xl">
-            実際に動作するプロトタイプを Vercel 上で稼働中。施設データ・チェックイン機能・駅訪問ログ・KV 集計まで、
+            実際に動作するプロトタイプを公開中。施設データ・チェックイン機能・駅訪問ログ・リアルタイム集計まで、
             PoC に必要な土台が整っています。
           </p>
         </div>
@@ -378,14 +378,14 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
           <Stat label="公開駅数"        value={totalStations}    sub="埼京線全駅対応済み" accent />
           <Stat label="施設データ数"    value={totalFacilities}  sub="全駅合計"            accent />
           <Stat label="改札内施設"      value={insideFacilities} sub="PoC 主対象"          accent />
-          <Stat label="稼働環境"        value="Vercel"           sub="本番公開中"          accent />
+          <Stat label="公開状況"        value="公開中"           sub="実機デモ可能"          accent />
         </div>
       </div>
 
       {/* 動的指標：KV 実績 */}
       <div>
         <p className="text-xs font-semibold text-green-200 uppercase tracking-wider mb-4">
-          実績データ（Vercel KV リアルタイム集計）
+          実績データ（リアルタイム集計）
         </p>
         {hasCheckins ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -418,7 +418,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
           /* KV は繋がっているが実績データがまだない */
           <div className="border border-[#155d35] rounded-lg p-6 text-center">
             <p className="text-green-200 text-sm">
-              KV 接続済み・データ蓄積中。
+              データ蓄積中。
               <Link href="/jr/demo" className="text-white underline ml-1 hover:text-green-100">
                 デモページ
               </Link>
@@ -429,7 +429,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
           /* KV 未接続（ローカル環境等） */
           <div className="border border-[#155d35] rounded-lg p-6 text-center">
             <p className="text-green-200 text-sm">
-              KV 未接続環境のため実績データは非表示です（本番環境では表示されます）。
+              実績データは現在取得できません（公開環境では表示されます）。
             </p>
           </div>
         )}
@@ -441,8 +441,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
           <div>
             <p className="text-green-200 font-medium mb-1">データ永続化</p>
             <p className="text-green-100">
-              チェックイン実績は Vercel KV（Redis 互換）に永続保存。
-              匿名 UUID によるユーザー識別・クロスデバイス同期済み。
+              利用ログとして蓄積・集計可能。クロスデバイス対応済み。
             </p>
           </div>
           <div>
@@ -571,7 +570,7 @@ function StationBreakdownSection({
         </table>
         {!hasKv && (
           <p className="text-xs text-gray-400 text-right px-5 py-2 border-t border-[#c8e6d0]">
-            ※ KV未接続環境のためチェックイン実績は非表示（本番環境では表示）
+            ※ 実績データは現在取得できません（公開環境では表示されます）
           </p>
         )}
       </div>
@@ -701,7 +700,7 @@ function TeamSection() {
         <div className="border border-[#c8e6d0] rounded-lg p-6">
           <h3 className="font-semibold text-gray-800 mb-3">開発・設計</h3>
           <p className="text-sm text-gray-500 leading-relaxed">
-            本プロトタイプの設計・実装を担当。Next.js + Vercel KV を使った
+            本プロトタイプの設計・実装を担当。
             フルスタック開発を1名で推進。PoC フェーズは小チームで機動的に動ける体制。
           </p>
         </div>
