@@ -224,9 +224,9 @@ export default function JrDemoPage() {
       .catch(() => { setStatsLoaded(true); });
   }, [activeSlug]);
 
-  // events/summary API から探索行動ログを取得
+  // events/summary API から探索行動ログを取得（過去7日）
   useEffect(() => {
-    fetch("/api/events/summary")
+    fetch("/api/events/summary?range=7d")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((data: EventsSummary) => setEventsSummary(data))
       .catch(() => {});
@@ -644,7 +644,7 @@ export default function JrDemoPage() {
       <div className="border border-gray-200 rounded-xl overflow-hidden">
         <div className="bg-gray-50 border-b border-gray-200 px-5 py-3">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-            駅ナカ探索データ サマリー（本日）
+            駅ナカ探索データ サマリー（過去7日）
           </p>
         </div>
 

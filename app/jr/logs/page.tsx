@@ -21,9 +21,22 @@ const ONE_TAP_LABELS: Record<string, string> = {
   closed:             "閉まってた",
 };
 
+// ── 期間モード ──
+type RangeMode = "today" | "7d" | "30d" | "date";
+
+const RANGE_BUTTONS: { mode: RangeMode; label: string }[] = [
+  { mode: "today", label: "今日" },
+  { mode: "7d",    label: "過去7日" },
+  { mode: "30d",   label: "過去30日" },
+  { mode: "date",  label: "日付指定" },
+];
+
 // ── /api/events/summary レスポンス型 ──
 interface EventsSummary {
   date: string;
+  range: string;
+  startDate: string;
+  endDate: string;
   totalEvents: number;
   eventCounts: {
     facility_detail_open: number;
@@ -52,6 +65,15 @@ function getTodayJST(): string {
   const now = new Date();
   const jst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
   return jst.toISOString().slice(0, 10);
+}
+
+// ── 集計期間ラベル ──
+function periodLabel(mode: RangeMode, summary: EventsSummary | null, dateInput: string): string {
+  if (!summary) return "–";
+  if (mode === "today") return `今日（${summary.endDate}）`;
+  if (mode === "7d")    return `過去7日（${summary.startDate}〜${summary.endDate}）`;
+  if (mode === "30d")   return `過去30日（${summary.startDate}〜${summary.endDate}）`;
+  return `指定日（${dateInput}）`;
 }
 
 // ── セクションヘッダー ──
@@ -113,16 +135,24 @@ function BarRow({ label, count, max }: { label: string; count: number; max: numb
 
 // ── メインページ ──
 export default function JrLogsPage() {
-  const [date, setDate]           = useState(getTodayJST());
-  const [summary, setSummary]     = useState<EventsSummary | null>(null);
-  const [loading, setLoading]     = useState(false);
-  const [error, setError]         = useState(false);
+  const today = getTodayJST();
 
-  const fetchSummary = useCallback((targetDate: string) => {
+  const [mode, setMode]       = useState<RangeMode>("today");
+  const [dateInput, setDateInput] = useState(today);
+  const [summary, setSummary] = useState<EventsSummary | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError]     = useState(false);
+
+  const buildUrl = useCallback((m: RangeMode, d: string): string => {
+    if (m === "date") return `/api/events/summary?date=${d}`;
+    return `/api/events/summary?range=${m}`;
+  }, []);
+
+  const fetchSummary = useCallback((m: RangeMode, d: string) => {
     setLoading(true);
     setError(false);
     setSummary(null);
-    fetch(`/api/events/summary?date=${targetDate}`)
+    fetch(buildUrl(m, d))
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((data: EventsSummary) => {
         setSummary(data);
@@ -132,11 +162,11 @@ export default function JrLogsPage() {
         setError(true);
         setLoading(false);
       });
-  }, []);
+  }, [buildUrl]);
 
   useEffect(() => {
-    fetchSummary(date);
-  }, [date, fetchSummary]);
+    fetchSummary(mode, dateInput);
+  }, [mode, dateInput, fetchSummary]);
 
   // 駅別カテゴリ: stationSlug ごとにグルーピング
   const stationCatGroups = summary
@@ -173,9 +203,7 @@ export default function JrLogsPage() {
     : [];
 
   const maxCatCount =
-    summary && summary.categoryCounts.length > 0
-      ? summary.categoryCounts[0].count
-      : 1;
+    summary && summary.categoryCounts.length > 0 ? summary.categoryCounts[0].count : 1;
 
   const maxFacCount =
     summary && summary.topFacilities.length > 0
@@ -200,35 +228,63 @@ export default function JrLogsPage() {
         </p>
       </div>
 
-      {/* ── 日付指定 ── */}
-      <div className="flex items-center gap-4">
-        <label className="text-sm text-gray-600 font-medium shrink-0">集計日：</label>
-        <input
-          type="date"
-          value={date}
-          max={getTodayJST()}
-          onChange={(e) => e.target.value && setDate(e.target.value)}
-          className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-        />
-        <button
-          onClick={() => setDate(getTodayJST())}
-          className="text-xs text-gray-400 border border-gray-200 rounded-lg px-3 py-2 hover:border-gray-400 hover:text-gray-600 transition-all"
-        >
-          今日に戻す
-        </button>
-        {loading && (
-          <span className="text-xs text-gray-400 animate-pulse">データ取得中…</span>
+      {/* ── 期間切替UI ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3 flex-wrap">
+          <span className="text-sm text-gray-600 font-medium shrink-0">表示期間：</span>
+          <div className="flex gap-1.5 flex-wrap">
+            {RANGE_BUTTONS.map(({ mode: m, label }) => (
+              <button
+                key={m}
+                onClick={() => setMode(m)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${
+                  mode === m
+                    ? "bg-gray-800 text-white border-gray-800 shadow-sm"
+                    : "bg-white text-gray-600 border-gray-300 hover:border-gray-600 hover:text-gray-800"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 日付指定モード時のみ表示 */}
+        {mode === "date" && (
+          <div className="flex items-center gap-3 pl-[5.5rem]">
+            <input
+              type="date"
+              value={dateInput}
+              max={today}
+              onChange={(e) => e.target.value && setDateInput(e.target.value)}
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            />
+            <button
+              onClick={() => setDateInput(today)}
+              className="text-xs text-gray-400 border border-gray-200 rounded-lg px-3 py-2 hover:border-gray-400 hover:text-gray-600 transition-all"
+            >
+              今日に戻す
+            </button>
+          </div>
         )}
-        {error && (
-          <span className="text-xs text-red-400">データの取得に失敗しました</span>
-        )}
+
+        {/* 集計期間ラベル */}
+        <div className="flex items-center gap-2 pl-[5.5rem]">
+          <span className="text-xs text-gray-400">集計期間：</span>
+          <span className="text-xs font-medium text-gray-600">
+            {loading ? "取得中…" : periodLabel(mode, summary, dateInput)}
+          </span>
+          {loading && <span className="text-xs text-gray-400 animate-pulse">読み込み中…</span>}
+          {error  && <span className="text-xs text-red-400">データの取得に失敗しました</span>}
+        </div>
       </div>
 
+      {/* ── データなし ── */}
       {!hasData && !loading && (
         <div className="border border-gray-200 rounded-xl p-8 text-center text-gray-400">
           <p className="text-sm">
             {summary
-              ? `${summary.date} のログはまだありません。`
+              ? `集計期間（${summary.startDate}〜${summary.endDate}）のログはまだありません。`
               : "データがありません。"}
           </p>
           <p className="text-xs mt-1">
@@ -237,11 +293,12 @@ export default function JrLogsPage() {
         </div>
       )}
 
+      {/* ── データあり ── */}
       {hasData && summary && (
         <>
           {/* ── サマリーカード ── */}
           <div>
-            <SectionHeader title={`イベントサマリー（${summary.date}）`} />
+            <SectionHeader title={`イベントサマリー（${periodLabel(mode, summary, dateInput)}）`} />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <MetricCard
                 label="合計イベント数"
@@ -321,20 +378,13 @@ export default function JrLogsPage() {
                 {summary.topFacilities.map((f, i) => {
                   const name = ALL_FACILITY_NAMES[f.facilityId] ?? f.facilityId;
                   return (
-                    <div
-                      key={f.facilityId}
-                      className="flex items-center gap-3"
-                    >
+                    <div key={f.facilityId} className="flex items-center gap-3">
                       <span className="text-xs text-gray-400 w-5 shrink-0">{i + 1}</span>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-gray-700 truncate">{name}</p>
                         <p className="text-xs text-gray-400">{f.facilityId}</p>
                       </div>
-                      <BarRow
-                        label=""
-                        count={f.facilityDetailOpen}
-                        max={maxFacCount}
-                      />
+                      <BarRow label="" count={f.facilityDetailOpen} max={maxFacCount} />
                     </div>
                   );
                 })}
