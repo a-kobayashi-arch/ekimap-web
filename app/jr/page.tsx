@@ -625,7 +625,107 @@ function AssetsSection() {
   );
 }
 
-// ── 7. ロードマップ ─────────────────────────────────
+// ── 7. 展開イメージ ─────────────────────────────────
+
+/** 現時点で施設データ実装済みの駅名セット */
+const POC_IMPLEMENTED_STATIONS = new Set(["大宮", "赤羽", "池袋", "新宿"]);
+
+const EXPANSION_LINES = [
+  {
+    name: "京浜東北線",
+    color: "#00B2E6",
+    stations: ["大宮", "南浦和", "赤羽", "上野", "東京"],
+    note: "埼京線との接続・並走区間を含み、首都圏南北導線の主要駅へ展開可能",
+  },
+  {
+    name: "湘南新宿ライン",
+    color: "#E5001F",
+    stations: ["大宮", "赤羽", "池袋", "新宿", "渋谷", "横浜"],
+    note: "既存PoC駅との重複が多く、広域ターミナル連携を示しやすい展開候補",
+  },
+];
+
+function ExpansionImageSection() {
+  return (
+    <Section id="expansion" className="bg-[#F6FAF7]">
+      <SectionLabel>展開イメージ</SectionLabel>
+      <SectionHeading>主要路線への展開イメージ</SectionHeading>
+      <p className="text-sm text-gray-500 leading-relaxed mb-8 -mt-2 max-w-2xl">
+        本PoCでは埼京線沿線（大宮〜新宿）を中心に、改札内施設データ・利用ログ・管理画面までを実装済みです。
+        採択後は、JR東日本の主要ターミナル駅・乗換路線へ段階的に展開し、駅空間単位のデータ基盤として拡張可能です。
+      </p>
+
+      <div className="space-y-5">
+        {EXPANSION_LINES.map((line) => (
+          <div
+            key={line.name}
+            className="border border-[#c8e6d0] rounded-lg overflow-hidden bg-white"
+          >
+            {/* 路線ヘッダー */}
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-[#c8e6d0] bg-[#F6FAF7]">
+              <div
+                className="w-1 h-6 rounded-full flex-shrink-0"
+                style={{ backgroundColor: line.color }}
+              />
+              <div className="min-w-0">
+                <p className="font-semibold text-gray-800 text-sm">{line.name}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{line.note}</p>
+              </div>
+              <span className="ml-auto text-xs bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full flex-shrink-0">
+                展開候補
+              </span>
+            </div>
+
+            {/* 駅チップ */}
+            <div className="px-5 py-4 flex flex-wrap items-center gap-2">
+              {line.stations.map((station, idx) => {
+                const isImpl = POC_IMPLEMENTED_STATIONS.has(station);
+                return (
+                  <div key={station} className="flex items-center gap-2">
+                    <span
+                      className={`text-xs px-3 py-1.5 rounded-full border font-medium ${
+                        isImpl
+                          ? "bg-green-50 border-green-200 text-green-700"
+                          : "bg-white border-gray-200 text-gray-400"
+                      }`}
+                    >
+                      {isImpl && (
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5 align-middle" />
+                      )}
+                      {station}
+                    </span>
+                    {idx < line.stations.length - 1 && (
+                      <span className="text-gray-300 text-xs select-none">→</span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 凡例 + 注記 */}
+      <div className="mt-5 flex flex-wrap items-start gap-6">
+        <div className="flex items-center gap-4 text-xs text-gray-400">
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
+            PoC実装済み駅
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block w-2 h-2 rounded-full border border-gray-300 bg-white" />
+            展開候補駅（未整備）
+          </span>
+        </div>
+      </div>
+      <p className="text-xs text-gray-400 mt-3 leading-relaxed">
+        ※ 現時点では施設データ未整備の駅を含みます。採択後、JR東日本の対象駅・対象施設に合わせて段階整備します。
+      </p>
+    </Section>
+  );
+}
+
+// ── 8. ロードマップ ─────────────────────────────────
 
 const roadmap = [
   {
@@ -780,6 +880,7 @@ export default async function JrPage() {
         kv={kvData}
       />
       <AssetsSection />
+      <ExpansionImageSection />
       <RoadmapSection />
       <TeamSection />
     </>
