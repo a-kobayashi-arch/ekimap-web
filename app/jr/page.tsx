@@ -110,29 +110,29 @@ function Section({
 
 function HeroSection() {
   return (
-    <section className="bg-gray-950 text-white">
+    <section className="bg-gradient-to-br from-[#1A7040] to-[#0d4a25] text-white">
       <div className="max-w-5xl mx-auto px-6 py-24">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6">
+        <p className="text-xs font-semibold text-green-200 uppercase tracking-widest mb-6">
           JR東日本スタートアップ応募 PoC 提案
         </p>
         <h1 className="text-4xl font-bold leading-tight mb-6">
           改札内の回遊・滞在・送客を<br />
           データで可視化する駅ナカ運営基盤
         </h1>
-        <p className="text-gray-300 text-lg mb-10 max-w-2xl">
+        <p className="text-green-100 text-lg mb-10 max-w-2xl">
           「今すぐ座れる場所」「充電できる場所」「立ち寄れる店」を
           リアルタイムに案内し、改札内の回遊と店舗送客を最適化するPoCです。
         </p>
         <div className="flex items-center gap-4">
           <Link
             href="/jr/demo"
-            className="inline-block bg-white text-gray-900 font-semibold px-6 py-3 rounded text-sm hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-[#1A7040] font-semibold px-6 py-3 rounded text-sm hover:bg-gray-100 transition-colors"
           >
             動くデモを見る →
           </Link>
           <a
             href="#poc-theme"
-            className="text-sm text-gray-400 hover:text-white transition-colors"
+            className="text-sm text-green-200 hover:text-white transition-colors"
           >
             提案内容を読む ↓
           </a>
@@ -170,7 +170,7 @@ function ChallengesSection() {
       <SectionHeading>JRが抱える駅ナカ運営の課題</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {challenges.map((c, i) => (
-          <div key={i} className="border border-gray-200 rounded-lg p-6">
+          <div key={i} className="border border-[#c8e6d0] rounded-lg p-6">
             <p className="text-xs text-gray-400 mb-2">課題 {i + 1}</p>
             <h3 className="font-semibold text-gray-800 mb-2">{c.title}</h3>
             <p className="text-sm text-gray-500 leading-relaxed">{c.body}</p>
@@ -208,13 +208,13 @@ const values = [
 
 function ValueSection() {
   return (
-    <Section id="value" className="bg-gray-50">
+    <Section id="value" className="bg-[#F6FAF7]">
       <SectionLabel>提案価値</SectionLabel>
       <SectionHeading>本提案が解決すること</SectionHeading>
       <div className="space-y-4">
         {values.map((v, i) => (
           <div key={i} className="flex gap-4 items-start">
-            <div className="w-7 h-7 rounded-full bg-gray-800 text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-7 h-7 rounded-full bg-[#1A7040] text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
               {i + 1}
             </div>
             <div>
@@ -235,7 +235,7 @@ function PocThemeSection() {
     <Section id="poc-theme">
       <SectionLabel>PoCテーマ</SectionLabel>
       <SectionHeading>実証する課題と場所</SectionHeading>
-      <div className="bg-gray-950 text-white rounded-xl p-10 mb-8">
+      <div className="bg-[#1A7040] text-white rounded-xl p-10 mb-8">
         <p className="text-xl font-semibold leading-relaxed">
           「改札内で今すぐ座れて充電できる/立ち寄れる場所」の
           可視化と送客最適化
@@ -245,7 +245,7 @@ function PocThemeSection() {
         {["新宿", "大宮", "赤羽"].map((station) => (
           <div
             key={station}
-            className="border border-gray-200 rounded-lg p-5 text-center"
+            className="border border-[#c8e6d0] rounded-lg p-5 text-center"
           >
             <p className="text-2xl font-bold text-gray-800 mb-1">{station}</p>
             <p className="text-xs text-gray-400">PoC実証駅</p>
@@ -283,12 +283,12 @@ function ImplementationSection() {
   };
 
   return (
-    <Section id="implementation" className="bg-gray-50">
+    <Section id="implementation" className="bg-[#F6FAF7]">
       <SectionLabel>実装状況</SectionLabel>
       <SectionHeading>現在のプロトタイプで動いていること</SectionHeading>
       <div className="space-y-3">
         {implementations.map((item, i) => (
-          <div key={i} className="flex items-center justify-between border border-gray-200 bg-white rounded-lg px-5 py-3">
+          <div key={i} className="flex items-center justify-between border border-[#c8e6d0] bg-white rounded-lg px-5 py-3">
             <span className="text-sm text-gray-700">{item.label}</span>
             {badge(item.status)}
           </div>
@@ -321,7 +321,7 @@ function Stat({
   accent?: boolean;
 }) {
   return (
-    <div className={`rounded-lg border p-5 ${accent ? "border-gray-700 bg-gray-800" : "border-gray-200 bg-white"}`}>
+    <div className={`rounded-lg border p-5 ${accent ? "border-[#1A7040] bg-[#155d35]" : "border-gray-200 bg-white"}`}>
       <p className={`text-xs font-semibold uppercase tracking-wider mb-2 ${accent ? "text-gray-400" : "text-gray-400"}`}>
         {label}
       </p>
@@ -340,7 +340,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
   const hasCheckins = hasKvData && (kvData.totalFacilityCheckins + kvData.totalStationCheckins) > 0;
 
   return (
-    <Section id="live-stats" className="bg-gray-950 text-white">
+    <Section id="live-stats" className="bg-[#1A7040] text-white">
       {/* ヘッダー */}
       <div className="flex items-start justify-between flex-wrap gap-4 mb-10">
         <div>
@@ -356,13 +356,13 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
         <div className="flex gap-3 flex-wrap">
           <Link
             href="/jr/demo"
-            className="inline-block px-4 py-2 text-sm font-semibold bg-white text-gray-900 rounded hover:bg-gray-200 transition-colors"
+            className="inline-block px-4 py-2 text-sm font-semibold bg-white text-[#1A7040] rounded hover:bg-gray-100 transition-colors"
           >
             デモを見る →
           </Link>
           <Link
             href="/"
-            className="inline-block px-4 py-2 text-sm font-semibold border border-gray-600 text-gray-300 rounded hover:border-gray-400 hover:text-white transition-colors"
+            className="inline-block px-4 py-2 text-sm font-semibold border border-green-400 text-green-100 rounded hover:border-white hover:text-white transition-colors"
           >
             一般向けサイト
           </Link>
@@ -416,10 +416,10 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
           </div>
         ) : hasKvData ? (
           /* KV は繋がっているが実績データがまだない */
-          <div className="border border-gray-700 rounded-lg p-6 text-center">
-            <p className="text-gray-400 text-sm">
+          <div className="border border-[#155d35] rounded-lg p-6 text-center">
+            <p className="text-green-200 text-sm">
               KV 接続済み・データ蓄積中。
-              <Link href="/jr/demo" className="text-gray-300 underline ml-1 hover:text-white">
+              <Link href="/jr/demo" className="text-white underline ml-1 hover:text-green-100">
                 デモページ
               </Link>
               でチェックインすると実績が反映されます。
@@ -427,7 +427,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
           </div>
         ) : (
           /* KV 未接続（ローカル環境等） */
-          <div className="border border-gray-700 rounded-lg p-6 text-center">
+          <div className="border border-[#155d35] rounded-lg p-6 text-center">
             <p className="text-gray-400 text-sm">
               KV 未接続環境のため実績データは非表示です（本番環境では表示されます）。
             </p>
@@ -436,7 +436,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
       </div>
 
       {/* 補足 */}
-      <div className="mt-8 pt-6 border-t border-gray-800">
+      <div className="mt-8 pt-6 border-t border-[#155d35]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div>
             <p className="text-gray-400 font-medium mb-1">データ永続化</p>
@@ -496,9 +496,9 @@ function StationBreakdownSection({
         新宿・大宮・赤羽の3駅を対象に、施設データとチェックイン実績を駅単位で確認できます。
       </p>
 
-      <div className="border border-gray-200 rounded-xl overflow-hidden">
+      <div className="border border-[#c8e6d0] rounded-xl overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50 border-b border-gray-200">
+          <thead className="bg-[#F6FAF7] border-b border-[#c8e6d0]">
             <tr>
               <th className="text-left px-5 py-3 font-medium text-gray-500">駅名</th>
               <th className="text-center px-5 py-3 font-medium text-gray-500">施設数</th>
@@ -559,7 +559,7 @@ function StationBreakdownSection({
                   <td className="px-5 py-4">
                     <Link
                       href={`/jr/demo?station=${slug}`}
-                      className="text-xs text-gray-400 hover:text-gray-700 border border-gray-200 px-2 py-1 rounded hover:border-gray-400 transition-all"
+                      className="text-xs text-[#1A7040] hover:text-[#0d4a25] border border-[#c8e6d0] px-2 py-1 rounded hover:border-[#1A7040] transition-all"
                     >
                       デモを見る →
                     </Link>
@@ -570,7 +570,7 @@ function StationBreakdownSection({
           </tbody>
         </table>
         {!hasKv && (
-          <p className="text-xs text-gray-400 text-right px-5 py-2 border-t border-gray-100">
+          <p className="text-xs text-gray-400 text-right px-5 py-2 border-t border-[#c8e6d0]">
             ※ KV未接続環境のためチェックイン実績は非表示（本番環境では表示）
           </p>
         )}
@@ -616,7 +616,7 @@ function AssetsSection() {
       <SectionHeading>PoC実施に必要なアセット</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {assets.map((a, i) => (
-          <div key={i} className="border border-gray-200 rounded-lg p-6">
+          <div key={i} className="border border-[#c8e6d0] rounded-lg p-6">
             <h3 className="font-semibold text-gray-800 mb-2">{a.title}</h3>
             <p className="text-sm text-gray-500 leading-relaxed">{a.body}</p>
           </div>
@@ -666,12 +666,12 @@ const roadmap = [
 
 function RoadmapSection() {
   return (
-    <Section id="roadmap" className="bg-gray-50">
+    <Section id="roadmap" className="bg-[#F6FAF7]">
       <SectionLabel>ロードマップ</SectionLabel>
       <SectionHeading>実証から展開までの計画</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {roadmap.map((r, i) => (
-          <div key={i} className="bg-white border border-gray-200 rounded-lg p-6">
+          <div key={i} className="bg-white border border-[#c8e6d0] rounded-lg p-6">
             <p className="text-xs text-gray-400 mb-1">{r.phase}</p>
             <h3 className="font-semibold text-gray-800 mb-1">{r.title}</h3>
             <p className="text-xs text-gray-400 mb-4">{r.period}</p>
@@ -698,14 +698,14 @@ function TeamSection() {
       <SectionLabel>実行体制</SectionLabel>
       <SectionHeading>チームとリソース</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="border border-gray-200 rounded-lg p-6">
+        <div className="border border-[#c8e6d0] rounded-lg p-6">
           <h3 className="font-semibold text-gray-800 mb-3">開発・設計</h3>
           <p className="text-sm text-gray-500 leading-relaxed">
             本プロトタイプの設計・実装を担当。Next.js + Vercel KV を使った
             フルスタック開発を1名で推進。PoC フェーズは小チームで機動的に動ける体制。
           </p>
         </div>
-        <div className="border border-gray-200 rounded-lg p-6">
+        <div className="border border-[#c8e6d0] rounded-lg p-6">
           <h3 className="font-semibold text-gray-800 mb-3">PoC 実施にあたって</h3>
           <p className="text-sm text-gray-500 leading-relaxed">
             JR東日本側から「施設データ・実証駅選定・現地調整」の協力を得ることで、
@@ -717,7 +717,7 @@ function TeamSection() {
       <div className="mt-10 text-center">
         <Link
           href="/jr/demo"
-          className="inline-block bg-gray-900 text-white font-semibold px-8 py-4 rounded text-sm hover:bg-gray-700 transition-colors"
+          className="inline-block bg-[#1A7040] text-white font-semibold px-8 py-4 rounded text-sm hover:bg-[#155d35] transition-colors"
         >
           実際に動くデモを確認する →
         </Link>

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function JrLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white min-h-screen">
-      <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <div className="bg-[#F6FAF7] min-h-screen">
+      <header className="border-b border-[#c8e6d0] bg-white sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href="/jr" className="text-sm font-semibold text-gray-800 tracking-wide">
+          <Link href="/jr" className="text-sm font-semibold text-[#1A7040] tracking-wide">
             駅空間DXプラットフォーム
           </Link>
           <nav className="flex items-center gap-5 text-sm text-gray-500">

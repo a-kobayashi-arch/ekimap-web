@@ -285,7 +285,7 @@ export default function JrDemoPage() {
     <div className="max-w-5xl mx-auto px-6 py-10 space-y-10">
 
       {/* ── PoC 説明バナー ──────────────────────────── */}
-      <div className="border-l-4 border-gray-800 pl-5 py-1">
+      <div className="border-l-4 border-[#1A7040] pl-5 py-1">
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">
           JR東日本スタートアップ応募 / PoC デモ
         </p>
@@ -310,8 +310,8 @@ export default function JrDemoPage() {
               onClick={() => switchStation(s.slug)}
               className={`px-5 py-2.5 rounded text-sm font-semibold border transition-all ${
                 activeSlug === s.slug
-                  ? "bg-gray-900 text-white border-gray-900 shadow-sm"
-                  : "bg-white text-gray-600 border-gray-300 hover:border-gray-600 hover:text-gray-900"
+                  ? "bg-[#1A7040] text-white border-[#1A7040] shadow-sm"
+                  : "bg-white text-gray-600 border-gray-300 hover:border-[#1A7040] hover:text-[#1A7040]"
               }`}
             >
               {s.label}
@@ -324,7 +324,7 @@ export default function JrDemoPage() {
       </div>
 
       {/* ── PoC 文脈カード ──────────────────────────── */}
-      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+      <div className="bg-[#F6FAF7] border border-[#c8e6d0] rounded-xl p-6">
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
           この駅で検証できること
         </p>
@@ -379,7 +379,7 @@ export default function JrDemoPage() {
 
       {/* ── この駅の実績（KV 集計・常時表示） ─────────── */}
       <div className="border border-gray-200 rounded-xl overflow-hidden">
-        <div className="bg-gray-50 border-b border-gray-200 px-5 py-3 flex items-center justify-between">
+        <div className="bg-[#F6FAF7] border-b border-[#c8e6d0] px-5 py-3 flex items-center justify-between">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
             {station.name} の実績データ（Vercel KV リアルタイム集計）
           </p>
@@ -464,10 +464,10 @@ export default function JrDemoPage() {
                   }}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold border transition-all ${
                     isActive
-                      ? "bg-gray-900 text-white border-gray-900 shadow-sm"
+                      ? "bg-[#1A7040] text-white border-[#1A7040] shadow-sm"
                       : count === 0
                       ? "bg-gray-50 text-gray-300 border-gray-200 cursor-default"
-                      : "bg-white text-gray-600 border-gray-300 hover:border-gray-700 hover:text-gray-900"
+                      : "bg-white text-gray-600 border-gray-300 hover:border-[#1A7040] hover:text-[#1A7040]"
                   }`}
                   disabled={count === 0 && !isActive}
                 >
@@ -503,8 +503,8 @@ export default function JrDemoPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3 py-1.5 rounded text-xs font-medium border transition-all ${
                   activeCategory === cat
-                    ? "bg-gray-800 text-white border-gray-800"
-                    : "bg-white text-gray-500 border-gray-200 hover:border-gray-500 hover:text-gray-700"
+                    ? "bg-[#1A7040] text-white border-[#1A7040]"
+                    : "bg-white text-gray-500 border-gray-200 hover:border-[#1A7040] hover:text-[#1A7040]"
                 }`}
               >
                 {cat}
@@ -524,7 +524,7 @@ export default function JrDemoPage() {
         <div className="border border-gray-200 rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-[#F6FAF7] border-b border-[#c8e6d0]">
                 <tr>
                   <th className="text-left px-4 py-3 font-medium text-gray-500 whitespace-nowrap">
                     施設名
@@ -642,7 +642,7 @@ export default function JrDemoPage() {
 
       {/* ── 駅ナカ探索データ サマリー ────────────────── */}
       <div className="border border-gray-200 rounded-xl overflow-hidden">
-        <div className="bg-gray-50 border-b border-gray-200 px-5 py-3">
+        <div className="bg-[#F6FAF7] border-b border-[#c8e6d0] px-5 py-3">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
             駅ナカ探索データ サマリー（過去7日）
           </p>
@@ -765,7 +765,7 @@ export default function JrDemoPage() {
         </div>
         <Link
           href={`/station/${activeSlug}`}
-          className="shrink-0 inline-block text-sm font-semibold px-5 py-2.5 bg-gray-900 text-white rounded hover:bg-gray-700 transition-colors whitespace-nowrap"
+          className="shrink-0 inline-block text-sm font-semibold px-5 py-2.5 bg-[#1A7040] text-white rounded hover:bg-[#155d35] transition-colors whitespace-nowrap"
         >
           {station.name}の施設ページへ →
         </Link>
