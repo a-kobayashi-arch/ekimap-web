@@ -73,9 +73,9 @@ async function fetchAllKvStats(
 
 // ── 共通スタイル ─────────────────────────────────────
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+    <p className={`text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4 ${className}`}>
       {children}
     </p>
   );
@@ -322,14 +322,14 @@ function Stat({
 }) {
   return (
     <div className={`rounded-lg border p-5 ${accent ? "border-[#1A7040] bg-[#155d35]" : "border-gray-200 bg-white"}`}>
-      <p className={`text-xs font-semibold uppercase tracking-wider mb-2 ${accent ? "text-gray-400" : "text-gray-400"}`}>
+      <p className={`text-xs font-semibold uppercase tracking-wider mb-2 ${accent ? "text-green-200" : "text-gray-400"}`}>
         {label}
       </p>
       <p className={`text-4xl font-bold ${accent ? "text-white" : "text-gray-800"}`}>
         {value}
       </p>
       {sub && (
-        <p className={`text-xs mt-1 ${accent ? "text-gray-500" : "text-gray-400"}`}>{sub}</p>
+        <p className={`text-xs mt-1 ${accent ? "text-green-200" : "text-gray-400"}`}>{sub}</p>
       )}
     </div>
   );
@@ -344,11 +344,11 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
       {/* ヘッダー */}
       <div className="flex items-start justify-between flex-wrap gap-4 mb-10">
         <div>
-          <SectionLabel>開発状況・実績データ</SectionLabel>
+          <SectionLabel className="text-green-200">開発状況・実績データ</SectionLabel>
           <SectionHeading>
             <span className="text-white">すでに動くプロトタイプが公開されています</span>
           </SectionHeading>
-          <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">
+          <p className="text-green-100 text-sm leading-relaxed max-w-2xl">
             実際に動作するプロトタイプを Vercel 上で稼働中。施設データ・チェックイン機能・駅訪問ログ・KV 集計まで、
             PoC に必要な土台が整っています。
           </p>
@@ -371,7 +371,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
 
       {/* 静的指標：実装状況 */}
       <div className="mb-8">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+        <p className="text-xs font-semibold text-green-200 uppercase tracking-wider mb-4">
           実装状況（静的データ）
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -384,7 +384,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
 
       {/* 動的指標：KV 実績 */}
       <div>
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+        <p className="text-xs font-semibold text-green-200 uppercase tracking-wider mb-4">
           実績データ（Vercel KV リアルタイム集計）
         </p>
         {hasCheckins ? (
@@ -428,7 +428,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
         ) : (
           /* KV 未接続（ローカル環境等） */
           <div className="border border-[#155d35] rounded-lg p-6 text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-green-200 text-sm">
               KV 未接続環境のため実績データは非表示です（本番環境では表示されます）。
             </p>
           </div>
@@ -439,22 +439,22 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
       <div className="mt-8 pt-6 border-t border-[#155d35]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div>
-            <p className="text-gray-400 font-medium mb-1">データ永続化</p>
-            <p className="text-gray-500">
+            <p className="text-green-200 font-medium mb-1">データ永続化</p>
+            <p className="text-green-100">
               チェックイン実績は Vercel KV（Redis 互換）に永続保存。
               匿名 UUID によるユーザー識別・クロスデバイス同期済み。
             </p>
           </div>
           <div>
-            <p className="text-gray-400 font-medium mb-1">今すぐ実証可能</p>
-            <p className="text-gray-500">
+            <p className="text-green-200 font-medium mb-1">今すぐ実証可能</p>
+            <p className="text-green-100">
               新宿・大宮・赤羽の施設データは整備済み。
               JR 側データ連携なしでも PoC としてすぐに動かせる状態。
             </p>
           </div>
           <div>
-            <p className="text-gray-400 font-medium mb-1">拡張性</p>
-            <p className="text-gray-500">
+            <p className="text-green-200 font-medium mb-1">拡張性</p>
+            <p className="text-green-100">
               全国展開・多事業者対応を前提にした 3 階層ナビ構造（エリア・事業者・路線）を実装済み。
             </p>
           </div>
