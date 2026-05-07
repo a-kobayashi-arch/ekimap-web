@@ -22,13 +22,13 @@ const ONE_TAP_LABELS: Record<string, string> = {
 };
 
 // ── 期間モード ──
-type RangeMode = "today" | "7d" | "30d" | "date";
+type RangeMode = "today" | "7d" | "30d" | "custom";
 
 const RANGE_BUTTONS: { mode: RangeMode; label: string }[] = [
-  { mode: "today", label: "今日" },
-  { mode: "7d",    label: "過去7日" },
-  { mode: "30d",   label: "過去30日" },
-  { mode: "date",  label: "日付指定" },
+  { mode: "today",  label: "今日" },
+  { mode: "7d",     label: "過去7日" },
+  { mode: "30d",    label: "過去30日" },
+  { mode: "custom", label: "期間指定" },
 ];
 
 // ── /api/events/summary レスポンス型 ──
@@ -68,12 +68,13 @@ function getTodayJST(): string {
 }
 
 // ── 集計期間ラベル ──
-function periodLabel(mode: RangeMode, summary: EventsSummary | null, dateInput: string): string {
+function periodLabel(mode: RangeMode, summary: EventsSummary | null): string {
   if (!summary) return "–";
-  if (mode === "today") return `今日（${summary.endDate}）`;
-  if (mode === "7d")    return `過去7日（${summary.startDate}〜${summary.endDate}）`;
-  if (mode === "30d")   return `過去30日（${summary.startDate}〜${summary.endDate}）`;
-  return `指定日（${dateInput}）`;
+  if (mode === "today")  return `今日（${summary.endDate}）`;
+  if (mode === "7d")     return `過去7日（${summary.startDate}〜${summary.endDate}）`;
+  if (mode === "30d")    return `過去30日（${summary.startDate}〜${summary.endDate}）`;
+  if (mode === "custom") return `期間指定（${summary.startDate}〜${summary.endDate}）`;
+  return "–";
 }
 
 // ── セクションヘッダー ──
@@ -137,22 +138,18 @@ function BarRow({ label, count, max }: { label: string; count: number; max: numb
 export default function JrLogsPage() {
   const today = getTodayJST();
 
-  const [mode, setMode]       = useState<RangeMode>("today");
-  const [dateInput, setDateInput] = useState(today);
-  const [summary, setSummary] = useState<EventsSummary | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError]     = useState(false);
+  const [mode, setMode]             = useState<RangeMode>("today");
+  const [startInput, setStartInput] = useState(today); // custom 期間の開始日（下書き）
+  const [endInput, setEndInput]     = useState(today); // custom 期間の終了日（下書き）
+  const [summary, setSummary]       = useState<EventsSummary | null>(null);
+  const [loading, setLoading]       = useState(false);
+  const [error, setError]           = useState(false);
 
-  const buildUrl = useCallback((m: RangeMode, d: string): string => {
-    if (m === "date") return `/api/events/summary?date=${d}`;
-    return `/api/events/summary?range=${m}`;
-  }, []);
-
-  const fetchSummary = useCallback((m: RangeMode, d: string) => {
+  const fetchByUrl = useCallback((url: string) => {
     setLoading(true);
     setError(false);
     setSummary(null);
-    fetch(buildUrl(m, d))
+    fetch(url)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((data: EventsSummary) => {
         setSummary(data);
@@ -162,11 +159,21 @@ export default function JrLogsPage() {
         setError(true);
         setLoading(false);
       });
-  }, [buildUrl]);
+  }, []);
 
+  // today / 7d / 30d はモード切替で自動fetch
+  // custom はボタン押下で制御するため useEffect ではスキップ
   useEffect(() => {
-    fetchSummary(mode, dateInput);
-  }, [mode, dateInput, fetchSummary]);
+    if (mode === "custom") return;
+    fetchByUrl(`/api/events/summary?range=${mode}`);
+  }, [mode, fetchByUrl]);
+
+  // 「この期間で表示」ボタン押下時のみfetch
+  function handleCustomApply() {
+    const s = startInput <= endInput ? startInput : endInput;
+    const e = startInput <= endInput ? endInput   : startInput;
+    fetchByUrl(`/api/events/summary?start=${s}&end=${e}`);
+  }
 
   // 駅別カテゴリ: stationSlug ごとにグルーピング
   const stationCatGroups = summary
@@ -249,21 +256,29 @@ export default function JrLogsPage() {
           </div>
         </div>
 
-        {/* 日付指定モード時のみ表示 */}
-        {mode === "date" && (
-          <div className="flex items-center gap-3 pl-[5.5rem]">
+        {/* 期間指定モード時のみ表示 */}
+        {mode === "custom" && (
+          <div className="flex items-center gap-2 flex-wrap pl-[5.5rem]">
             <input
               type="date"
-              value={dateInput}
+              value={startInput}
               max={today}
-              onChange={(e) => e.target.value && setDateInput(e.target.value)}
+              onChange={(e) => e.target.value && setStartInput(e.target.value)}
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            />
+            <span className="text-xs text-gray-400">〜</span>
+            <input
+              type="date"
+              value={endInput}
+              max={today}
+              onChange={(e) => e.target.value && setEndInput(e.target.value)}
               className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
             />
             <button
-              onClick={() => setDateInput(today)}
-              className="text-xs text-gray-400 border border-gray-200 rounded-lg px-3 py-2 hover:border-gray-400 hover:text-gray-600 transition-all"
+              onClick={handleCustomApply}
+              className="px-4 py-2 rounded-lg text-sm font-medium bg-blue-600 text-white border border-blue-600 hover:bg-blue-700 transition-all shadow-sm"
             >
-              今日に戻す
+              この期間で表示
             </button>
           </div>
         )}
@@ -272,7 +287,7 @@ export default function JrLogsPage() {
         <div className="flex items-center gap-2 pl-[5.5rem]">
           <span className="text-xs text-gray-400">集計期間：</span>
           <span className="text-xs font-medium text-gray-600">
-            {loading ? "取得中…" : periodLabel(mode, summary, dateInput)}
+            {loading ? "取得中…" : periodLabel(mode, summary)}
           </span>
           {loading && <span className="text-xs text-gray-400 animate-pulse">読み込み中…</span>}
           {error  && <span className="text-xs text-red-400">データの取得に失敗しました</span>}
@@ -298,7 +313,7 @@ export default function JrLogsPage() {
         <>
           {/* ── サマリーカード ── */}
           <div>
-            <SectionHeader title={`イベントサマリー（${periodLabel(mode, summary, dateInput)}）`} />
+            <SectionHeader title={`イベントサマリー（${periodLabel(mode, summary)}）`} />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <MetricCard
                 label="合計イベント数"

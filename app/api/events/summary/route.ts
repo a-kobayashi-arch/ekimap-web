@@ -31,6 +31,43 @@ function resolveDates(range: string, today: string): string[] {
   return [today]; // "today" or invalid
 }
 
+/**
+ * YYYYMMDD または YYYY-MM-DD を YYYY-MM-DD に正規化する。
+ * 不正値の場合は null を返す。
+ */
+function normalizeDateParam(s: string): string | null {
+  // YYYYMMDD（8桁数字）
+  if (/^\d{8}$/.test(s)) {
+    return `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`;
+  }
+  // YYYY-MM-DD
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+    return s;
+  }
+  return null;
+}
+
+/**
+ * 開始日〜終了日の YYYY-MM-DD 配列を生成する。
+ * start > end の場合は swap する。最大 31 日に丸める。
+ */
+function getDatesFromRange(start: string, end: string): string[] {
+  const MAX_DAYS = 31;
+  let s = new Date(`${start}T00:00:00Z`);
+  let e = new Date(`${end}T00:00:00Z`);
+  // start > end なら swap
+  if (s > e) { const tmp = s; s = e; e = tmp; }
+  // 最大 31 日に丸める（end を start+30日 までに制限）
+  const maxEnd = new Date(s.getTime() + (MAX_DAYS - 1) * 24 * 60 * 60 * 1000);
+  if (e > maxEnd) e = maxEnd;
+
+  const dates: string[] = [];
+  for (let d = new Date(s); d <= e; d = new Date(d.getTime() + 24 * 60 * 60 * 1000)) {
+    dates.push(d.toISOString().slice(0, 10));
+  }
+  return dates;
+}
+
 function fallback(date: string, range: string, startDate: string, endDate: string) {
   return {
     date,
@@ -59,9 +96,17 @@ function sumValues(vals: (number | null)[]): number {
 }
 
 /**
- * GET /api/events/summary[?date=YYYY-MM-DD][?range=today|7d|30d]
+ * GET /api/events/summary
+ *   [?date=YYYY-MM-DD]
+ *   [?start=YYYYMMDD&end=YYYYMMDD]
+ *   [?start=YYYY-MM-DD&end=YYYY-MM-DD]
+ *   [?range=today|7d|30d]
  *
- * 優先順位: date > range > today（デフォルト）
+ * 優先順位:
+ *   1. ?date=YYYY-MM-DD
+ *   2. ?start=...&end=... （両方必須、YYYYMMDD / YYYY-MM-DD 両形式対応）
+ *   3. ?range=today|7d|30d
+ *   4. 省略 → today
  *
  * 読み取るKVキー：
  *   event_count:{eventName}:{date}
@@ -74,18 +119,28 @@ function sumValues(vals: (number | null)[]): number {
  */
 export async function GET(req: NextRequest) {
   const dateParam  = req.nextUrl.searchParams.get("date");
+  const startParam = req.nextUrl.searchParams.get("start");
+  const endParam   = req.nextUrl.searchParams.get("end");
   const rangeParam = req.nextUrl.searchParams.get("range") ?? "today";
   const today      = getDateJST();
 
-  // ── パラメータ解決 ──
+  // ── パラメータ解決（優先順位: date > start/end > range > today） ──
   let dates: string[];
   let range: string;
 
   if (dateParam) {
-    // ?date= 指定を最優先
-    dates = [dateParam];
+    // 1. ?date= 最優先
+    const normalized = normalizeDateParam(dateParam) ?? today;
+    dates = [normalized];
     range = "date";
+  } else if (startParam && endParam) {
+    // 2. ?start=&end= カスタム期間
+    const s = normalizeDateParam(startParam) ?? today;
+    const e = normalizeDateParam(endParam)   ?? today;
+    dates = getDatesFromRange(s, e);
+    range = "custom";
   } else {
+    // 3. ?range= / 4. 省略
     const validRanges = ["today", "7d", "30d"];
     range = validRanges.includes(rangeParam) ? rangeParam : "today";
     dates = resolveDates(range, today);
