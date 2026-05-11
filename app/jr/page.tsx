@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { kv } from "@vercel/kv";
 import { getAllStations } from "@/lib/stations";
