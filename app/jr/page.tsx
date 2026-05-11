@@ -747,21 +747,11 @@ function TeamSection() {
     <Section id="team">
       <SectionLabel>実行体制</SectionLabel>
       <SectionHeading>チームとリソース</SectionHeading>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="border border-[#c8e6d0] rounded-lg p-6">
-          <h3 className="font-semibold text-gray-800 mb-3">開発・設計</h3>
-          <p className="text-sm text-gray-500 leading-relaxed">
-            本プロトタイプの設計・実装を担当。
-            フルスタック開発を1名で推進。PoC フェーズは小チームで機動的に動ける体制。
-          </p>
-        </div>
-        <div className="border border-[#c8e6d0] rounded-lg p-6">
-          <h3 className="font-semibold text-gray-800 mb-3">PoC 実施にあたって</h3>
-          <p className="text-sm text-gray-500 leading-relaxed">
-            JR東日本側から「施設データ・実証駅選定・現地調整」の協力を得ることで、
-            Phase 1 → Phase 2 への移行を最短で行える体制を想定。
-          </p>
-        </div>
+      <div className="border border-[#c8e6d0] rounded-lg p-6 max-w-2xl">
+        <h3 className="font-semibold text-gray-800 mb-3">チーム体制</h3>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          本企画・提案・開発は、弊社数名のチームを組成して対応しています。PoCフェーズについても、同チームにて機動的に推進する想定です。
+        </p>
       </div>
 
       <div className="mt-10 text-center">
