@@ -305,13 +305,20 @@ function ImplementationSection() {
 
 // ── 5.5. 開発状況・実績データ ───────────────────────
 
-/** チェックイン・訪問ログ取得イメージ用サンプル値 */
+/** チェックイン・訪問ログ取得イメージ用サンプル値（全駅合計） */
 const SAMPLE_CHECKIN_STATS = {
   totalFacilityCheckins:  420,
   facilitiesWithCheckins:  96,
   totalStationCheckins:   356,
   stationsWithCheckins:    12,
 };
+
+/** 駅別チェックイン・訪問ログ取得イメージ用サンプル値（合計: 施設420 / 訪問356） */
+const SAMPLE_STATION_BREAKDOWN = {
+  omiya:    { facilityCheckins: 156, stationVisits: 132 },
+  akabane:  { facilityCheckins: 128, stationVisits: 104 },
+  shinjuku: { facilityCheckins: 136, stationVisits: 120 },
+} as const;
 
 interface LiveStatsProps {
   totalStations: number;
@@ -454,16 +461,13 @@ interface StationBreakdownProps {
 function StationBreakdownSection({
   stationFacilityCount,
   stationInsideCount,
-  kv,
 }: StationBreakdownProps) {
-  const hasKv = kv !== null;
-
   return (
     <Section id="station-breakdown">
       <SectionLabel>駅別実績データ</SectionLabel>
-      <SectionHeading>主要PoC駅ごとの状況</SectionHeading>
+      <SectionHeading>主要PoC駅ごとの取得イメージ</SectionHeading>
       <p className="text-sm text-gray-500 mb-8 -mt-2">
-        新宿・大宮・赤羽の3駅を対象に、施設チェックイン・駅訪問ログの取得状況を駅単位で確認できます。
+        新宿・大宮・赤羽の3駅を対象に、一定期間運用後の施設チェックイン・駅訪問ログ取得イメージを駅単位で確認できます。
       </p>
 
       <div className="border border-[#c8e6d0] rounded-xl overflow-hidden">
@@ -473,14 +477,8 @@ function StationBreakdownSection({
               <th className="text-left px-5 py-3 font-medium text-gray-500">駅名</th>
               <th className="text-center px-5 py-3 font-medium text-gray-500">施設数</th>
               <th className="text-center px-5 py-3 font-medium text-gray-500">改札内</th>
-              <th className="text-center px-5 py-3 font-medium text-gray-500">
-                施設チェックイン
-                {!hasKv && <span className="text-gray-300 font-normal ml-1">※</span>}
-              </th>
-              <th className="text-center px-5 py-3 font-medium text-gray-500">
-                駅訪問ログ
-                {!hasKv && <span className="text-gray-300 font-normal ml-1">※</span>}
-              </th>
+              <th className="text-center px-5 py-3 font-medium text-gray-500">施設チェックイン</th>
+              <th className="text-center px-5 py-3 font-medium text-gray-500">駅訪問ログ</th>
               <th className="text-left px-5 py-3 font-medium text-gray-500">デモ</th>
             </tr>
           </thead>
@@ -488,7 +486,7 @@ function StationBreakdownSection({
             {POC_STATIONS.map(({ slug, label }) => {
               const facilityCount = stationFacilityCount[slug] ?? 0;
               const insideCount   = stationInsideCount[slug] ?? 0;
-              const stat          = kv?.perStation[slug];
+              const sample = SAMPLE_STATION_BREAKDOWN[slug];
               return (
                 <tr key={slug} className="hover:bg-gray-50 transition-colors">
                   <td className="px-5 py-4 font-semibold text-gray-800">{label}</td>
@@ -499,32 +497,16 @@ function StationBreakdownSection({
                     </span>
                   </td>
                   <td className="px-5 py-4 text-center">
-                    {hasKv ? (
-                      stat?.facilityCheckins ? (
-                        <span className="text-lg font-bold text-gray-800">
-                          {stat.facilityCheckins}
-                          <span className="text-xs font-normal text-gray-400 ml-1">回</span>
-                        </span>
-                      ) : (
-                        <span className="text-gray-300 text-sm">–</span>
-                      )
-                    ) : (
-                      <span className="text-gray-300 text-sm">–</span>
-                    )}
+                    <span className="text-lg font-bold text-gray-800">
+                      {sample.facilityCheckins}
+                      <span className="text-xs font-normal text-gray-400 ml-1">回</span>
+                    </span>
                   </td>
                   <td className="px-5 py-4 text-center">
-                    {hasKv ? (
-                      stat?.stationStamps ? (
-                        <span className="text-lg font-bold text-gray-800">
-                          {stat.stationStamps}
-                          <span className="text-xs font-normal text-gray-400 ml-1">回</span>
-                        </span>
-                      ) : (
-                        <span className="text-gray-300 text-sm">–</span>
-                      )
-                    ) : (
-                      <span className="text-gray-300 text-sm">–</span>
-                    )}
+                    <span className="text-lg font-bold text-gray-800">
+                      {sample.stationVisits}
+                      <span className="text-xs font-normal text-gray-400 ml-1">回</span>
+                    </span>
                   </td>
                   <td className="px-5 py-4">
                     <Link
@@ -539,11 +521,9 @@ function StationBreakdownSection({
             })}
           </tbody>
         </table>
-        {!hasKv && (
-          <p className="text-xs text-gray-400 text-right px-5 py-2 border-t border-[#c8e6d0]">
-            ※ 実績データは現在取得できません（公開環境では表示されます）
-          </p>
-        )}
+        <p className="text-xs text-gray-400 text-right px-5 py-2 border-t border-[#c8e6d0]">
+          ※ チェックイン・訪問ログは一定期間運用後のサンプル値です。
+        </p>
       </div>
 
       <div className="mt-4 text-right">
