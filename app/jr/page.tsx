@@ -304,6 +304,14 @@ function ImplementationSection() {
 
 // ── 5.5. 開発状況・実績データ ───────────────────────
 
+/** チェックイン・訪問ログ取得イメージ用サンプル値 */
+const SAMPLE_CHECKIN_STATS = {
+  totalFacilityCheckins:  420,
+  facilitiesWithCheckins:  96,
+  totalStationCheckins:   356,
+  stationsWithCheckins:    12,
+};
+
 interface LiveStatsProps {
   totalStations: number;
   totalFacilities: number;
@@ -337,10 +345,7 @@ function Stat({
   );
 }
 
-function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv: kvData }: LiveStatsProps) {
-  const hasKvData = kvData !== null;
-  const hasCheckins = hasKvData && (kvData.totalFacilityCheckins + kvData.totalStationCheckins) > 0;
-
+function LiveStatsSection({ totalStations, totalFacilities, insideFacilities }: LiveStatsProps) {
   return (
     <Section id="live-stats" className="bg-[#1A7040] text-white">
       {/* ヘッダー */}
@@ -384,53 +389,20 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
         </div>
       </div>
 
-      {/* 動的指標：チェックイン・訪問ログ実績 */}
+      {/* チェックイン・訪問ログ取得イメージ（サンプル値） */}
       <div>
         <p className="text-xs font-semibold text-green-200 uppercase tracking-wider mb-4">
-          チェックイン・訪問ログ実績
+          チェックイン・訪問ログ取得イメージ
         </p>
-        {hasCheckins ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Stat
-              label="施設チェックイン"
-              value={kvData!.totalFacilityCheckins}
-              sub="累計回数"
-              accent
-            />
-            <Stat
-              label="チェックイン施設数"
-              value={kvData!.facilitiesWithCheckins}
-              sub="施設ユニーク数"
-              accent
-            />
-            <Stat
-              label="駅訪問ログ"
-              value={kvData!.totalStationCheckins}
-              sub="累計取得数"
-              accent
-            />
-            <Stat
-              label="訪問駅種類"
-              value={kvData!.stationsWithCheckins}
-              sub="駅ユニーク数"
-              accent
-            />
-          </div>
-        ) : hasKvData ? (
-          /* KV は繋がっているが実績データがまだない */
-          <div className="border border-[#155d35] rounded-lg p-6 text-center">
-            <p className="text-green-200 text-sm">
-              データ蓄積中。利用者が施設ページでチェックインすると実績が反映されます。
-            </p>
-          </div>
-        ) : (
-          /* KV 未接続（ローカル環境等） */
-          <div className="border border-[#155d35] rounded-lg p-6 text-center">
-            <p className="text-green-200 text-sm">
-              実績データは現在取得できません（公開環境では表示されます）。
-            </p>
-          </div>
-        )}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <Stat label="施設チェックイン"   value={SAMPLE_CHECKIN_STATS.totalFacilityCheckins}  sub="累計取得イメージ"     accent />
+          <Stat label="チェックイン施設数" value={SAMPLE_CHECKIN_STATS.facilitiesWithCheckins} sub="施設ユニーク数イメージ" accent />
+          <Stat label="駅訪問ログ"         value={SAMPLE_CHECKIN_STATS.totalStationCheckins}   sub="累計取得イメージ"     accent />
+          <Stat label="訪問駅種類"         value={SAMPLE_CHECKIN_STATS.stationsWithCheckins}   sub="駅ユニーク数イメージ" accent />
+        </div>
+        <p className="text-xs text-green-200 mt-3">
+          ※ 一定期間運用後のサンプル値です。
+        </p>
       </div>
 
       {/* 補足 */}
