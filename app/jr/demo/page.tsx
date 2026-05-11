@@ -644,7 +644,7 @@ export default function JrDemoPage() {
       <div className="border border-gray-200 rounded-xl overflow-hidden">
         <div className="bg-[#F6FAF7] border-b border-[#c8e6d0] px-5 py-3">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-            駅ナカ探索データ サマリー（過去7日）
+            探索行動ログサマリー（過去7日）
           </p>
         </div>
 
@@ -652,7 +652,7 @@ export default function JrDemoPage() {
           <div className="p-5 space-y-6">
             {/* 説明文 */}
             <p className="text-xs text-gray-400 leading-relaxed">
-              ユーザーが改札内施設を探す過程で発生する閲覧・目的選択・状態確認ログを集計します。
+              施設詳細閲覧、目的カテゴリ選択、ワンタップ確認など、駅ナカ探索中の行動ログを集計します。
               POSやSuica統計だけでは把握しにくい、購買前の探索行動や施設検討データを可視化します。
             </p>
 

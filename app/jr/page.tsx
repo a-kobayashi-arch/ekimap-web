@@ -127,10 +127,10 @@ function HeroSection() {
         </p>
         <div className="flex items-center gap-4">
           <Link
-            href="/jr/demo"
+            href="/jr/demo-sample"
             className="inline-block bg-white text-[#1A7040] font-semibold px-6 py-3 rounded text-sm hover:bg-gray-100 transition-colors"
           >
-            動くデモを見る →
+            審査用デモを見る →
           </Link>
           <a
             href="#poc-theme"
@@ -357,10 +357,10 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
         </div>
         <div className="flex gap-3 flex-wrap">
           <Link
-            href="/jr/demo"
+            href="/jr/demo-sample"
             className="inline-block px-4 py-2 text-sm font-semibold bg-white text-[#1A7040] rounded hover:bg-gray-100 transition-colors"
           >
-            デモを見る →
+            審査用デモ →
           </Link>
           <Link
             href="/"
@@ -384,10 +384,10 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
         </div>
       </div>
 
-      {/* 動的指標：KV 実績 */}
+      {/* 動的指標：チェックイン・訪問ログ実績 */}
       <div>
         <p className="text-xs font-semibold text-green-200 uppercase tracking-wider mb-4">
-          実績データ（リアルタイム集計）
+          チェックイン・訪問ログ実績
         </p>
         {hasCheckins ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -420,11 +420,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities, kv
           /* KV は繋がっているが実績データがまだない */
           <div className="border border-[#155d35] rounded-lg p-6 text-center">
             <p className="text-green-200 text-sm">
-              データ蓄積中。
-              <Link href="/jr/demo" className="text-white underline ml-1 hover:text-green-100">
-                デモページ
-              </Link>
-              でチェックインすると実績が反映されます。
+              データ蓄積中。利用者が施設ページでチェックインすると実績が反映されます。
             </p>
           </div>
         ) : (
@@ -494,7 +490,7 @@ function StationBreakdownSection({
       <SectionLabel>駅別実績データ</SectionLabel>
       <SectionHeading>主要PoC駅ごとの状況</SectionHeading>
       <p className="text-sm text-gray-500 mb-8 -mt-2">
-        新宿・大宮・赤羽の3駅を対象に、施設データとチェックイン実績を駅単位で確認できます。
+        新宿・大宮・赤羽の3駅を対象に、施設チェックイン・駅訪問ログの取得状況を駅単位で確認できます。
       </p>
 
       <div className="border border-[#c8e6d0] rounded-xl overflow-hidden">
@@ -559,10 +555,10 @@ function StationBreakdownSection({
                   </td>
                   <td className="px-5 py-4">
                     <Link
-                      href={`/jr/demo?station=${slug}`}
+                      href="/jr/demo-sample"
                       className="text-xs text-[#1A7040] hover:text-[#0d4a25] border border-[#c8e6d0] px-2 py-1 rounded hover:border-[#1A7040] transition-all"
                     >
-                      デモを見る →
+                      審査用デモ →
                     </Link>
                   </td>
                 </tr>
@@ -579,10 +575,10 @@ function StationBreakdownSection({
 
       <div className="mt-4 text-right">
         <Link
-          href="/jr/demo"
+          href="/jr/demo-sample"
           className="text-sm text-gray-500 hover:text-gray-800 transition-colors"
         >
-          /jr/demo で詳細データを確認 →
+          審査用デモで詳細を確認 →
         </Link>
       </div>
     </Section>
@@ -817,10 +813,10 @@ function TeamSection() {
 
       <div className="mt-10 text-center">
         <Link
-          href="/jr/demo"
+          href="/jr/demo-sample"
           className="inline-block bg-[#1A7040] text-white font-semibold px-8 py-4 rounded text-sm hover:bg-[#155d35] transition-colors"
         >
-          実際に動くデモを確認する →
+          審査用デモを確認する →
         </Link>
       </div>
     </Section>

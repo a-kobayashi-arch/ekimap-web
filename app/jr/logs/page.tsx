@@ -509,7 +509,7 @@ export default function JrLogsPage() {
       {/* ── フッター注記 ── */}
       <div className="text-xs text-gray-400 pt-4 border-t border-gray-100">
         <p>
-          ※ 本画面は Vercel KV に蓄積された日次集計データを表示します。KV 未接続環境ではすべて 0 件と表示されます。
+          ※ 本画面は蓄積された探索行動ログをもとに日次集計を表示します。ログ未取得の環境ではすべて 0 件と表示されます。
         </p>
       </div>
     </div>

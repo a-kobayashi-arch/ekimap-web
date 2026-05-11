@@ -20,17 +20,11 @@ export default function JrLayout({ children }: { children: React.ReactNode }) {
             <Link href="/jr" className="hover:text-gray-800 transition-colors">
               提案概要
             </Link>
-            <Link href="/jr/demo" className="hover:text-gray-800 transition-colors">
-              デモを見る
+            <Link href="/jr/demo-sample" className="hover:text-gray-800 transition-colors">
+              審査用デモ
             </Link>
-            <Link href="/jr/logs" className="hover:text-gray-800 transition-colors">
-              ログ確認
-            </Link>
-            <Link
-              href="/"
-              className="hover:text-gray-800 transition-colors"
-            >
-              ← 一般向けサイト
+            <Link href="/" className="hover:text-gray-800 transition-colors">
+              ユーザー画面
             </Link>
           </nav>
         </div>
