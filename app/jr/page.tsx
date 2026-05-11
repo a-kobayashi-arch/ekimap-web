@@ -118,12 +118,12 @@ function HeroSection() {
           JR東日本スタートアップ応募 PoC 提案
         </p>
         <h1 className="text-4xl font-bold leading-tight mb-6">
-          改札内の回遊・滞在・送客を<br />
-          データで可視化する駅ナカ運営基盤
+          改札内の&ldquo;買う前の行動&rdquo;を可視化する<br />
+          駅空間DXデータ基盤
         </h1>
         <p className="text-green-100 text-lg mb-10 max-w-2xl">
-          「今すぐ座れる場所」「充電できる場所」「立ち寄れる店」を
-          リアルタイムに案内し、改札内の回遊と店舗送客を最適化するPoCです。
+          POSに残らない検索・迷い・滞在・離脱を、施設探索UXと利用ログで可視化し、
+          駅ナカ商業・交通広告・Suica/JRE ID経済圏の成長に接続するPoCです。
         </p>
         <div className="flex items-center gap-4">
           <Link
@@ -203,8 +203,8 @@ const values = [
     body: "UGC更新導線により、利用者が施設情報の鮮度を維持するサイクルを構築。",
   },
   {
-    label: "将来の拡張性",
-    body: "流通・サービス領域でPoC後、Suica連携・購買データ・金融サービスへの接続が可能。",
+    label: "Suica/JRE ID経済圏への接続",
+    body: "PoC後、Suica・JRE ID・POSとの段階連携により、移動×滞在×購買の統合データ基盤へ拡張できます。",
   },
 ];
 
@@ -271,7 +271,8 @@ const implementations = [
   { status: "done", label: "クロスデバイス同期（ユーザーID管理）" },
   { status: "done", label: "改札内/外の区別フラグ" },
   { status: "done", label: "UGC 更新モーダル（施設情報の報告）" },
-  { status: "done", label: "stats API（チェックイン集計）" },
+  { status: "done", label: "ワンタップ確認（UGC鮮度更新）" },
+  { status: "done", label: "ログ集計・簡易管理画面" },
   { status: "done", label: "目的別導線 UI（食べる / 買う / 座る / 充電）" },
   { status: "plan", label: "リアルタイム空席・充電状況（要JR側アセット）" },
   { status: "plan", label: "Suica 連携・購買データ分析" },
@@ -701,7 +702,7 @@ const roadmap = [
   {
     phase: "Phase 1",
     title: "PoC 開始（現在）",
-    period: "〜 2025 Q3",
+    period: "2026年12月〜",
     items: [
       "新宿・大宮・赤羽での施設データ整備",
       "/jr/demo ページの完成",
@@ -712,7 +713,7 @@ const roadmap = [
   {
     phase: "Phase 2",
     title: "実証実験",
-    period: "2025 Q4 〜",
+    period: "〜2027年1月",
     items: [
       "JR側データ連携（施設情報・営業状況）",
       "実際の利用者への提供開始",
@@ -723,7 +724,7 @@ const roadmap = [
   {
     phase: "Phase 3",
     title: "拡張・展開",
-    period: "2026 〜",
+    period: "〜2027年3月",
     items: [
       "対象駅の拡大",
       "リアルタイムデータ連携",
