@@ -239,8 +239,8 @@ function PocThemeSection() {
       <SectionHeading>実証する課題と場所</SectionHeading>
       <div className="bg-[#1A7040] text-white rounded-xl p-10 mb-8">
         <p className="text-xl font-semibold leading-relaxed">
-          「改札内で今すぐ座れて充電できる/立ち寄れる場所」の
-          可視化と送客最適化
+          改札内の購買前行動（探索・滞在・離脱）の可視化と
+          駅ナカ商業への送客最適化
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -275,7 +275,7 @@ const implementations = [
   { status: "done", label: "ログ集計・簡易管理画面" },
   { status: "done", label: "目的別導線 UI（食べる / 買う / 座る / 充電）" },
   { status: "plan", label: "リアルタイム空席・充電状況（要JR側アセット）" },
-  { status: "plan", label: "Suica 連携・購買データ分析" },
+  { status: "plan", label: "Suica・JRE ID連携（将来フェーズ）" },
 ];
 
 function ImplementationSection() {
@@ -364,8 +364,8 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities }: 
             <span className="text-white">すでに動くプロトタイプが公開されています</span>
           </SectionHeading>
           <p className="text-green-100 text-sm leading-relaxed max-w-2xl">
-            実際に動作するプロトタイプを公開中。施設データ・チェックイン機能・駅訪問ログ・リアルタイム集計まで、
-            PoC に必要な土台が整っています。
+            実際に動作するプロトタイプを公開中。施設データ・チェックイン機能・駅訪問ログ・
+            利用ログ集計・簡易管理画面まで、PoC に必要な土台が整っています。
           </p>
         </div>
         <div className="flex gap-3 flex-wrap">
@@ -390,7 +390,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities }: 
           実装状況（静的データ）
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Stat label="公開駅数"        value={totalStations}    sub="埼京線全駅対応済み" accent />
+          <Stat label="公開駅数"        value={totalStations}    sub="主要PoC駅 整備済み" accent />
           <Stat label="施設データ数"    value={totalFacilities}  sub="全駅合計"            accent />
           <Stat label="改札内施設"      value={insideFacilities} sub="PoC 主対象"          accent />
           <Stat label="公開状況"        value="公開中"           sub="実機デモ可能"          accent />
@@ -464,7 +464,7 @@ function StationBreakdownSection({
 }: StationBreakdownProps) {
   return (
     <Section id="station-breakdown">
-      <SectionLabel>駅別実績データ</SectionLabel>
+      <SectionLabel>駅別データイメージ</SectionLabel>
       <SectionHeading>主要PoC駅ごとの取得イメージ</SectionHeading>
       <p className="text-sm text-gray-500 mb-8 -mt-2">
         新宿・大宮・赤羽の3駅を対象に、一定期間運用後の施設チェックイン・駅訪問ログ取得イメージを駅単位で確認できます。
@@ -586,7 +586,7 @@ const EXPANSION_LINES = [
     name: "京浜東北線",
     color: "#00B2E6",
     stations: ["大宮", "南浦和", "赤羽", "上野", "東京"],
-    note: "埼京線との接続・並走区間を含み、首都圏南北導線の主要駅へ展開可能",
+    note: "大宮・赤羽との接続を含み、首都圏南北導線の主要駅へ展開可能",
   },
   {
     name: "湘南新宿ライン",
@@ -602,8 +602,8 @@ function ExpansionImageSection() {
       <SectionLabel>展開イメージ</SectionLabel>
       <SectionHeading>主要路線への展開イメージ</SectionHeading>
       <p className="text-sm text-gray-500 leading-relaxed mb-8 -mt-2 max-w-2xl">
-        本PoCでは埼京線沿線（大宮〜新宿）を中心に、改札内施設データ・利用ログ・管理画面までを実装済みです。
-        採択後は、JR東日本の主要ターミナル駅・乗換路線へ段階的に展開し、駅空間単位のデータ基盤として拡張可能です。
+        本PoCでは、大宮・赤羽・池袋・新宿などの主要PoC駅を対象に、改札内施設データ・利用ログ・管理画面までを実装済みです。
+        採択後は、JR東日本の主要ターミナル駅・乗換導線・駅ナカ商業エリアへ段階的に展開し、駅空間単位のデータ基盤として拡張可能です。
       </p>
 
       <div className="space-y-5">
@@ -684,10 +684,10 @@ const roadmap = [
     title: "PoC 開始（現在）",
     period: "2026年12月〜",
     items: [
-      "新宿・大宮・赤羽での施設データ整備",
-      "/jr/demo ページの完成",
-      "目的別導線・stats 表示の実装",
-      "応募資料・スクリーンショット整備",
+      "対象駅・対象施設の選定・調整",
+      "公式施設情報の確認・補正",
+      "既存Webアプリによるログ取得開始",
+      "送客・UGC・管理画面活用の初期検証",
     ],
   },
   {
