@@ -149,7 +149,7 @@ function HeroSection() {
 const challenges = [
   {
     title: "改札内の回遊が可視化されていない",
-    body: "どの店にどれだけの人が立ち寄り、どのルートで移動しているかのデータが取れていない。",
+    body: "どの施設にどれだけの関心が向いているかの利用ログが取れていない。",
   },
   {
     title: "空席・充電スポットの情報が伝わらない",
@@ -161,7 +161,7 @@ const challenges = [
   },
   {
     title: "情報の鮮度維持コストが高い",
-    body: "施設情報の更新は駅スタッフ主導であり、UGC（利用者投稿）を活用した低コスト更新の仕組みがない。",
+    body: "駅・店舗・運営会社で更新主体が分かれやすく、UGC（利用者投稿）を活用した低コスト更新の仕組みがない。",
   },
 ];
 
@@ -169,7 +169,7 @@ function ChallengesSection() {
   return (
     <Section id="challenges">
       <SectionLabel>課題認識</SectionLabel>
-      <SectionHeading>JRが抱える駅ナカ運営の課題</SectionHeading>
+      <SectionHeading>本PoCで検証する駅ナカ商業の課題</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {challenges.map((c, i) => (
           <div key={i} className="border border-[#c8e6d0] rounded-lg p-6">
@@ -188,7 +188,7 @@ function ChallengesSection() {
 const values = [
   {
     label: "回遊の可視化",
-    body: "施設チェックイン・閲覧データをもとに、改札内の人の流れを可視化。",
+    body: "施設チェックイン・閲覧データをもとに、改札内の関心・接触行動を可視化。",
   },
   {
     label: "滞在価値の向上",
@@ -697,7 +697,7 @@ const roadmap = [
     items: [
       "JR側データ連携（施設情報・営業状況）",
       "実際の利用者への提供開始",
-      "チェックイン・回遊データの収集・分析",
+      "チェックイン・利用ログの収集・分析",
       "送客効果の測定",
     ],
   },
@@ -707,8 +707,8 @@ const roadmap = [
     period: "〜2027年3月",
     items: [
       "対象駅の拡大",
-      "リアルタイムデータ連携",
-      "Suica 連携・購買データとの突合",
+      "リアルタイム連携に向けた要件整理",
+      "Suica・JRE ID・POSとの連携可能性検討",
       "駅ナカ販促プラットフォームへの発展",
     ],
   },
