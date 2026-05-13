@@ -3,9 +3,9 @@ import Link from "next/link";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "駅ナカ商業DX・送客最適化 PoC | JR東日本スタートアップ応募",
+  title: "駅ナカ商業DX・送客最適化 実証実験 | JR東日本スタートアップ応募",
   description:
-    "改札内の購買前行動・滞在価値・店舗送客を可視化する駅ナカ運営DX/販促基盤のPoCプロポーザル",
+    "改札内の購買前行動・滞在価値・店舗送客を可視化する駅ナカ運営DX/販促基盤の実証実験プロポーザル",
 };
 
 export default function JrLayout({ children }: { children: React.ReactNode }) {
@@ -32,7 +32,7 @@ export default function JrLayout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <footer className="border-t border-gray-100 mt-24">
         <div className="max-w-5xl mx-auto px-6 py-8 text-xs text-gray-400">
-          本資料はJR東日本スタートアップ応募用のPoC提案資料です。
+          本資料はJR東日本スタートアップ応募用の実証実験提案資料です。
         </div>
       </footer>
     </div>

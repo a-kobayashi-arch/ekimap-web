@@ -42,7 +42,7 @@ const DEMO_STATIONS = [
     pocContext: {
       summary: "ecute 赤羽のきた館・みなみ館間・利用ログ取得",
       detail:
-        "きた館・みなみ館に分かれた ecute 赤羽。北口・南口改札間の利用分布を計測し、どちらの改札を使うユーザーがどちらの棟を利用するかを集計する。コンパクトな2棟構成がPoC実証に適している。",
+        "きた館・みなみ館に分かれた ecute 赤羽。北口・南口改札間の利用分布を計測し、どちらの改札を使うユーザーがどちらの棟を利用するかを集計する。コンパクトな2棟構成が実証実験に適している。",
       verifyPoints: [
         "北口/南口改札別の入店パターン計測",
         "きた館 ↔ みなみ館の館間利用率の定量化",
@@ -284,24 +284,24 @@ export default function JrDemoPage() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-10 space-y-10">
 
-      {/* ── PoC 説明バナー ──────────────────────────── */}
+      {/* ── 実証実験 説明バナー ─────────────────────── */}
       <div className="border-l-4 border-[#1A7040] pl-5 py-1">
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">
-          JR東日本スタートアップ応募 / PoC デモ
+          JR東日本スタートアップ応募 / 実証実験デモ
         </p>
         <h1 className="text-2xl font-bold text-gray-900 mb-2">
           改札内購買前行動・滞在価値・店舗送客の可視化デモ
         </h1>
         <p className="text-sm text-gray-500 leading-relaxed max-w-3xl">
           本ページは「改札内で今すぐ座れて充電できる/立ち寄れる場所の可視化と送客最適化」をテーマとした
-          PoC 提案のデモです。実際の施設データ・チェックイン実績をもとに、駅ナカ運営 DX の価値を示します。
+          当社が開発済みのプロトタイプをもとに、実証実験で検証できる駅ナカ運営 DX の価値を示します。
         </p>
       </div>
 
       {/* ── 駅タブ ──────────────────────────────────── */}
       <div>
         <p className="text-xs text-gray-400 font-medium uppercase tracking-wider mb-3">
-          PoC 実証駅
+          実証実験対象駅
         </p>
         <div className="flex gap-2 flex-wrap">
           {DEMO_STATIONS.map((s) => (
@@ -323,7 +323,7 @@ export default function JrDemoPage() {
         </div>
       </div>
 
-      {/* ── PoC 文脈カード ──────────────────────────── */}
+      {/* ── 実証実験 文脈カード ─────────────────────── */}
       <div className="bg-[#F6FAF7] border border-[#c8e6d0] rounded-xl p-6">
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
           この駅で検証できること
@@ -360,7 +360,7 @@ export default function JrDemoPage() {
             value={insideCount}
             unit="件"
             accent
-            sub="PoC の主対象"
+            sub="実証実験の主対象"
           />
           <MetricCard
             label="座れる場所"

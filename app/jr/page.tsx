@@ -115,7 +115,7 @@ function HeroSection() {
     <section className="bg-gradient-to-br from-[#1A7040] to-[#0d4a25] text-white">
       <div className="max-w-5xl mx-auto px-6 py-24">
         <p className="text-xs font-semibold text-green-200 uppercase tracking-widest mb-6">
-          JR東日本スタートアップ応募 PoC 提案
+          JR東日本スタートアップ応募 実証実験 提案
         </p>
         <h1 className="text-4xl font-bold leading-tight mb-6">
           改札内の&ldquo;買う前の行動&rdquo;を可視化する<br />
@@ -123,7 +123,7 @@ function HeroSection() {
         </h1>
         <p className="text-green-100 text-lg mb-10 max-w-2xl">
           POSに残らない検索・迷い・滞在・離脱を、施設探索UXと利用ログで可視化し、
-          駅ナカ商業・交通広告・Suica/JRE ID経済圏の成長に接続するPoCです。
+          駅ナカ商業・交通広告・Suica/JRE ID経済圏の成長に接続する実証実験です。
         </p>
         <div className="flex items-center gap-4">
           <Link
@@ -169,7 +169,7 @@ function ChallengesSection() {
   return (
     <Section id="challenges">
       <SectionLabel>課題認識</SectionLabel>
-      <SectionHeading>本PoCで検証する駅ナカ商業の課題</SectionHeading>
+      <SectionHeading>実証実験で検証する駅ナカ商業の課題</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {challenges.map((c, i) => (
           <div key={i} className="border border-[#c8e6d0] rounded-lg p-6">
@@ -204,7 +204,7 @@ const values = [
   },
   {
     label: "Suica/JRE ID経済圏への接続",
-    body: "PoC後、Suica・JRE ID・POSとの段階連携により、移動×滞在×購買の統合データ基盤へ拡張できます。",
+    body: "実証実験後、Suica・JRE ID・POSとの段階連携により、移動×滞在×購買の統合データ基盤へ拡張できます。",
   },
 ];
 
@@ -230,12 +230,12 @@ function ValueSection() {
   );
 }
 
-// ── 4. PoC テーマ ────────────────────────────────────
+// ── 4. 実証実験テーマ ────────────────────────────────
 
 function PocThemeSection() {
   return (
     <Section id="poc-theme">
-      <SectionLabel>PoCテーマ</SectionLabel>
+      <SectionLabel>実証実験テーマ</SectionLabel>
       <SectionHeading>実証する課題と場所</SectionHeading>
       <div className="bg-[#1A7040] text-white rounded-xl p-10 mb-8">
         <p className="text-xl font-semibold leading-relaxed">
@@ -250,7 +250,7 @@ function PocThemeSection() {
             className="border border-[#c8e6d0] rounded-lg p-5 text-center"
           >
             <p className="text-2xl font-bold text-gray-800 mb-1">{station}</p>
-            <p className="text-xs text-gray-400">PoC実証駅</p>
+            <p className="text-xs text-gray-400">実証実験対象駅</p>
           </div>
         ))}
       </div>
@@ -365,7 +365,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities }: 
           </SectionHeading>
           <p className="text-green-100 text-sm leading-relaxed max-w-2xl">
             実際に動作するプロトタイプを公開中。施設データ・チェックイン機能・駅訪問ログ・
-            利用ログ集計・簡易管理画面まで、PoC に必要な土台が整っています。
+            利用ログ集計・簡易管理画面まで、実証実験に必要な土台が整っています。
           </p>
         </div>
         <div className="flex gap-3 flex-wrap">
@@ -390,9 +390,9 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities }: 
           実装状況（静的データ）
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Stat label="公開駅数"        value={totalStations}    sub="主要PoC駅 整備済み" accent />
+          <Stat label="公開駅数"        value={totalStations}    sub="主要実証実験対象駅 整備済み" accent />
           <Stat label="施設データ数"    value={totalFacilities}  sub="全駅合計"            accent />
-          <Stat label="改札内施設"      value={insideFacilities} sub="PoC 主対象"          accent />
+          <Stat label="改札内施設"      value={insideFacilities} sub="実証実験 主対象"      accent />
           <Stat label="公開状況"        value="公開中"           sub="実機デモ可能"          accent />
         </div>
       </div>
@@ -426,7 +426,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities }: 
             <p className="text-green-200 font-medium mb-1">今すぐ実証可能</p>
             <p className="text-green-100">
               新宿・大宮・赤羽の施設データは整備済み。
-              JR 側データ連携なしでも PoC としてすぐに動かせる状態。
+              JR 側データ連携なしでも実証実験としてすぐに動かせる状態。
             </p>
           </div>
           <div>
@@ -445,7 +445,7 @@ function LiveStatsSection({ totalStations, totalFacilities, insideFacilities }: 
 
 // ── 5.6. 駅別サマリー ────────────────────────────────
 
-/** PoC で見せる主要駅（路線順） */
+/** 実証実験で見せる主要駅（路線順） */
 const POC_STATIONS = [
   { slug: "omiya",    label: "大宮" },
   { slug: "akabane",  label: "赤羽" },
@@ -465,7 +465,7 @@ function StationBreakdownSection({
   return (
     <Section id="station-breakdown">
       <SectionLabel>駅別データイメージ</SectionLabel>
-      <SectionHeading>主要PoC駅ごとの取得イメージ</SectionHeading>
+      <SectionHeading>主要実証実験対象駅ごとの取得イメージ</SectionHeading>
       <p className="text-sm text-gray-500 mb-8 -mt-2">
         新宿・大宮・赤羽の3駅を対象に、一定期間運用後の施設チェックイン・駅訪問ログ取得イメージを駅単位で確認できます。
       </p>
@@ -546,7 +546,7 @@ const assets = [
     body: "現在は公開情報をもとに手動整備。正確な店舗情報・営業時間・座席数などのデータ提供があれば精度が向上する。",
   },
   {
-    title: "PoC 実施駅の選定・調整",
+    title: "実証実験 実施駅の選定・調整",
     body: "新宿・大宮・赤羽を想定。現地での実証実験、案内掲示などの協力。",
   },
   {
@@ -563,7 +563,7 @@ function AssetsSection() {
   return (
     <Section id="assets">
       <SectionLabel>JRに求めること</SectionLabel>
-      <SectionHeading>PoC実施に必要なアセット</SectionHeading>
+      <SectionHeading>実証実験実施に必要なアセット</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {assets.map((a, i) => (
           <div key={i} className="border border-[#c8e6d0] rounded-lg p-6">
@@ -592,7 +592,7 @@ const EXPANSION_LINES = [
     name: "湘南新宿ライン",
     color: "#E5001F",
     stations: ["大宮", "赤羽", "池袋", "新宿", "渋谷", "横浜"],
-    note: "既存PoC駅との重複が多く、広域ターミナル連携を示しやすい展開候補",
+    note: "既存実証実験対象駅との重複が多く、広域ターミナル連携を示しやすい展開候補",
   },
 ];
 
@@ -602,7 +602,7 @@ function ExpansionImageSection() {
       <SectionLabel>展開イメージ</SectionLabel>
       <SectionHeading>主要路線への展開イメージ</SectionHeading>
       <p className="text-sm text-gray-500 leading-relaxed mb-8 -mt-2 max-w-2xl">
-        本PoCでは、大宮・赤羽・池袋・新宿などの主要PoC駅を対象に、改札内施設データ・利用ログ・管理画面までを実装済みです。
+        本実証実験では、大宮・赤羽・池袋・新宿などの主要実証実験対象駅を対象に、改札内施設データ・利用ログ・管理画面までを実装済みです。
         採択後は、JR東日本の主要ターミナル駅・乗換導線・駅ナカ商業エリアへ段階的に展開し、駅空間単位のデータ基盤として拡張可能です。
       </p>
 
@@ -661,7 +661,7 @@ function ExpansionImageSection() {
         <div className="flex items-center gap-4 text-xs text-gray-400">
           <span className="flex items-center gap-1.5">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
-            PoC実装済み駅
+            実証実験対象駅（整備済み）
           </span>
           <span className="flex items-center gap-1.5">
             <span className="inline-block w-2 h-2 rounded-full border border-gray-300 bg-white" />
@@ -681,7 +681,7 @@ function ExpansionImageSection() {
 const roadmap = [
   {
     phase: "Phase 1",
-    title: "PoC 開始（現在）",
+    title: "実証実験 開始（現在）",
     period: "2026年12月〜",
     items: [
       "対象駅・対象施設の選定・調整",
@@ -750,7 +750,7 @@ function TeamSection() {
       <div className="border border-[#c8e6d0] rounded-lg p-6 max-w-2xl">
         <h3 className="font-semibold text-gray-800 mb-3">チーム体制</h3>
         <p className="text-sm text-gray-500 leading-relaxed">
-          本企画・提案・開発は、弊社数名のチームを組成して対応しています。PoCフェーズについても、同チームにて機動的に推進する想定です。
+          本企画・提案・開発は、弊社数名のチームを組成して対応しています。実証実験フェーズについても、同チームにて機動的に推進する想定です。
         </p>
       </div>
 
