@@ -3,9 +3,9 @@ import Link from "next/link";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "駅ナカ回遊・送客最適化 PoC | JR東日本スタートアップ応募",
+  title: "駅ナカ商業DX・送客最適化 PoC | JR東日本スタートアップ応募",
   description:
-    "改札内の回遊・滞在価値・店舗送客を可視化する駅ナカ運営DX/販促基盤のPoCプロポーザル",
+    "改札内の購買前行動・滞在価値・店舗送客を可視化する駅ナカ運営DX/販促基盤のPoCプロポーザル",
 };
 
 export default function JrLayout({ children }: { children: React.ReactNode }) {
